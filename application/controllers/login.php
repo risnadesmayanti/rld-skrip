@@ -7,10 +7,6 @@ class Login extends CI_Controller {
 	{
 		parent::__construct();
 		//Do your magic here
-		$this->load->library('session');
-		$this->load->library('input');
-		$this->load->model('User');
-		$this->load->helper('url');
 	}
 
 	public function index()
