@@ -7,6 +7,7 @@ class Login extends CI_Controller {
 	{
 		parent::__construct();
 		//Do your magic here
+		
 	}
 
 	public function index()
@@ -36,11 +37,16 @@ class Login extends CI_Controller {
 		$this->load->view('user_page');
 	}
 
+	public function isi_kuisioner()
+	{
+		# code...
+		$this->load->view('user/kuisioner');
+	}
+
 	public function login(){
 		$insert = $this->input->post();
 		// var_dump($insert);
 		$this->User->insert($insert);
-		redirect('welcome');
 	}
 
 

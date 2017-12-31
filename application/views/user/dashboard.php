@@ -197,11 +197,12 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
       
-<?php echo form_open('login/login'); ?>
         <div class="row">
           <div class="col-lg-12 mx-auto">
             <div class="modal-body">
 
+
+              <form action="<?php echo base_url(). 'index.php/isi_kuisioner'; ?>" role="form" method="post">
                 <div class="form-group">
                <label for="masukkanNama">Nama Pengguna : </label> 
                <input type="text" id="username" class="form-control" placeholder="Masukkan nama anda"><br>
@@ -245,7 +246,7 @@
         </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-default" onclick="inputUserForm()">Submit</button>
+        <a href="<?php echo base_url().'index.php/isi_kuisioner'; ?>"><button type="button" class="btn btn-default" onclick="inputUserForm()">Submit</button></a>
       </div>
       </div>
       
