@@ -8,16 +8,23 @@
                     </tr>
                 </thead>
                 <tbody>
-		<?php foreach ($indikator_luftman as $i_luftman) { ?>
+		<?php foreach ($indikator_luftman as $i_luftman) { 
+			$id = $i_luftman->id;
+			$idf = $i_luftman->idf;
+			$indicator = $i_luftman->indicator;
+			?>
                     <tr>
                     	
-                        <td><?php echo $i_luftman['id'] ?></td>
-                        <td><?php echo $i_luftman->['indicator'] ?></td>
-                        <td><input type="radio" name="a1"> IT management not aware</td>
+                        <td><?php echo $id?></td>
+                        <td><?php echo $indicator ?></td>
+                        <td><input type="radio" name="a1"><?php foreach ($indikator_luftman as $i_luftman) { 
+
+                        	?>
+                        </td>
                         <td><input type="radio" name="a1"> Limited IT Awareness</td>
                         <td><input type="radio" name="a1"> Senior and Mid Management</td>
                         <td><input type="radio" name="a1"> Pushed down through organization</td>
-                        <td><input type="radio"> Pervasive</td>
+                        <td><input type="radio"> Pervasive</td> -->
                     </tr>
                     <?php } ?>
                <!--      <tr>

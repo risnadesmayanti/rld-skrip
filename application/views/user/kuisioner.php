@@ -1,8 +1,8 @@
 <!doctype html>
 <html>
 <head>
-	<!-- Page Header -->
-  	<meta charset="utf-8">
+  <!-- Page Header -->
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -14,7 +14,7 @@
     <link href="<?php echo base_url(); ?>/assets/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <!-- Custom fonts for this template -->
     <link href="<?php echo base_url(); ?>/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -50,72 +50,68 @@
               <div class="panel-body">
                 <ul class="nav nav-tabs">
                      <?php foreach ($faktor_luftman as $f_luftman) { ?>
-                   <li><a data-toggle="tab" href="#<?php echo $f_luftman->href ?>"><?php echo $f_luftman->factor ?></a></li>               
-                   <!-- <li><a data-toggle="tab" href="#kompetensi">Faktor Kompetensi</a></li>
-                   <li><a data-toggle="tab" href="#kebijakan">Faktor Kebijakan</a></li>
-                   <li><a data-toggle="tab" href="#rekanan">Faktor Rekanan</a></li>
-                   <li><a data-toggle="tab" href="#scope">Faktor Ruang Lingkup dan Arsitektur</a></li>
-                   <li><a data-toggle="tab" href="#skill">Faktor Keterampilan</a></li> -->
-                         <?php } ?>
+                   <li role="presentation" class=""><a data-toggle="tab" href="#<?php echo $f_luftman->href ?>" aria-controls="#<?php echo $f_luftman->href ?>" role="tab"><?php echo $f_luftman->factor ?></a></li>               
+                    <?php } ?>
                 </ul>
-
                 <!-- Tab Komunikasi -->
                 <?php foreach ($faktor_luftman as $f_luftman) { ?>
                 <div class="tab-content">
-                <div id="<?php echo $f_luftman->href ?>" class="tab-pane fade in active" style="padding-top: 20px;">
-                <div class="col-md-12">
-                       <p>
-                       <?php echo $f_luftman->descript ?>
-                       </p>
-
-                         <!-- TABLE KUISIONER -->
-                       <!--  <?php //$my_function = function ind($id_agenda)
-                        {
-                          // $data2['indikator_luftman'] = $this->Indikator_luftman->select_by_id($id_agenda)->row(); 
-                          // $this->load->view('user/table_kuisioner', $data2); 
-                        }
-                        ?>
-
-                        <?php //$my_function(1); ?> -->
-
-                        <?php $controller->tampil_indikator(1) ?>
+                  <div role="tabpanel" id="<?php echo $f_luftman->href ?>" class="tab-pane" style="padding-top: 20px;">
+                    <div class="col-md-12">
+                     <?php echo $f_luftman->descript."<br>" ?>
+                     <br>
+                     <div class="table-responsive">
+            <table class="table table-striped" border="1">
+                <thead>
+                    <tr>
+                        
+                        <th>Komponen Penilaian</th>
+                        <th colspan="5"><center>Jawaban</center></th>
+                    </tr>
+                </thead>
 
 
-                    <p><a class="btn btn-primary btn-lg" href="" target="_blank" role="button" style="vertical-align: right">Simpan Jawaban ! </a></p>
-                </div>
-                </div>
+                     <?php foreach($faktor_indikator as $row){ 
+                        //jika sama
+                      if($row->idf == $f_luftman->id){ ?>
+                      <tr>
+                        <td><?php echo $row->indicator; ?></td>
+                        <?php foreach($indikator_likert as $row2){
+                          if($row2->idin == $row->id){ ?>
+                      <?php //var_dump($row2); ?>
+                            <?php if($row2->idf == $f_luftman->id){ ?>
+                            <td><input type="radio" name="a<?php echo $row2->idin; ?>"><?php echo $row2->id; ?><?php echo $row2->descript; ?></td>
+                            <?php } ?>
+                          <?php } ?>
+                       <?php } ?>
+                      <?php }
+                    } ?>
+                      </tr>
+                     </table>
+                     <p><a class="btn btn-primary btn-lg" href="" target="_blank" role="button" style="vertical-align: right">Simpan Jawaban ! </a></p>
+                    </div>
+                  </div>
                 <!-- end of tab kompetensi -->
-
-
-                </div>
                 </div>
                          <?php } ?>
-          </div>
+                </div>
         </div>
       </div>
     <!-- </header> -->
-
-	
-
-
+  
   </div>
-</div>	
+</div>  
   
   
-
-	<!-- Bootstrap core JavaScript -->
+  <!-- Bootstrap core JavaScript -->
     <script src="<?php echo base_url(); ?>/assets/vendor/jquery/jquery.min.js"></script>
     <script src="<?php echo base_url(); ?>/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
     <!-- Plugin JavaScript -->
     <script src="<?php echo base_url(); ?>/assets/vendor/jquery-easing/jquery.easing.min.js"></script>
-
     <!-- Contact form JavaScript -->
     <script src="<?php echo base_url(); ?>/assets/js/jqBootstrapValidation.js"></script>
     <script src="<?php echo base_url(); ?>/assets/js/contact_me.js"></script>
-
     <!-- Custom scripts for this template -->
     <script src="<?php echo base_url(); ?>/assets/js/agency.min.js"></script>
-
 </body>
 </html>
