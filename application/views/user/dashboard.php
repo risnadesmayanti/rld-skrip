@@ -10,20 +10,20 @@
     <title>Readiness Level Definition - SISP</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="<?php echo base_url(); ?>/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <!-- Custom fonts for this template -->
-    <link href="<?php echo base_url(); ?>/assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo base_url(); ?>assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
     <!-- Custom styles for this template -->
-    <link href="<?php echo base_url(); ?>/assets/css/agency.min.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/css/agency.min.css" rel="stylesheet">
 
 </head>
 <body id="page-top">
@@ -199,18 +199,17 @@
       
         <div class="row">
           <div class="col-lg-12 mx-auto">
-            <div class="modal-body">
-
-
-              <form action="<?php echo base_url(). 'index.php/isi_kuisioner'; ?>" role="form" method="post">
+            <div class="modal-body">        
+              <?php echo form_open('index.php/login/proses_tambah_user'); ?>
+              <!-- <form action="<?php //echo base_url(). 'index.php/login/proses_tambah_user'; ?>" role="form" method="post"> -->
                 <div class="form-group">
                <label for="masukkanNama">Nama Pengguna : </label> 
-               <input type="text" id="username" class="form-control" placeholder="Masukkan nama anda"><br>
+               <input type="text" name="username" class="form-control" placeholder="Masukkan nama anda"><br>
                   
                 </div>
                 <div class="form-group">
                 <label for="masukkanJabatan">Jabatan :</label>
-                <input type="text" id="jabatan" class="form-control" placeholder="Masukkan jabatan anda saat ini"><br>
+                <input type="text" name="jabatan" class="form-control" placeholder="Masukkan jabatan anda saat ini"><br>
                   
                 </div>
                 <!-- Bagian Validasi -->
@@ -223,15 +222,18 @@
                     <tr class=" ">
                       <td>
                         <p>Apakah anda pernah mengikuti proses perencanaan strategis sistem informasi untuk organisasi ?</p>
-                        <input type="radio" name="a1" value="ya">Ya, pernah <br>
+                        <input type="radio" name="a1" value=1>Ya, pernah <br>
+                        <input type="radio" name="a1" value=0>Tidak <br>
                       </td>
                       <td>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.?</p>
-                        <input type="radio" name="a1" value="ya">Ya, pernah <br>                            
+                        <input type="radio" name="a2" value=1>Ya, pernah <br>
+                        <input type="radio" name="a2" value=0>Tidak <br>                            
                       </td>
                       <td>
                         <p>Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero</p>
-                        <input type="radio" name="a1" value="ya">Ya, pernah <br>                            
+                        <input type="radio" name="a3" value=1>Ya, pernah <br>
+                        <input type="radio" name="a3" value=0>Tidak <br>                          
                       </td>
                     </tr>
                   </table>
@@ -239,16 +241,16 @@
               
                 </div>  
           <!-- end of bagian validasi -->
-              </form>
               
             </div>
           </div>
         </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <a href="<?php echo base_url().'index.php/isi_kuisioner'; ?>"><button type="button" class="btn btn-default" onclick="inputUserForm()">Submit</button></a>
+        <input type="submit"  class="btn btn-default" name="Simpan">
       </div>
       </div>
+              <?php form_close(); ?>
       
     </div>
 
@@ -275,18 +277,18 @@ function inputUserForm(){
 
 
 	<!-- Bootstrap core JavaScript -->
-    <script src="<?php echo base_url(); ?>/assets/vendor/jquery/jquery.min.js"></script>
-    <script src="<?php echo base_url(); ?>/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/vendor/jquery/jquery.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Plugin JavaScript -->
-    <script src="<?php echo base_url(); ?>/assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Contact form JavaScript -->
-    <script src="<?php echo base_url(); ?>/assets/js/jqBootstrapValidation.js"></script>
-    <script src="<?php echo base_url(); ?>/assets/js/contact_me.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/jqBootstrapValidation.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/contact_me.js"></script>
 
     <!-- Custom scripts for this template -->
-    <script src="<?php echo base_url(); ?>/assets/js/agency.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/agency.min.js"></script>
 
 </body>
 </html>

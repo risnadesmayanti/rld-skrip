@@ -10,6 +10,10 @@ class User extends CI_Model {
     $this->tableName = "t_user";
   }
 
+  function cek_val($where){
+      return $this->db->get_where($this->tableName,$where);
+  }
+
   public function selectByUsername($username){
     $this->db->select('*');
     $this->db->from($this->tableName);

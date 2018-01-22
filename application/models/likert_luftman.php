@@ -38,7 +38,7 @@ class Likert_luftman extends CI_Model {
     function join_indikator(){
         $this->db->select('t_indicator_luftman.*,t_likert_luftman.*'); 
         $this->db->from('t_indicator_luftman'); 
-        $this->db->join('t_likert_luftman','t_indicator_luftman.id = t_likert_luftman.idin', 't_indicator_luftman.idf = t_likert_luftman.idf');
+        $this->db->join('t_likert_luftman','t_indicator_luftman.id = t_likert_luftman.idin');
         return $this->db->get();
     }
 

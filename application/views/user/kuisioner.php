@@ -44,52 +44,73 @@
           <div class="col-lg-12">
             <div class="panel panel-primary">
               <div class="panel-heading">
-                  <h3 class="panel-title"><span class="fa fa-edit aria-hidden="true"></span>&nbsp;&nbsp;Daftar Penilaian Menggunakan Model Luftman</h3>
+                  <h3 class="panel-title"><span class="fa fa-edit aria-hidden="true"></span>&nbsp;&nbsp;Daftar Penilaian Menggunakan Model Luftman </h3>
               </div>
   
               <div class="panel-body">
+                  <p>Selamat datang, <?php foreach ($user as $key) { echo $key->username." "; } ?> silahkan isi penilaian bllasldblabs 
+                    
+                  </p><br>
                 <ul class="nav nav-tabs">
                      <?php foreach ($faktor_luftman as $f_luftman) { ?>
                    <li role="presentation" class=""><a data-toggle="tab" href="#<?php echo $f_luftman->href ?>" aria-controls="#<?php echo $f_luftman->href ?>" role="tab"><?php echo $f_luftman->factor ?></a></li>               
                     <?php } ?>
                 </ul>
-                <!-- Tab Komunikasi -->
+                <!-- Tab Faktor penilaian -->
                 <?php foreach ($faktor_luftman as $f_luftman) { ?>
                 <div class="tab-content">
                   <div role="tabpanel" id="<?php echo $f_luftman->href ?>" class="tab-pane" style="padding-top: 20px;">
-                    <div class="col-md-12">
+                    <div class="col-lg-12">
                      <?php echo $f_luftman->descript."<br>" ?>
                      <br>
                      <div class="table-responsive">
-            <table class="table table-striped" border="1">
-                <thead>
-                    <tr>
-                        
-                        <th>Komponen Penilaian</th>
-                        <th colspan="5"><center>Jawaban</center></th>
-                    </tr>
-                </thead>
+                      <!-- Tabel isi kuisioner -->
+                     
+                     <?php echo form_open('index.php/isi_kuisioner/process_measurement'); ?>
+                          <table class="table table-striped" border="1">
+                              <thead>
+                                  <tr>
+                                      
+                                      <th width="200px">Komponen Penilaian</th>
+                                      <th colspan="6"><center>Pertanyaan Penilaian</center></th>
+                                  </tr>
+                              </thead>
+                             <?php foreach($faktor_indikator as $row){ 
+                                //jika sama
+                              if($row->idf == $f_luftman->id){ ?>
+                              <tr>
+                                <td><?php echo $row->indicator; ?></td>
+                                <td colspan="6"><?php echo $row->pertanyaan; ?></td>
+                              </tr>
+                              <?php foreach($indikator_likert as $row2){ ?>
+                              <tr>
+                                  <?php if($row2->idin == $row->id){ ?>
+                                  <?php //var_dump($row2); ?>
+                                  <td>
+                                  </td>
+                                      <?php if($row2->idf == $f_luftman->id){ ?>
+                                      <td><?php echo $row2->descript; ?></td>
+                                        <?php } ?>
+                                      <?php //for ($i=0; $i < 5 ; $i++) { ?>
+                                        <td><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=1> a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>] Belum ada, tidak sesuai dengan organisasi</td>
+                                        <td><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=2> a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>] Sesuai, hanya saja tingkatannya masih rendah</td>
+                                        <td><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=3> a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>] Moderat, sesuai untuk organisasi dalam tingkatan menengah</td>
+                                        <td><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=4> a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>] Sesuai, untuk sebagian besar organisasi</td>
+                                        <td><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=5> a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>] Tingkat kuat, sesuai di seluruh bagian organisasi</td>
+                                      <?php //} ?>
+                                     <?php } ?>
+                                      
+                                      
+                              </tr>
+                                  <?php } ?>
+                                  <?php }
+                                  } ?>
+                           </table>
+                            <input type="submit" name="" value="simpan">
+                      </div>
+                      <!-- </form> -->
+                      <?php echo form_close(); ?>
 
-
-                     <?php foreach($faktor_indikator as $row){ 
-                        //jika sama
-                      if($row->idf == $f_luftman->id){ ?>
-                      <tr>
-                        <td><?php echo $row->indicator; ?></td>
-                        <?php foreach($indikator_likert as $row2){
-                          if($row2->idin == $row->id){ ?>
-                      <?php //var_dump($row2); ?>
-                            <?php if($row2->idf == $f_luftman->id){ ?>
-                            <td><input type="radio" name="a<?php echo $row2->idin; ?>"><?php echo $row2->id; ?><?php echo $row2->descript; ?></td>
-                            <?php } ?>
-                          <?php } ?>
-                       <?php } ?>
-                      <?php }
-                    } ?>
-                      </tr>
-                     </table>
-                     <p><a class="btn btn-primary btn-lg" href="" target="_blank" role="button" style="vertical-align: right">Simpan Jawaban ! </a></p>
-                    </div>
                   </div>
                 <!-- end of tab kompetensi -->
                 </div>

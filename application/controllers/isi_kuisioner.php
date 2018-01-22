@@ -14,7 +14,20 @@ class Isi_kuisioner extends CI_Controller {
 		// echo "<pre>";
 		// print_r($data['faktor_indikator']);
 		// echo "</pre>";
+		
+		$data['id'] = $this->session->userdata('id');
+		$data['user'] = $this->session->userdata('username');
 
+		
+
+		// foreach ($data3 as $key) {
+		// 	echo $key->id."<br>";
+		// 	// echo $key->username;
+		// 	# code...
+		// }
+
+		//echo $data2['username'];
+		// print_r($data2[0]);
 		//var_dump($data['faktor_indikator']);
 		 $this->load->view('user/kuisioner', $data);
 		
@@ -23,9 +36,23 @@ class Isi_kuisioner extends CI_Controller {
 		// $data2['daftar_agenda'] = $this->Indikator_luftman->select_all()->result(); 
 		// $this->load->view('user/kuisioner', $data2);
 	}
-	public function tampil_indikator($id_agenda)
-	{
-		
+
+
+	public function process_measurement(){
+	// echo $data4;
+	$masterrisna = $this->input->post();
+		foreach($masterrisna['a'] as $key=>$row){
+			// echo "<pre>";
+			// print_r($key);
+			// echo "</pre>";
+			$insert['id_user'] = $this->session->userdata('id')[0]->id;
+			$insert['idin'] = $key;
+			$insert['value'] = array_sum($row)/count($row);
+
+			// print_r($insert['id_user']);
+			$this->Measurement->insert_measurement($insert);
+		}
+		redirect('index.php/user/dashboard');
 	}
 }
 /* End of file isi_kuisioner.php */
