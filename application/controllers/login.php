@@ -31,35 +31,37 @@ class Login extends CI_Controller {
 			$this->load->view('user/dashboard');
 
 	}
+	public function debug(){
+		echo date("Y-m-d");
+	}
 
 	public function proses_tambah_user()
 	{
 
 		$this->form_validation->set_rules('username','Nama Pengguna','required');
-		$this->form_validation->set_rules('jabatan','Jabatan','required');
+		//$this->form_validation->set_rules('jabatan','Jabatan','required');
 		$this->form_validation->set_rules('a1', 'Ya', 'required');
-		$this->form_validation->set_rules('a2', 'Ya', 'required');
-		$this->form_validation->set_rules('a3', 'Ya','required');
+
  
 		if($this->form_validation->run() != false){
 			$data['username'] = $this->input->post('username');
-			$data['jabatan'] = $this->input->post('jabatan');
+			$data['date_access'] = date("Y-m-d");
+			//	$data['jabatan'] = $this->input->post('jabatan');
 			$data['a1'] = $this->input->post('a1');
-			$data['a2'] = $this->input->post('a2');
-			$data['a3'] = $this->input->post('a3');
+			$data['kategori'] = $this->input->post('e1');
+			$data['jabatan'] = $this->input->post('divisi');
+
 			
 			$where = array(
 				'username' => 'user',
-				'a1' => $data['a1'],
-				'a2' => $data['a2'],
-				'a3' => $data['a3']
+				'a1' => $data['a1']
 			);
 
 			$cek = $this->User->cek_val($where)->num_rows();
 
 			if ($cek > 0) {
 				
-				//$this->User->insert($data);
+				$this->User->insert($data);
 				
 				$id_user = $this->db->query('select id from t_user where id = (select MAX(id) from t_user)')->result();
 				$username_user = $this->db->query('select username from t_user where id = (select MAX(id) from t_user)')->result();
@@ -67,11 +69,14 @@ class Login extends CI_Controller {
 				$data_session = array(
 					'id' => $id_user,
 					'username' => $username_user,
-					'status' => 1
+					'status' => 1,
+					'enterprise' => $data['kategori'],
+					'jabatan' => $data['jabatan']
+					// 'jawab' => $a
 				);
 
 				$this->session->set_userdata($data_session);
-				//print_r($data_session);
+				// print_r($data_session);
 
 				redirect('index.php/isi_kuisioner');
 

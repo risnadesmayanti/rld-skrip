@@ -52,7 +52,7 @@ class Isi_kuisioner extends CI_Controller {
 			// print_r($insert['id_user']);
 			$this->Measurement->insert_measurement($insert);
 		}
-		redirect('index.php/user/dashboard');
+		redirect('index.php/isi_kuisioner');
 	}
 }
 /* End of file isi_kuisioner.php */

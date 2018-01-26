@@ -41,4 +41,35 @@ class User extends CI_Model {
     $this->db->where('id',$id);
     $this->db->delete($this->tableName);
   } 
+  public function selectGroupByDate(){
+    $this->db->select("date_access as y, count(*) as Jumlah");
+    $this->db->from($this->tableName);
+    $this->db->where('date_access BETWEEN (NOW() - INTERVAL 14 DAY) AND NOW()');
+    $this->db->order_by('date_access','DESC');
+    $this->db->group_by('date_access');
+    // $this->db->group_by('jabatan');
+    // $this->db->group_by('tahun_wisuda');
+    return $this->db->get();    
+  }
+  public function selectGroupByJabatan(){
+    $this->db->select("jabatan as y");
+    $this->db->from($this->tableName);
+    $this->db->group_by('jabatan');
+    // $this->db->group_by('kategori');
+    return $this->db->get();        
+  }
+  public function selectGroupByKategori(){
+    $this->db->select("kategori as x");
+    $this->db->from($this->tableName);
+    $this->db->group_by('kategori');
+    // $this->db->group_by('kategori');
+    return $this->db->get();        
+  }
+  public function selectGroupByJabatan2(){
+    $this->db->select("jabatan as y, kategori as k, count(*) as Jumlah");
+    $this->db->from($this->tableName);
+    $this->db->group_by('jabatan');
+    $this->db->group_by('kategori');
+    return $this->db->get();        
+  }
 }

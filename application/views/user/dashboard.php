@@ -208,32 +208,44 @@
                   
                 </div>
                 <div class="form-group">
-                <label for="masukkanJabatan">Jabatan :</label>
-                <input type="text" name="jabatan" class="form-control" placeholder="Masukkan jabatan anda saat ini"><br>
+                <label for="masukkanJabatan">Divisi :</label>
+                <!-- <input type="text" name="jabatan" class="form-control" placeholder="Masukkan jabatan anda saat ini"><br> -->
+                <select class="form-control" name="divisi">
+                    <!-- fungsional -->
+                    <option value="" disabled selected hidden>Pilih divisi anda saat ini </option>
+                    <option value="Dewan Direksi">Dewan Direksi</option>
+                    <option value="Manajer">Manajer</option>
+                    <option value="Departemen Humas">Departemen Humas</option>
+                    <option value="Departemen RD">Departemen Riset dan Pengembangan</option>
+                    <option value="Departemen Teknologi Informasi">Departemen Teknologi Informasi</option>
+                    <option value="Departemen Personalia">Departemen Personalia</option>
+                    <option value="Departemen Pemasaran">Departemen Pemasaran</option>
+                    <option value="Administrasi">Administrasi</option>
+                    <!-- end of fungsional -->
+                </select>
+          
                   
                 </div>
                 <!-- Bagian Validasi -->
                   
                 <div class="form-group">
                   <table>
-                    <th class="warning">Pertanyaan 1</th>
-                      <th class="warning">Pertanyaan 2</th>
-                      <th class="warning">Pertanyaan 3</th>
+                    <th class="warning">Pilih Jawaban untuk Pertanyaan di bawah ini :</th>
                     <tr class=" ">
                       <td>
                         <p>Apakah anda pernah mengikuti proses perencanaan strategis sistem informasi untuk organisasi ?</p>
                         <input type="radio" name="a1" value=1>Ya, pernah <br>
-                        <input type="radio" name="a1" value=0>Tidak <br>
+                        <input type="radio" name="a1" value=0>Tidak <br><br>
                       </td>
+                    </tr>
+                    <tr class=" ">
                       <td>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.?</p>
-                        <input type="radio" name="a2" value=1>Ya, pernah <br>
-                        <input type="radio" name="a2" value=0>Tidak <br>                            
-                      </td>
-                      <td>
-                        <p>Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero</p>
-                        <input type="radio" name="a3" value=1>Ya, pernah <br>
-                        <input type="radio" name="a3" value=0>Tidak <br>                          
+                        <p>Termasuk ke dalam kategori mana enterprise / organisasi anda?</p>
+                        <input type="radio" name="e1" value=1>Perguruan Tinggi Negeri<br>
+                        <input type="radio" name="e1" value=2>Perguruan Tinggi Swasta<br>
+                        <input type="radio" name="e1" value=3>Bidang Kesehatan<br>
+                        <input type="radio" name="e1" value=4>Bidang Pariwisata<br>
+                        <input type="radio" name="e1" value=5>Bidang Pemerintahan<br>
                       </td>
                     </tr>
                   </table>
