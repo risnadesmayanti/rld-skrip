@@ -21,6 +21,13 @@ class Faktor_luftman extends CI_Model {
 		
 		return $this->db->get();
     }        
+    function select_by_idf($id_factor){        
+        $this->db->select('*'); 
+        $this->db->from('t_factor_luftman'); 
+        $this->db->where('idf', $id_factor);
+        
+        return $this->db->get();
+    }       
     function update_factor($id_factor, $data){ 
     	$this->db->where('id', $id_factor); 
     	$this->db->update('t_factor_luftman', $data); 

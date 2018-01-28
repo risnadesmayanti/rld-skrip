@@ -42,14 +42,20 @@
                                     </tbody>
                                 </table>
                              </div> -->
-                              <div class="col-md-12">
+                             <div class="col-md-4"><div id="container2" style="height: 600px; margin: 0;"></div></div>
+                             <div class="col-md-4"><div id="container2" style="height: 600px; margin: 0;"></div></div>
+                             <div class="col-md-4"><div id="container2" style="height: 600px; margin: 0;"></div></div>
+                             <div class="col-md-4"><div id="container2" style="height: 600px; margin: 0;"></div></div>
+                             <div class="col-md-4"><div id="container2" style="height: 600px; margin: 0;"></div></div>
+                             <div class="col-md-4"><div id="container2" style="height: 600px; margin: 0;"></div></div>
+                              <!-- <div class="col-md-12">
                                    <table class="table table-striped table-bordered table-hover">
                                         <thead>
                                             <tr>
                                                 <th>#</th>
                                                 <th>Indikator Penilaian</th>
-                                             <!--    <th>Tingkat Kesiapan</th> -->
-                                                <!-- <th>Diagram Jaring Laba-laba Maturity Level</th> -->
+                                             <th>Tingkat Kesiapan</th>
+                                                <th>Diagram Jaring Laba-laba Maturity Level</th>
                                                 <th>Rekomendasi <br> Strategi</th>
                                             </tr>
                                         </thead>
@@ -57,12 +63,12 @@
                                             <tr>
                                                 <td>1</td>
                                                 <td><p>Komunikasi<br><br><div id="container2" style="min-width: 400px; max-width: 500px; height: 400px; margin: 0;"></div></p></td>
-                                                <!-- <td>4 Dengan Jaring Laba-laba</td> -->
+                                                <td>4 Dengan Jaring Laba-laba</td>
                                                 <td>Flot is a pure JavaScript plotting library for jQuery, with a focus on simple usage, attractive looks, and interactive features. In SB Admin, we are using the most recent version of Flot along with a few plugins to enhance the user experience.</td>
                                             </tr>
                                         </tbody>
                                     </table>
-                                </div>
+                                </div> -->
                        </div>
                    </div>
                </div>

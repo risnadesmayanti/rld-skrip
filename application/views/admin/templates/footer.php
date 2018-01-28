@@ -11,7 +11,7 @@
     <!-- Morris Charts JavaScript -->
     <script src="<?php echo base_url(); ?>assets/admin/vendor/raphael/raphael.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/vendor/morrisjs/morris.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/admin/data/morris-data.js"></script>
+    <!-- <script src="<?php echo base_url(); ?>assets/admin/data/morris-data.js"></script> -->
 
     <script src="<?php echo base_url(); ?>assets/admin/js/highcharts.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/js/highcharts-more.js"></script>
@@ -33,64 +33,67 @@
             });
             <?php } ?>
             <?php if(isset($graph2)){ ?>
-            Morris.Bar({
-                element: 'morris-bar-chart',
-                data: <?php echo json_encode($graph2); ?>,
-                xkey: 'y',
-                ykeys: [<?php foreach($graph2k as $r) echo $r['x'].","; ?>],
-                labels: [<?php foreach($graph2k as $r) echo $r['x'].","; ?>],
-                hideHover: 'auto',
-                resize: true
-            });            
+                Morris.Bar({
+                    element: 'morris-bar-chart',
+                    data: <?php echo json_encode($graph2); ?>,
+                    xkey: 'y',
+                    ykeys: [<?php foreach($graph2k as $r) echo $r['x'].","; ?>],
+                    labels: [<?php foreach($graph2k as $r) echo $r['x'].","; ?>],
+                    hideHover: 'auto',
+                    resize: true
+                });            
             <?php } ?>
-         Highcharts.chart('container2', {
+            <?php if(isset($d1)){ ?>
+                Highcharts.chart('container2', {
 
-        chart: {
-            polar: true,
-            type: 'line'
-        },
+                chart: {
+                polar: true,
+                type: 'line'
+                },
 
-        title: {
-            text: 'Maturity Level',
-            x: -80
-        },
+                title: {
+                text: 'Maturity Level',
+                x: -80
+                },
 
-        pane: {
-            size: '90%'
-        },
+                pane: {
+                size: '90%'
+                },
 
-        xAxis: {
-            categories: ['Komunikasi', 'Kompetensi', 'Tata Kelola', 'Kerjasama',
-                    'Arsitektur dan Ruang Lingkup', 'Kemampuan'],
-            tickmarkPlacement: 'on',
-            lineWidth: 0
-        },
+                xAxis: {
+                categories: ['Komunikasi', 'Kompetensi', 'Tata Kelola', 'Kerjasama',
+                        'Arsitektur dan Ruang Lingkup', 'Kemampuan'],
+                tickmarkPlacement: 'on',
+                lineWidth: 0
+                },
 
-        yAxis: {
-            gridLineInterpolation: 'polygon',
-            lineWidth: 0,
-            min: 0
-        },
+                yAxis: {
+                gridLineInterpolation: 'polygon',
+                lineWidth: 0,
+                min: 0
+                },
 
-        tooltip: {
-            shared: true,
-            pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.f}</b><br/>'
-        },
+                tooltip: {
+                shared: true,
+                pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.f}</b><br/>'
+                },
 
-        legend: {
-            align: 'right',
-            verticalAlign: 'top',
-            y: 70,
-            layout: 'vertical'
-        },
+                legend: {
+                align: 'right',
+                verticalAlign: 'top',
+                y: 70,
+                layout: 'vertical'
+                },
 
-        series: [{
-            name: 'Allocated Budget',
-            data: [1,2,3,4,5,6],
-            pointPlacement: 'on'
-        }]
+                series: [{
+                name: 'Readiness Level',
+                data: <?php echo json_encode($d1); ?>,
+                pointPlacement: 'on'
+                }]
 
-    });            
+                });
+            <?php } ?>
+
         });
 
        

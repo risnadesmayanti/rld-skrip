@@ -41,6 +41,17 @@ class Measurement extends CI_Model {
         return $this->db->get();
     }
 
+    function diagramAll($id){
+      // SELECT t_indicator_luftman.idf,t_measurement.* FROM t_indicator_luftman, t_measurement, t_user where t_indicator_luftman.id = t_measurement.idin and t_user.id = t_measurement.id_user and t_user.kategori = 1 order by t_indicator_luftman.idf
+      $this->db->select('t_indicator_luftman.idf,t_measurement.* FROM t_indicator_luftman, t_measurement, t_user');
+      $this->db->where('t_indicator_luftman.id = t_measurement.idin and t_user.id = t_measurement.id_user');
+      $this->db->where('t_user.kategori',$id);
+      $this->db->order_by('t_indicator_luftman.idf');
+
+      return $this->db->get();
+    }
+
+
   //   function select_by_idf($id_indicator){        
   //   	$this->db->select('*'); 
   //   	$this->db->from('t_indicator_luftman'); 
