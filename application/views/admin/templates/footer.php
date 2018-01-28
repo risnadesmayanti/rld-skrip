@@ -93,6 +93,140 @@
 
                 });
             <?php } ?>
+            <?php if(isset($d2)){ $i=1;foreach($d2 as $row){?>
+                Highcharts.chart('pt<?php echo $i; ?>', {
+
+                chart: {
+                polar: true,
+                type: 'line'
+                },
+
+                title: {
+                text: 'Maturity Level Faktor <?php echo $i; ?>',
+                // x: -80
+                },
+
+                pane: {
+                size: '90%'
+                },
+
+                xAxis: {
+                categories: <?php echo json_encode($row['cat']); ?>,
+                tickmarkPlacement: 'on',
+                lineWidth: 0
+                },
+
+                yAxis: {
+                gridLineInterpolation: 'polygon',
+                lineWidth: 0,
+                min: 0
+                },
+
+                tooltip: {
+                shared: true,
+                pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.f}</b><br/>'
+                },
+
+                series: [{
+                name: 'Readiness Level Faktor <?php echo $i++; ?>',
+                data: <?php echo json_encode($row['data']); ?>,
+                pointPlacement: 'on'
+                }]
+
+                });
+            <?php echo "\n";}} ?>
+            <?php if(isset($d3)){ ?>
+                Highcharts.chart('containerpts', {
+
+                chart: {
+                polar: true,
+                type: 'line'
+                },
+
+                title: {
+                text: 'Maturity Level',
+                x: -80
+                },
+
+                pane: {
+                size: '90%'
+                },
+
+                xAxis: {
+                categories: ['Komunikasi', 'Kompetensi', 'Tata Kelola', 'Kerjasama',
+                        'Arsitektur dan Ruang Lingkup', 'Kemampuan'],
+                tickmarkPlacement: 'on',
+                lineWidth: 0
+                },
+
+                yAxis: {
+                gridLineInterpolation: 'polygon',
+                lineWidth: 0,
+                min: 0
+                },
+
+                tooltip: {
+                shared: true,
+                pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.f}</b><br/>'
+                },
+
+                legend: {
+                align: 'right',
+                verticalAlign: 'top',
+                y: 70,
+                layout: 'vertical'
+                },
+
+                series: [{
+                name: 'Readiness Level',
+                data: <?php echo json_encode($d3); ?>,
+                pointPlacement: 'on'
+                }]
+
+                });
+            <?php } ?>
+            <?php if(isset($d4)){ $i=1;foreach($d4 as $row){?>
+                Highcharts.chart('pts<?php echo $i; ?>', {
+
+                chart: {
+                polar: true,
+                type: 'line'
+                },
+
+                title: {
+                text: 'Maturity Level Faktor <?php echo $i; ?>',
+                // x: -80
+                },
+
+                pane: {
+                size: '90%'
+                },
+
+                xAxis: {
+                categories: <?php echo json_encode($row['cat']); ?>,
+                tickmarkPlacement: 'on',
+                lineWidth: 0
+                },
+
+                yAxis: {
+                gridLineInterpolation: 'polygon',
+                lineWidth: 0,
+                min: 0
+                },
+
+                tooltip: {
+                shared: true,
+                pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.f}</b><br/>'
+                },
+
+                series: [{
+                name: 'Readiness Level Faktor <?php echo $i++; ?>',
+                data: <?php echo json_encode($row['data']); ?>,
+                pointPlacement: 'on'
+                }]
+
+                });
+            <?php echo "\n";}} ?>            
 
         });
 
