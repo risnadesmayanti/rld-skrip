@@ -53,6 +53,14 @@ class Indikator_luftman extends CI_Model {
     	$this->db->delete('t_indicator_luftman');     
     }
 
+    function select_all_join_faktor(){
+        $this->db->select('t_indicator_luftman.*, t_factor_luftman.factor'); 
+        $this->db->from('t_indicator_luftman'); 
+        $this->db->join('t_factor_luftman','t_factor_luftman.id = t_indicator_luftman.idf');
+        return $this->db->get();
+
+    }
+
 
 }
 

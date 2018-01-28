@@ -16,9 +16,7 @@ class Admin extends CI_Controller {
 				}
 			}
 		}
-		echo "<pre>";
-		print_r($footer['graph2k']);
-		echo "</pre>";
+
 		
 		// var_dump(json_encode($footer['graph1']));
 
@@ -26,8 +24,9 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/dashboard',$data);
 		$this->load->view('admin/templates/footer',$footer);
 	}
-	public function diagramPT(){
+	public function diagramPTN(){
 		//-- PTN
+		//Big one
 		$dbtemp = $this->Measurement->diagramAll(1)->result_array();
 		for($i = 1; $i <= 6; $i++){
 			$temp = 0;
@@ -42,10 +41,11 @@ class Admin extends CI_Controller {
 			// echo "<br/>";
 			$footer['d1'][] = $temp/$count;
 		}
-		//------------------------------------------------
-		$faktor = $this->Indikator_luftman->select_all()->result_array();
+		//------------------------------------------------ 
+		// 6 Diagram Faktor
+		$indikator = $this->Indikator_luftman->select_all()->result_array();
 		for ($i=1; $i <= 6 ; $i++) { 
-			foreach($faktor as $row){
+			foreach($indikator as $row){
 				if($row['idf'] == $i){
 					$footer['d2'][$i]['cat'][] = $row['indicator'];
 				}
@@ -64,7 +64,30 @@ class Admin extends CI_Controller {
 				$footer['d2'][$i]['data'][] = $temp/$count;
 			}
 		}
+		//---- Faktor Pendukung dan Penghambat
+		$avg = array_sum($footer['d1'])/6;
+		for($i=1;$i<=6;$i++){
+			$count = 0;
+			foreach($footer['d2'][$i]['data'] as $key=>$row){
+				if($row<$avg){
+					$data['penghambat'][$i][$count]['nama'] = $footer['d2'][$i]['cat'][$key]; 
+					$data['penghambat'][$i][$count]['level'] = (int)$footer['d2'][$i]['data'][$key]; 
+					$count++;
+				}
+			}
+		}
+		// echo "<pre>";
+		// echo print_r($avg);
+		// echo var_dump($data['penghambat']);
+		// echo "<pre/>";
+		// if(count($data['pendukung']) > count($data['penghambat'])) $long = count($data['pendukung']); else $long = count($data['penghambat']);
+		// $data['long'] = $long;
 
+		$this->load->view('admin/templates/header');
+		$this->load->view('admin/ptn',$data);
+		$this->load->view('admin/templates/footer',$footer);
+	}
+	public function diagramPTS(){
 		//-- PTS
 		$dbtemp = $this->Measurement->diagramAll(2)->result_array();
 		for($i = 1; $i <= 6; $i++){
@@ -102,8 +125,28 @@ class Admin extends CI_Controller {
 				$footer['d4'][$i]['data'][] = $temp/$count;
 			}
 		}
+		//---- Faktor Pendukung dan Penghambat
+		$avg = array_sum($footer['d3'])/6;
+		echo $avg;
+		for($i=1;$i<=6;$i++){
+			$count = 0;
+			foreach($footer['d4'][$i]['data'] as $key=>$row){
+				if($row<$avg){
+					$data['penghambat'][$i][$count]['nama'] = $footer['d4'][$i]['cat'][$key]; 
+					$data['penghambat'][$i][$count]['level'] = (int)$footer['d4'][$i]['data'][$key]; 
+					$count++;
+				}
+			}
+		}
 		$this->load->view('admin/templates/header');
-		$this->load->view('admin/pt');
+		$this->load->view('admin/pts',$data);
 		$this->load->view('admin/templates/footer',$footer);
 	}	
+
+	public function indikatorAll(){
+		$x = $this->Indikator_luftman->select_all_join_faktor()->result_array();
+		echo "<pre>";
+		print_r($x);
+		echo "</pre>";
+	}
 }

@@ -53,7 +53,7 @@
 
                 title: {
                 text: 'Maturity Level',
-                x: -80
+                x: -70
                 },
 
                 pane: {
@@ -88,12 +88,13 @@
                 series: [{
                 name: 'Readiness Level',
                 data: <?php echo json_encode($d1); ?>,
-                pointPlacement: 'on'
+                pointPlacement: 'on',
+                color:'red',
                 }]
 
                 });
             <?php } ?>
-            <?php if(isset($d2)){ $i=1;foreach($d2 as $row){?>
+            <?php if(isset($d2)){ $color=['blue','yellow','green','orange','black','purple'];$i=1;foreach($d2 as $row){?>
                 Highcharts.chart('pt<?php echo $i; ?>', {
 
                 chart: {
@@ -103,7 +104,7 @@
 
                 title: {
                 text: 'Maturity Level Faktor <?php echo $i; ?>',
-                // x: -80
+                // y:100
                 },
 
                 pane: {
@@ -130,7 +131,8 @@
                 series: [{
                 name: 'Readiness Level Faktor <?php echo $i++; ?>',
                 data: <?php echo json_encode($row['data']); ?>,
-                pointPlacement: 'on'
+                pointPlacement: 'on',
+                color: '<?php echo $color[$i-2]; ?>'
                 }]
 
                 });
@@ -145,7 +147,7 @@
 
                 title: {
                 text: 'Maturity Level',
-                x: -80
+                x: -70
                 },
 
                 pane: {
@@ -180,14 +182,14 @@
                 series: [{
                 name: 'Readiness Level',
                 data: <?php echo json_encode($d3); ?>,
-                pointPlacement: 'on'
+                pointPlacement: 'on',
+                color: 'green'
                 }]
 
                 });
             <?php } ?>
-            <?php if(isset($d4)){ $i=1;foreach($d4 as $row){?>
+            <?php if(isset($d4)){ $color=['blue','yellow','red','orange','black','purple']; $i=1;foreach($d4 as $row){?>
                 Highcharts.chart('pts<?php echo $i; ?>', {
-
                 chart: {
                 polar: true,
                 type: 'line'
@@ -195,7 +197,7 @@
 
                 title: {
                 text: 'Maturity Level Faktor <?php echo $i; ?>',
-                // x: -80
+                // y: 120,
                 },
 
                 pane: {
@@ -222,7 +224,8 @@
                 series: [{
                 name: 'Readiness Level Faktor <?php echo $i++; ?>',
                 data: <?php echo json_encode($row['data']); ?>,
-                pointPlacement: 'on'
+                pointPlacement: 'on',
+                color: '<?php echo $color[$i-2];?>'
                 }]
 
                 });
