@@ -15,7 +15,7 @@
                                     <i class="fa fa-tasks fa-4x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">12</div>
+                                    <div class="huge"><?php echo $responden; ?></div>
                                     <div>Jumlah Responden</div>
                                 </div>
                             </div>
@@ -37,7 +37,7 @@
                                     <i class="fa fa-support fa-4x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">13</div>
+                                    <div class="huge">??</div>
                                     <div>Enterprise Terdaftar</div>
                                 </div>
                             </div>
@@ -59,7 +59,7 @@
                                     <i class="fa fa-comments fa-4x"></i>
                                 </div>
                                 <div class="col-xs-9 text-right">
-                                    <div class="huge">26</div>
+                                    <div class="huge">??</div>
                                     <div>Jabatan Terdaftar</div>
                                 </div>
                             </div>
@@ -89,18 +89,7 @@
                             <div id="morris-area-chart"></div>
                         </div>
                         <!-- /.panel-body -->
-                    </div>
-                     <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-bar-chart-o fa-fw"></i> Diagram Jumlah Enterprise yang Terdaftar dalam Periode Tertentu
-                           
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div id="morris-donut-chart"></div>
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
+                    </div> 
                     <!-- /.panel -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -123,52 +112,10 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td>3326</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>3:29 PM</td>
-                                                    <td>$321.33</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3325</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>3:20 PM</td>
-                                                    <td>$234.34</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3324</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>3:03 PM</td>
-                                                    <td>$724.17</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3323</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>3:00 PM</td>
-                                                    <td>$23.71</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3322</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>2:49 PM</td>
-                                                    <td>$8345.23</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3321</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>2:23 PM</td>
-                                                    <td>$245.12</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3320</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>2:15 PM</td>
-                                                    <td>$5663.54</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>3319</td>
-                                                    <td>10/21/2013</td>
-                                                    <td>2:13 PM</td>
-                                                    <td>$943.45</td>
+                                                    <td>???</td>
+                                                    <td>???</td>
+                                                    <td>???</td>
+                                                    <td>???</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -186,82 +133,82 @@
                         <!-- /.panel-body -->
                     </div>
                     <!-- /.panel -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <i class="fa fa-clock-o fa-fw"></i> Capability Maturity Model
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <ul class="timeline">
-                                <li>
-                                    <div class="timeline-badge"><i class="fa fa-check"></i>
-                                    </div>
-                                    <div class="timeline-panel">
-                                        <div class="timeline-heading">
-                                            <h4 class="timeline-title">Initial</h4>
-                                            <p><small class="text-muted"><i class="fa fa-clock-o"></i> 11 hours ago via Twitter</small>
-                                            </p>
+                    <!-- <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <i class="fa fa-clock-o fa-fw"></i> Capability Maturity Model
+                                            </div>
+                                            /.panel-heading
+                                            <div class="panel-body">
+                                                <ul class="timeline">
+                                                    <li>
+                                                        <div class="timeline-badge"><i class="fa fa-check"></i>
+                                                        </div>
+                                                        <div class="timeline-panel">
+                                                            <div class="timeline-heading">
+                                                                <h4 class="timeline-title">Initial</h4>
+                                                                <p><small class="text-muted"><i class="fa fa-clock-o"></i> 11 hours ago via Twitter</small>
+                                                                </p>
+                                                            </div>
+                                                            <div class="timeline-body">
+                                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero laboriosam dolor perspiciatis omnis exercitationem. Beatae, officia pariatur? Est cum veniam excepturi. Maiores praesentium, porro voluptas suscipit facere rem dicta, debitis.</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li class="timeline-inverted">
+                                                        <div class="timeline-badge warning"><i class="fa fa-credit-card"></i>
+                                                        </div>
+                                                        <div class="timeline-panel">
+                                                            <div class="timeline-heading">
+                                                                <h4 class="timeline-title">Commit</h4>
+                                                            </div>
+                                                            <div class="timeline-body">
+                                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem dolorem quibusdam, tenetur commodi provident cumque magni voluptatem libero, quis rerum. Fugiat esse debitis optio, tempore. Animi officiis alias, officia repellendus.</p>
+                                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium maiores odit qui est tempora eos, nostrum provident explicabo dignissimos debitis vel! Adipisci eius voluptates, ad aut recusandae minus eaque facere.</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="timeline-badge danger"><i class="fa fa-bomb"></i>
+                                                        </div>
+                                                        <div class="timeline-panel">
+                                                            <div class="timeline-heading">
+                                                                <h4 class="timeline-title">Establish</h4>
+                                                            </div>
+                                                            <div class="timeline-body">
+                                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus numquam facilis enim eaque, tenetur nam id qui vel velit similique nihil iure molestias aliquam, voluptatem totam quaerat, magni commodi quisquam.</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                   
+                                                    <li class="timeline-inverted">
+                                                        <div class="timeline-badge info"><i class="fa fa-save"></i>
+                                                        </div>
+                                                        <div class="timeline-panel">
+                                                            <div class="timeline-heading">
+                                                                <h4 class="timeline-title">Level 4</h4>
+                                                            </div>
+                                                            <div class="timeline-body">
+                                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis minus modi quam ipsum alias at est molestiae excepturi delectus nesciunt, quibusdam debitis amet, beatae consequuntur impedit nulla qui! Laborum, atque.</p>                                        
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="timeline-badge success"><i class="fa fa-graduation-cap"></i>
+                                                        </div>
+                                                        <div class="timeline-panel">
+                                                            <div class="timeline-heading">
+                                                                <h4 class="timeline-title">Level 5</h4>
+                                                            </div>
+                                                            <div class="timeline-body">
+                                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt obcaecati, quaerat tempore officia voluptas debitis consectetur culpa amet, accusamus dolorum fugiat, animi dicta aperiam, enim incidunt quisquam maxime neque eaque.</p>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            /.panel-body
                                         </div>
-                                        <div class="timeline-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero laboriosam dolor perspiciatis omnis exercitationem. Beatae, officia pariatur? Est cum veniam excepturi. Maiores praesentium, porro voluptas suscipit facere rem dicta, debitis.</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="timeline-inverted">
-                                    <div class="timeline-badge warning"><i class="fa fa-credit-card"></i>
-                                    </div>
-                                    <div class="timeline-panel">
-                                        <div class="timeline-heading">
-                                            <h4 class="timeline-title">Commit</h4>
-                                        </div>
-                                        <div class="timeline-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem dolorem quibusdam, tenetur commodi provident cumque magni voluptatem libero, quis rerum. Fugiat esse debitis optio, tempore. Animi officiis alias, officia repellendus.</p>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium maiores odit qui est tempora eos, nostrum provident explicabo dignissimos debitis vel! Adipisci eius voluptates, ad aut recusandae minus eaque facere.</p>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="timeline-badge danger"><i class="fa fa-bomb"></i>
-                                    </div>
-                                    <div class="timeline-panel">
-                                        <div class="timeline-heading">
-                                            <h4 class="timeline-title">Establish</h4>
-                                        </div>
-                                        <div class="timeline-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus numquam facilis enim eaque, tenetur nam id qui vel velit similique nihil iure molestias aliquam, voluptatem totam quaerat, magni commodi quisquam.</p>
-                                        </div>
-                                    </div>
-                                </li>
-                               
-                                <li class="timeline-inverted">
-                                    <div class="timeline-badge info"><i class="fa fa-save"></i>
-                                    </div>
-                                    <div class="timeline-panel">
-                                        <div class="timeline-heading">
-                                            <h4 class="timeline-title">Level 4</h4>
-                                        </div>
-                                        <div class="timeline-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis minus modi quam ipsum alias at est molestiae excepturi delectus nesciunt, quibusdam debitis amet, beatae consequuntur impedit nulla qui! Laborum, atque.</p>                                        
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="timeline-badge success"><i class="fa fa-graduation-cap"></i>
-                                    </div>
-                                    <div class="timeline-panel">
-                                        <div class="timeline-heading">
-                                            <h4 class="timeline-title">Level 5</h4>
-                                        </div>
-                                        <div class="timeline-body">
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt obcaecati, quaerat tempore officia voluptas debitis consectetur culpa amet, accusamus dolorum fugiat, animi dicta aperiam, enim incidunt quisquam maxime neque eaque.</p>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
+                                         -->                    <!-- /.panel -->
                 </div>
                 <!-- /.col-lg-8 -->
                 

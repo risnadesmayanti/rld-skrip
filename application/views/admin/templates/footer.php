@@ -70,12 +70,12 @@
                 yAxis: {
                 gridLineInterpolation: 'polygon',
                 lineWidth: 0,
-                min: 0
+                min: 0,
                 },
 
                 tooltip: {
                 shared: true,
-                pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.f}</b><br/>'
+                pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.2f}</b><br/>'
                 },
 
                 legend: {
@@ -89,8 +89,14 @@
                 name: 'Readiness Level',
                 data: <?php echo json_encode($d1); ?>,
                 pointPlacement: 'on',
-                color:'red',
-                }]
+                color:'green',
+                },{
+                name: 'Expectations',
+                data: <?php echo json_encode($avg); ?>,
+                // pointPlacement: 'on',
+                color:'red'
+                },
+                ]
 
                 });
             <?php } ?>
@@ -125,14 +131,19 @@
 
                 tooltip: {
                 shared: true,
-                pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.f}</b><br/>'
+                pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.2f}</b><br/>'
                 },
 
                 series: [{
-                name: 'Readiness Level Faktor <?php echo $i++; ?>',
+                name: 'Indikator <?php echo $i++; ?>',
                 data: <?php echo json_encode($row['data']); ?>,
                 pointPlacement: 'on',
                 color: '<?php echo $color[$i-2]; ?>'
+                },{
+                name: 'Expectations',
+                data: <?php echo json_encode($row['avg']); ?>,
+                pointPlacement: 'on',
+                color: 'red'
                 }]
 
                 });
@@ -169,7 +180,7 @@
 
                 tooltip: {
                 shared: true,
-                pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.f}</b><br/>'
+                pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.2f}</b><br/>'
                 },
 
                 legend: {
@@ -184,11 +195,16 @@
                 data: <?php echo json_encode($d3); ?>,
                 pointPlacement: 'on',
                 color: 'green'
+                },{
+                name: 'Readiness Level',
+                data: <?php echo json_encode($avg); ?>,
+                pointPlacement: 'on',
+                color: 'red'
                 }]
 
                 });
             <?php } ?>
-            <?php if(isset($d4)){ $color=['blue','yellow','red','orange','black','purple']; $i=1;foreach($d4 as $row){?>
+            <?php if(isset($d4)){ $color=['blue','yellow','green','orange','black','purple']; $i=1;foreach($d4 as $row){?>
                 Highcharts.chart('pts<?php echo $i; ?>', {
                 chart: {
                 polar: true,
@@ -218,14 +234,19 @@
 
                 tooltip: {
                 shared: true,
-                pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.f}</b><br/>'
+                pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.2f}</b><br/>'
                 },
 
                 series: [{
-                name: 'Readiness Level Faktor <?php echo $i++; ?>',
+                name: 'Indikator <?php echo $i++; ?>',
                 data: <?php echo json_encode($row['data']); ?>,
                 pointPlacement: 'on',
                 color: '<?php echo $color[$i-2];?>'
+                },{
+                name: 'Expectations',
+                data: <?php echo json_encode($row['avg']); ?>,
+                pointPlacement: 'on',
+                color: 'red'
                 }]
 
                 });

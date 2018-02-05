@@ -36,12 +36,12 @@ class Faktor_luftman extends CI_Model {
     	$this->db->where('id', $id_factor); 
     	$this->db->delete('t_factor_luftman');     
     }
-    // function join_indikator(){
-    //     $this->db->select('t_factor_luftman,t_indicator_luftman.*'); 
-    //     $this->db->from('t_factor_luftman'); 
-    //     $this->db->join('t_indicator_luftman','t_factor_luftman.id = t_indicator_luftman.idf');
-    //     return $this->db->get();
-    // }
+    function join_indikator(){
+        $this->db->select('t_factor_luftman.*,t_indicator_luftman.*'); 
+        $this->db->from('t_factor_luftman'); 
+        $this->db->join('t_indicator_luftman','t_factor_luftman.id = t_indicator_luftman.idf');
+        return $this->db->get();
+    }
 }
 /* End of file faktor_luftman.php */
 /* Location: ./application/models/faktor_luftman.php */

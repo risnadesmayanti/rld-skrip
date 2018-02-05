@@ -1,10 +1,11 @@
-<?php
+ <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Admin extends CI_Controller {
 	
 	public function index(){
 
 		$data = Array();
+		$data['responden'] = $this->User->selectAll()->num_rows();
 		$footer['graph1'] = $this->User->selectGroupByDate()->result_array();
 		$footer['graph2'] = $this->User->selectGroupByJabatan()->result_array();
 		$footer['graph2k'] = $this->User->selectGroupByKategori()->result_array();
@@ -41,6 +42,12 @@ class Admin extends CI_Controller {
 			// echo "<br/>";
 			$footer['d1'][] = $temp/$count;
 		}
+		//------------------------------------------------------------------------
+		//---- Avg spiderweb Big
+		$avg = array_sum($footer['d1'])/6;
+		for($i=0;$i<6;$i++){
+			$footer['avg'][] = $avg;
+		}
 		//------------------------------------------------ 
 		// 6 Diagram Faktor
 		$indikator = $this->Indikator_luftman->select_all()->result_array();
@@ -51,7 +58,7 @@ class Admin extends CI_Controller {
 				}
 			}
 			$ind = $this->Indikator_luftman->select_by_idf($i)->result_array();
-			$vFaktor = $this->Measurement->diagramFaktor(1,$i)->result_array();
+			$vFaktor = $this->Measurement->diagramFaktor(1,$i)->result_array(); // 1 means PTN
 			foreach($ind as $row){
 				$count = 0;
 				$temp = 0;
@@ -62,10 +69,11 @@ class Admin extends CI_Controller {
 					}
 				}
 				$footer['d2'][$i]['data'][] = $temp/$count;
-			}
+				$footer['d2'][$i]['avg'][] = $avg;
+ 			}
 		}
+
 		//---- Faktor Pendukung dan Penghambat
-		$avg = array_sum($footer['d1'])/6;
 		for($i=1;$i<=6;$i++){
 			$count = 0;
 			foreach($footer['d2'][$i]['data'] as $key=>$row){
@@ -103,6 +111,12 @@ class Admin extends CI_Controller {
 			// echo "<br/>";
 			$footer['d3'][] = $temp/$count;
 		}
+		//------------------------------------------------------------------------
+		//---- Avg spiderweb Big
+		$avg = array_sum($footer['d3'])/6;
+		for($i=0;$i<6;$i++){
+			$footer['avg'][] = $avg;
+		}
 		//------------------------------------------------
 		$faktor = $this->Indikator_luftman->select_all()->result_array();
 		for ($i=1; $i <= 6 ; $i++) { 
@@ -123,6 +137,7 @@ class Admin extends CI_Controller {
 					}
 				}
 				$footer['d4'][$i]['data'][] = $temp/$count;
+				$footer['d4'][$i]['avg'][] = $avg;
 			}
 		}
 		//---- Faktor Pendukung dan Penghambat

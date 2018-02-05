@@ -40,7 +40,7 @@
     <div id="wrapper">
 
         <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0;background-color: #998675;">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -48,14 +48,14 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Aplikasi Tingkat Kesiapan TI Organisasi</a>
+                <a class="navbar-brand" href="index.html" style="color:white;">Aplikasi Tingkat Kesiapan TI Organisasi</a>
             </div>
             <!-- /.navbar-header -->
 
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color:white;">
+                        <i class="fa fa-bell fa-fw" style="color:white;"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-alerts">
                         <li>
@@ -70,7 +70,7 @@
                         <li>
                             <a href="#">
                                 <div>
-                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                    <i class="fa fa-twitter fa-fw" ></i> 3 New Followers
                                     <span class="pull-right text-muted small">12 minutes ago</span>
                                 </div>
                             </a>
@@ -114,8 +114,8 @@
                 </li>
                 <!-- /.dropdown -->
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color:white;">
+                        <i class="fa fa-user fa-fw" style="color:white;"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
@@ -157,30 +157,29 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                       <li>
-                            <a href="#"><i class="fa fa-table fa-fw"></i> Tabel Responden<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="flot.html">Perguruan Tinggi</a>
-                                </li>
-                                <li>
-                                    <a href="morris.html">Non Perguruan Tinggi</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i> Indikator Penilaian<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="panels-wells.html">Lihat Daftar Indikator Penilaian</a>
-                                </li>
-                                <li>
-                                    <a href="buttons.html">Tambah Indikator Penilaian</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
+
+<!--                        <li>
+     <a href="#"><i class="fa fa-table fa-fw"></i> Tabel Responden<span class="fa arrow"></span></a>
+     <ul class="nav nav-second-level">
+         <li>
+             <a href="flot.html">Perguruan Tinggi</a>
+         </li>
+         <li>
+             <a href="morris.html">Non Perguruan Tinggi</a>
+         </li>
+     </ul>
+ </li>
+ <li>
+     <a href="#"><i class="fa fa-wrench fa-fw"></i> Indikator Penilaian<span class="fa arrow"></span></a>
+     <ul class="nav nav-second-level">
+         <li>
+             <a href="panels-wells.html">Lihat Daftar Indikator Penilaian</a>
+         </li>
+         <li>
+             <a href="buttons.html">Tambah Indikator Penilaian</a>
+         </li>
+     </ul>
+ </li> -->
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

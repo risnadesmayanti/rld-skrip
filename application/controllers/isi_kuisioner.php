@@ -29,7 +29,7 @@ class Isi_kuisioner extends CI_Controller {
 		//echo $data2['username'];
 		// print_r($data2[0]);
 		//var_dump($data['faktor_indikator']);
-		 $this->load->view('user/kuisioner', $data);
+		 $this->load->view('user/kuisioner2', $data);
 		
 		// $data2['indikator_luftman'] = $this->Indikator_luftman->select_by_id($id_agenda)->row(); 
 		// $this->load->view('user/table_kuisioner', $data2);

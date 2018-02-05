@@ -13,7 +13,12 @@ class User extends CI_Model {
   function cek_val($where){
       return $this->db->get_where($this->tableName,$where);
   }
-
+  public function selectAll(){
+    $this->db->select('*');
+    $this->db->from($this->tableName);
+    // $this->db->where('username',$username);
+    return $this->db->get();
+  }
   public function selectByUsername($username){
     $this->db->select('*');
     $this->db->from($this->tableName);
