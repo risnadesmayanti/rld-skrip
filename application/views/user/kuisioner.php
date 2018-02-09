@@ -92,11 +92,11 @@
                                       <td><?php echo $row2->descript; ?></td>
                                         <?php } ?>
                                       <?php //for ($i=0; $i < 5 ; $i++) { ?>
-                                        <td><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=1> a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>] Belum ada, tidak sesuai dengan organisasi</td>
-                                        <td><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=2> a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>] Sesuai, hanya saja tingkatannya masih rendah</td>
-                                        <td><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=3> a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>] Moderat, sesuai untuk organisasi dalam tingkatan menengah</td>
-                                        <td><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=4> a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>] Sesuai, untuk sebagian besar organisasi</td>
-                                        <td><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=5> a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>] Tingkat kuat, sesuai di seluruh bagian organisasi</td>
+                                        <td><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=1>  Belum ada, tidak sesuai dengan organisasi</td>
+                                        <td><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=2>  Sesuai, hanya saja tingkatannya masih rendah</td>
+                                        <td><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=3>  Moderat, sesuai untuk organisasi dalam tingkatan menengah</td>
+                                        <td><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=4>  Sesuai, untuk sebagian besar organisasi</td>
+                                        <td><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=5>  Tingkat kuat, sesuai di seluruh bagian organisasi</td>
                                       <?php //} ?>
                                      <?php } ?>
                                       

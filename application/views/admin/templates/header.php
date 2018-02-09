@@ -157,6 +157,21 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
+                         <li>
+                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Diagram Setiap Indikator <span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="<?php echo site_url('index.php/admin/diagramPTN') ?>">Perguruan Tinggi Negeri</a>
+                                </li>
+                                <li>
+                                    <a href="<?php echo site_url('index.php/admin/diagramPTS') ?>">Perguruan Tinggi Swasta</a>
+                                </li>
+                                <li>
+                                    <a href="morris.html">Non Perguruan Tinggi</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
 
 <!--                        <li>
      <a href="#"><i class="fa fa-table fa-fw"></i> Tabel Responden<span class="fa arrow"></span></a>

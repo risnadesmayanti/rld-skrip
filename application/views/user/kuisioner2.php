@@ -30,9 +30,9 @@
 <body id="page-top">
 
 		<!-- Navigation -->
-		<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color: black">
+		<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color: #998675">
 			<div class="container">
-				<a class="navbar-brand js-scroll-trigger" href="#page-top" style="font-family: helvetica; color: #ffffff; vertical-align: middle;">Aplikasi Penyelarasan Kondisi Perusahaan</a>
+				<a class="navbar-brand" href="#page-top" style="font-family: helvetica; color: #ffffff; vertical-align: middle;">Aplikasi Penyelarasan Kondisi Perusahaan</a>
 			</div>
 		</nav>
 				<div class="container">
@@ -75,18 +75,18 @@
 												<tr>
 													<td></td>
 													<td><?php echo $row2->descript; ?></td>
-																			<td><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=1> a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>] Belum ada, tidak sesuai dengan organisasi</td>
-                                        <td><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=2> a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>] Sesuai, hanya saja tingkatannya masih rendah</td>
-                                        <td><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=3> a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>] Moderat, sesuai untuk organisasi dalam tingkatan menengah</td>
-                                        <td><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=4> a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>] Sesuai, untuk sebagian besar organisasi</td>
-                                        <td><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=5> a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>] Tingkat kuat, sesuai di seluruh bagian organisasi</td>
+																			<td><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=1>  Belum ada, tidak sesuai dengan organisasi</td>
+                                        <td><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=2>  Sesuai, hanya saja tingkatannya masih rendah</td>
+                                        <td><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=3>  Moderat, sesuai untuk organisasi dalam tingkatan menengah</td>
+                                        <td><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=4>  Sesuai, untuk sebagian besar organisasi</td>
+                                        <td><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=5>  Tingkat kuat, sesuai di seluruh bagian organisasi</td>
 												</tr>
 											
 											<?php }} ?>
 										<?php }} ?>
 										</tbody>
 									</table>
-                  <input type="submit" name="" value="simpan">
+                  <center><input type="submit" name="" value="Simpan Tanggapan" class="btn btn-sm btn-primary" alignment="center"></center>
 
 									<?php echo form_close(); ?>
 									</div>
