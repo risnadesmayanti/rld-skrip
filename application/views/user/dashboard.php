@@ -31,68 +31,17 @@
     </style>
 </head>
 <body id="page-top">
-
-<!-- <nav class="navbar navbar-default" style="background-color: #998675;">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-<!--     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Brand</a>
-    </div> -->
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1"> -->
-      <!-- <ul class="nav navbar-nav" > -->
-        <!-- <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li> -->
-        <!-- <li><a href="#">Link</a></li> -->
-        <!-- <li class="dropdown"> -->
-          <!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a> -->
-          <!-- <ul class="dropdown-menu"> -->
-            <!-- <li><a href="#">Action</a></li> -->
-            <!-- <li><a href="#">Another action</a></li> -->
-            <!-- <li><a href="#">Something else here</a></li> -->
-            <!-- <li role="separator" class="divider"></li> -->
-            <!-- <li><a href="#">Separated link</a></li> -->
-            <!-- <li role="separator" class="divider"></li> -->
-            <!-- <li><a href="#">One more separated link</a></li> -->
-          <!-- </ul> -->
-        <!-- </li> -->
-      <!-- </ul> -->
-      <!-- <form class="navbar-form navbar-left"> -->
-        <!-- <div class="form-group"> -->
-          <!-- <input type="text" class="form-control" placeholder="Search"> -->
-        <!-- </div> -->
-        <!-- <button type="submit" class="btn btn-default">Submit</button> -->
-      <!-- </form> -->
-   <!--    <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-          </ul>
-        </li>
-      </ul> -->
-    <!-- </div>/.navbar-collapse -->
-  <!-- </div>/.container-fluid -->
-<!-- </nav> --> 
+  
+  <!-- Navigation -->
 
     <!-- Header -->
     <header class="masthead">
       <div class="container">
         <div class="intro-text">
           <div class="intro-heading text-uppercase">Selamat datang di aplikasi SISP !</div>
-          <div class="intro-lead-in">Klik tombol dibawah untuk mengisi</div>
-          <button class="btn btn-info btn-xl text-uppercase" type="button" data-toggle="modal" data-target="#myModal">Mulai isi !</button>
+          <br>
+          <div class="intro-lead-in" style="font-size: 25px;">Klik tombol dibawah <br>untuk mengisi !</div>
+          <button class="btn btn-primary btn-xl text-uppercase" type="button" data-toggle="modal" data-target="#myModal">Mulai isi !</button>
         </div>
       </div>
     </header>
@@ -113,19 +62,23 @@
                   
                 </div>
                 <div class="form-group">
-                <label for="masukkanJabatan">Divisi :</label>
+                <label for="masukkanJabatan">Jabatan Pekerjaan :</label>
                 <!-- <input type="text" name="jabatan" class="form-control" placeholder="Masukkan jabatan anda saat ini"><br> -->
                 <select class="form-control" name="divisi">
                     <!-- fungsional -->
-                    <option value="" disabled selected hidden>Pilih divisi anda saat ini </option>
-                    <option value="Dewan Direksi">Dewan Direksi</option>
-                    <option value="Manajer">Manajer</option>
-                    <option value="Departemen Humas">Departemen Humas</option>
-                    <option value="Departemen RD">Departemen Riset dan Pengembangan</option>
-                    <option value="Departemen Teknologi Informasi">Departemen Teknologi Informasi</option>
-                    <option value="Departemen Personalia">Departemen Personalia</option>
-                    <option value="Departemen Pemasaran">Departemen Pemasaran</option>
-                    <option value="Administrasi">Administrasi</option>
+                    <option value="" disabled selected hidden>Pilih jabatan posisi anda saat ini </option>
+                    <optgroup label="Bidang akademik, perencanaan dan kerjasama">
+                      
+                      <option value="Bagian Akademik dan Statistik">Bagian Akademik dan Statistik</option>
+                      <option value="Bagian Kemahasiswaan dan Humas">Bagian Kemahasiswaan dan Humas</option>
+                      <option value="Bagian Perencanaan dan Kerjasama">Bagian Perencanaan dan Kerjasama</option>
+                    </optgroup>
+                    <optgroup label="Bidang umum dan keuangan">
+                    <option value="Bagian Umum dan Keuangan">Bagian Umum dan Keuangan</option>
+                    <option value="Bagian Kepegawaian">Bagian Kepegawaian</option>
+                    <option value="Bagian Keuangan">Bagian Keuangan</option>
+                    <option value="Bagian Tata Usaha">Bagian Tata Usaha</option>
+                  </optgroup>
                     <!-- end of fungsional -->
                 </select>
           
@@ -135,22 +88,39 @@
                   
                 <div class="form-group">
                   <table>
+                    <br>
                     <th class="warning">Pilih Jawaban untuk Pertanyaan di bawah ini :</th>
                     <tr class=" ">
                       <td>
                         <p>Apakah anda pernah mengikuti proses perencanaan strategis sistem informasi untuk organisasi ?</p>
+                        <div class="radio">
+                          <label>
                         <input type="radio" name="a1" value=1>Ya, pernah <br>
-                        <input type="radio" name="a1" value=0>Tidak <br><br>
+                          </label>
+                        </div>
+                        <div class="radio">
+                          <label>
+                        <input type="radio" name="a1" value=0>Tidak <br>
+                          </label>
+                        </div>
                       </td>
                     </tr>
                     <tr class=" ">
                       <td>
                         <p>Termasuk ke dalam kategori mana enterprise / organisasi anda?</p>
-                        <input type="radio" name="e1" value=1>Perguruan Tinggi Negeri<br>
-                        <input type="radio" name="e1" value=2>Perguruan Tinggi Swasta<br>
-                        <input type="radio" name="e1" value=3>Bidang Kesehatan<br>
+                        <div class="radio">
+                          <label>
+                            <input type="radio" name="e1" value=1>Perguruan Tinggi Negeri<br>
+                          </label>
+                        </div>
+                        <div class="radio">
+                          <label>
+                            <input type="radio" name="e1" value=2>Perguruan Tinggi Swasta<br>
+                          </label>
+                        </div>
+                       <!--  <input type="radio" name="e1" value=3>Bidang Kesehatan<br>
                         <input type="radio" name="e1" value=4>Bidang Pariwisata<br>
-                        <input type="radio" name="e1" value=5>Bidang Pemerintahan<br>
+                        <input type="radio" name="e1" value=5>Bidang Pemerintahan<br> -->
                       </td>
                     </tr>
                   </table>

@@ -30,13 +30,17 @@
 <body id="page-top">
 
 		<!-- Navigation -->
-		<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color: #998675">
+		<nav class="navbar fixed-top" style="background-color: #998675">
 			<div class="container">
 				<a class="navbar-brand" href="#page-top" style="font-family: helvetica; color: #ffffff; vertical-align: middle;">Aplikasi Penyelarasan Kondisi Perusahaan</a>
 			</div>
 		</nav>
 				<div class="container">
-					<div class="panel panel-primary">
+					<div class="alert alert-success">
+						<p>Selamat datang, <strong><?php foreach ($user as $key) { echo $key->username." "; } ?> !</strong> silahkan isi penilaian tingkat kematangan penyelarasan strategi organisasi dan strategi Sistem Informasi dibawah ini                     
+	                  	</p><br>
+	                  </div>
+					<div class="panel panel-default">
 						<div class="panel-heading">
 								 <h3 class="panel-title"><span class="fa fa-edit aria-hidden="true"></span>&nbsp;&nbsp;Daftar Penilaian Menggunakan Model Luftman </h3>
 						</div>
@@ -50,7 +54,9 @@
 	           <?php foreach ($faktor_luftman as $f_luftman) { ?>
 							<div role="tabpanel" class="tab-pane" id="<?php echo $f_luftman->href; ?>">
 								<div class="col-lg-12">
+									<p align="justify"><br>
 								<?php echo $f_luftman->descript."<br/>"; ?>
+							</p>
 								<br>
 									<div class="table-responsive">
 									<?php echo form_open('index.php/isi_kuisioner/process_measurement'); ?>
