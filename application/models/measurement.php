@@ -63,21 +63,28 @@ class Measurement extends CI_Model {
     }    
 
 
-  //   function select_by_idf($id_indicator){        
-  //   	$this->db->select('*'); 
-  //   	$this->db->from('t_indicator_luftman'); 
-  //   	$this->db->where('idf', $id_indicator);
-		
-		// return $this->db->get();
-  //   } 
+   function standard_deviation($aValues)
+    {
+        $fMean = array_sum($aValues) / count($aValues);
+        //print_r($fMean);
+        $fVariance = 0.0;
+        foreach ($aValues as $i)
+        {
+            $fVariance += pow($i - $fMean, 2);
 
-  //   function select_by_id2($id_indicator){        
-  //   	$this->db->select('*'); 
-  //   	$this->db->from('t_indicator_luftman'); 
-  //   	$this->db->where('idf', $id_indicator);
-		
-		// return $this->db->get();
-  //   } 
+        }       
+        $size = count($aValues) - 1;
+        return (float) sqrt($fVariance)/sqrt($size);
+    }
+  public function getLevel($data,$val){
+    $avg = array_sum($data)/count($data);
+    $std = $this->standard_deviation($data);
+    if($val <= $avg-(1.5*$std)) return 1;
+    else if($val > $avg-(1.5*$std) && $val <= $avg-(0.5*$std)) return 2;
+    else if($val > $avg-(0.5*$std) && $val <= $avg+(0.5*$std)) return 3;
+    else if($val > $avg+(0.5*$std) && $val <= $avg+(1.5*$std)) return 4;
+    else if($val > $avg+(1.5*$std)) return 5;
+  }
 
     function update_value($id_indicator, $data){ 
     	$this->db->where('id_user', $id_indicator); 

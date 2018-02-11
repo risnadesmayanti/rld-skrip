@@ -1,7 +1,7 @@
  <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Admin extends CI_Controller {
-	
+
 	public function index(){
 
 		$data = Array();
@@ -70,7 +70,7 @@ class Admin extends CI_Controller {
 				}
 				$footer['d2'][$i]['data'][] = $temp/$count;
 				$footer['d2'][$i]['avg'][] = $avg;
- 			}
+			}
 		}
 
 		//---- Faktor Pendukung dan Penghambat
@@ -79,7 +79,7 @@ class Admin extends CI_Controller {
 			foreach($footer['d2'][$i]['data'] as $key=>$row){
 				if($row<$avg){
 					$data['penghambat'][$i][$count]['nama'] = $footer['d2'][$i]['cat'][$key]; 
-					$data['penghambat'][$i][$count]['level'] = (int)$footer['d2'][$i]['data'][$key]; 
+					$data['penghambat'][$i][$count]['level'] = $this->Measurement->getLevel($footer['d1'],$footer['d2'][$i]['data'][$key]); 
 					$count++;
 				}
 			}
@@ -148,7 +148,7 @@ class Admin extends CI_Controller {
 			foreach($footer['d4'][$i]['data'] as $key=>$row){
 				if($row<$avg){
 					$data['penghambat'][$i][$count]['nama'] = $footer['d4'][$i]['cat'][$key]; 
-					$data['penghambat'][$i][$count]['level'] = (int)$footer['d4'][$i]['data'][$key]; 
+					$data['penghambat'][$i][$count]['level'] = $this->Measurement->getLevel($footer['d3'],$footer['d4'][$i]['data'][$key]); 
 					$count++;
 				}
 			}
@@ -157,6 +157,29 @@ class Admin extends CI_Controller {
 		$this->load->view('admin/pts',$data);
 		$this->load->view('admin/templates/footer',$footer);
 	}	
+
+	public function diagramLPTN(){
+		//-- PTN
+		//Big one
+		$dbtemp = $this->Measurement->diagramAll(1)->result_array();
+		for($i = 1; $i <= 6; $i++){
+			$temp = 0;
+			$count = 0;
+			foreach($dbtemp as $row){
+				if($row['idf'] == $i){
+					$temp+=$row['value'];
+					$count++;
+				}
+			}
+			// echo $temp."/".$count;
+			// echo "<br/>";
+			$footer['d1'][] = $temp/$count;
+		}
+		var_dump($this->Measurement->getLevel($footer['d1'],3.4));
+		// var_dump($footer['d1']);
+	}
+	public function diagramLPTS(){
+	}
 
 	public function indikatorAll(){
 		$x = $this->Indikator_luftman->select_all_join_faktor()->result_array();
