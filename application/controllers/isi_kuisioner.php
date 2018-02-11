@@ -8,6 +8,7 @@ class Isi_kuisioner extends CI_Controller {
 	}
 	public function index()
 	{
+		// var_dump($_SESSION);
 		$data['faktor_luftman'] = $this->Faktor_luftman->select_all()->result();
 		$data['faktor_indikator'] = $this->Faktor_luftman->join_indikator()->result();
 		$data['indikator_likert'] = $this->Likert_luftman->join_indikator()->result();

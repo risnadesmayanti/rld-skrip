@@ -58,13 +58,13 @@
               <!-- <form action="<?php //echo base_url(). 'index.php/login/proses_tambah_user'; ?>" role="form" method="post"> -->
                 <div class="form-group">
                <label for="masukkanNama">Nama Pengguna : </label> 
-               <input type="text" name="username" class="form-control" placeholder="Masukkan nama anda"><br>
+               <input type="text" name="username" class="form-control" placeholder="Masukkan nama anda" required=""><br>
                   
                 </div>
                 <div class="form-group">
                 <label for="masukkanJabatan">Jabatan Pekerjaan :</label>
                 <!-- <input type="text" name="jabatan" class="form-control" placeholder="Masukkan jabatan anda saat ini"><br> -->
-                <select class="form-control" name="divisi">
+                <select class="form-control" name="divisi" required="">
                     <!-- fungsional -->
                     <option value="" disabled selected hidden>Pilih jabatan posisi anda saat ini </option>
                     <optgroup label="Bidang akademik, perencanaan dan kerjasama">
@@ -95,12 +95,12 @@
                         <p>Apakah anda pernah mengikuti proses perencanaan strategis sistem informasi untuk organisasi ?</p>
                         <div class="radio">
                           <label>
-                        <input type="radio" name="a1" value=1>Ya, pernah <br>
+                        <input type="radio" name="a1" value=1 required="">Ya, pernah <br>
                           </label>
                         </div>
                         <div class="radio">
                           <label>
-                        <input type="radio" name="a1" value=0>Tidak <br>
+                        <input type="radio" name="a1" value=0>Tidak<br>
                           </label>
                         </div>
                       </td>
@@ -110,7 +110,7 @@
                         <p>Termasuk ke dalam kategori mana enterprise / organisasi anda?</p>
                         <div class="radio">
                           <label>
-                            <input type="radio" name="e1" value=1>Perguruan Tinggi Negeri<br>
+                            <input type="radio" name="e1" value=1 required="">Perguruan Tinggi Negeri<br>
                           </label>
                         </div>
                         <div class="radio">

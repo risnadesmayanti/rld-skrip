@@ -37,7 +37,7 @@
 		</nav>
 				<div class="container">
 					<div class="alert alert-success">
-						<p>Selamat datang, <strong><?php foreach ($user as $key) { echo $key->username." "; } ?> !</strong> silahkan isi penilaian tingkat kematangan penyelarasan strategi organisasi dan strategi Sistem Informasi dibawah ini                     
+						<p>Selamat datang, <strong><?php echo $user; ?> !</strong> silahkan isi penilaian tingkat kematangan penyelarasan strategi organisasi dan strategi Sistem Informasi dibawah ini                     
 	                  	</p><br>
 	                  </div>
 					<div class="panel panel-default">
@@ -57,10 +57,9 @@
 									<p align="justify"><br>
 								<?php echo $f_luftman->descript."<br/>"; ?>
 							</p>
-								<br>
 									<div class="table-responsive">
 									<?php echo form_open('index.php/isi_kuisioner/process_measurement'); ?>
-									<table class="table table-bordered">
+									<table class="table table-striped" style="font-family: 'Times New Roman', Times, serif; font-size:15px;">
 										<thead>
 											<tr>
 												<th>Komponen Penilaian</th>
@@ -71,10 +70,10 @@
 										<?php foreach($faktor_indikator as $row){  
 											if($row->idf == $f_luftman->id){?>
 											<tr>
-												<td>
+												<td class="warning">
 													<?php echo $row->indicator; ?>
 												</td>
-												<td colspan="6"><?php echo $row->pertanyaan; ?></td>
+												<td colspan="6" class="warning"><?php echo $row->pertanyaan; ?></td>
 											</tr>
 											<?php foreach($indikator_likert as $row2){ 
 												if($row2->idin == $row->id && $row2->idf == $f_luftman->id){?>
@@ -113,9 +112,16 @@
 		<script src="<?php echo base_url(); ?>/assets/js/jqBootstrapValidation.js"></script>
 		<script src="<?php echo base_url(); ?>/assets/js/contact_me.js"></script>
 		<!-- Custom scripts for this template -->
-		<script src="<?php echo base_url(); ?>/assets/js/agency.min.js"></script>
+		<!-- <script src="<?php echo base_url(); ?>/assets/js/agency.min.js"></script> -->
 		<script>
 			$('#someTab').tab('show')
+			function activaTab(tab){
+				$('.nav-tabs a[href="#' + tab + '"]').tab('show');
+			};
+			$(document).ready(function() {
+				//jquery
+				activaTab($(location).attr('href').split('#')[1]);
+			});
 		</script>
 </body>
 </html>

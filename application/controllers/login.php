@@ -61,10 +61,12 @@ class Login extends CI_Controller {
 
 			if ($cek > 0) {
 				
-				$this->User->insert($data);
 				
-				$id_user = $this->db->query('select id from t_user where id = (select MAX(id) from t_user)')->result();
-				$username_user = $this->db->query('select username from t_user where id = (select MAX(id) from t_user)')->result();
+				
+				// $id_user = $this->db->query('select id from t_user where id = (select MAX(id) from t_user)')->result();
+				// $username_user = $this->db->query('select username from t_user where id = (select MAX(id) from t_user)')->result();
+				$id_user = $this->User->insert($data);
+				$username_user = $data['username'];
 				
 				$data_session = array(
 					'id' => $id_user,
@@ -78,7 +80,7 @@ class Login extends CI_Controller {
 				$this->session->set_userdata($data_session);
 				// print_r($data_session);
 
-				redirect('index.php/isi_kuisioner');
+				redirect('index.php/isi_kuisioner#komunikasi');
 
 				// $data2['faktor_luftman'] = $this->Faktor_luftman->select_all()->result();
 				// $data2['faktor_indikator'] = $this->Faktor_luftman->join_indikator()->result();
@@ -87,26 +89,8 @@ class Login extends CI_Controller {
 				// $this->load->view('user/kuisioner',$data2);
 			
 			}else{
-				$this->load->view('user/dashboard');
-				
+				redirect('/');
 			}
-
-			// echo($cek)."<br>";
-			
-			// for ($i=1; $i <7 ; $i++) { 
-			// 	# code...
-			// 	$this->db->query('update t_measurement set idin='.$i.' where idin=0');
-			// }
-
-		
-//			$data2['measurement'] = $this->Measurement->join_measurement_user()->result();
-
-			// var_dump($row);
-
-			//insert ke measurement select id_user
-			// $data = $this->
-
-			//echo "Form validation oke";
 		}else{
 			$this->load->view('user/dashboard');
 		}

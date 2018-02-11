@@ -34,6 +34,8 @@ class User extends CI_Model {
 
   public function insert($data){
     $this->db->insert($this->tableName,$data);
+
+    return $this->db->insert_id();
   }
   
   public function update($id,$data){
