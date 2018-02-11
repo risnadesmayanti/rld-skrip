@@ -25,27 +25,57 @@
 
 		<!-- Custom styles for this template -->
 		<link href="<?php echo base_url(); ?>/assets/css/agency.min.css" rel="stylesheet">
+		<link href="<?php echo base_url(); ?>assets/admin/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="<?php echo base_url(); ?>assets/admin/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+		<link href="<?php echo base_url(); ?>assets/admin/dist/css/sb-admin-2.css" rel="stylesheet">
+		<link href="<?php echo base_url(); ?>assets/admin/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	
 
 </head>
 <body id="page-top">
 
 		<!-- Navigation -->
-		<nav class="navbar fixed-top" style="background-color: #998675">
-			<div class="container">
-				<a class="navbar-brand" href="#page-top" style="font-family: helvetica; color: #ffffff; vertical-align: middle;">Aplikasi Penyelarasan Kondisi Perusahaan</a>
-			</div>
-		</nav>
+		<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 2%;background-color: #998675;">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html" style="color:white;">Aplikasi Tingkat Kesiapan TI Organisasi</a>
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul class="nav navbar-top-links navbar-right">
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color:white;">
+                        <i class="fa fa-user fa-fw" style="color:white;"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li><a href="#"><i class="fa fa-user fa-fw"></i>Tentang Aplikasi</a>
+                        </li>
+                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        </li>
+                    </ul>
+                    <!-- /.dropdown-user -->
+                </li>
+                <!-- /.dropdown -->
+            </ul>
+            <!-- /.navbar-top-links -->
+</nav>
 				<div class="container">
 					<div class="alert alert-success">
 						<p>Selamat datang, <strong><?php foreach ($user as $key) { echo $key->username." "; } ?> !</strong> silahkan isi penilaian tingkat kematangan penyelarasan strategi organisasi dan strategi Sistem Informasi dibawah ini                     
 	                  	</p><br>
 	                  </div>
-					<div class="panel panel-default">
+					<div class="panel panel-info">
 						<div class="panel-heading">
 								 <h3 class="panel-title"><span class="fa fa-edit aria-hidden="true"></span>&nbsp;&nbsp;Daftar Penilaian Menggunakan Model Luftman </h3>
 						</div>
 						<div class="panel-body">
-							<ul id="someTab"class="nav nav-tabs" role="tablist">
+							<ul id="someTab" class="nav nav-tabs" role="tablist">
 								<?php foreach ($faktor_luftman as $f_luftman) { ?>
 <li role="presentation" class=""><a href="#<?php echo $f_luftman->href ?>" aria-controls="<?php echo $f_luftman->href ?>" role="tab" data-toggle="tab"><?php echo $f_luftman->factor ?></a></li>
 								<?php } ?>
