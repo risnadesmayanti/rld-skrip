@@ -84,12 +84,6 @@ class Admin extends CI_Controller {
 				}
 			}
 		}
-		// echo "<pre>";
-		// echo print_r($avg);
-		// echo var_dump($data['penghambat']);
-		// echo "<pre/>";
-		// if(count($data['pendukung']) > count($data['penghambat'])) $long = count($data['pendukung']); else $long = count($data['penghambat']);
-		// $data['long'] = $long;
 
 		$this->load->view('admin/templates/header');
 		$this->load->view('admin/ptn',$data);
@@ -159,8 +153,7 @@ class Admin extends CI_Controller {
 	}	
 
 	public function diagramLPTN(){
-		//-- PTN
-		//Big one
+		$data = array();
 		$dbtemp = $this->Measurement->diagramAll(1)->result_array();
 		for($i = 1; $i <= 6; $i++){
 			$temp = 0;
@@ -171,14 +164,83 @@ class Admin extends CI_Controller {
 					$count++;
 				}
 			}
-			// echo $temp."/".$count;
-			// echo "<br/>";
-			$footer['d1'][] = $temp/$count;
+			$avgAll[] = $temp/$count;
 		}
-		var_dump($this->Measurement->getLevel($footer['d1'],3.4));
-		// var_dump($footer['d1']);
+		for($i = 1; $i <= 6; $i++){
+			$footer['b1'][] = $this->Measurement->getLevel($avgAll,$avgAll[$i-1]);
+		}
+		//------------------------------------------------ 
+		// 6 Diagram Faktor
+		$indikator = $this->Indikator_luftman->select_all()->result_array();
+		for ($i=1; $i <= 6 ; $i++) { 
+			foreach($indikator as $row){
+				if($row['idf'] == $i){
+					$footer['b2'][$i]['cat'][] = $row['indicator'];
+				}
+			}
+			$ind = $this->Indikator_luftman->select_by_idf($i)->result_array();
+			$vFaktor = $this->Measurement->diagramFaktor(1,$i)->result_array(); // 1 means PTN
+			foreach($ind as $row){
+				$count = 0;
+				$temp = 0;
+				foreach($vFaktor as $row2){
+					if($row['id'] == $row2['idin']){
+						$temp+=$row2['value'];
+						$count++;
+					}
+				}
+				$footer['b2'][$i]['data'][] = $this->Measurement->getLevel($avgAll,$temp/$count);
+			}
+			// var_dump($footer['b2']);
+		}
+		$this->load->view('admin/templates/header');
+		$this->load->view('admin/ptnb',$data);
+		$this->load->view('admin/templates/footer',$footer);
 	}
 	public function diagramLPTS(){
+		$data = array();
+		$dbtemp = $this->Measurement->diagramAll(2)->result_array();
+		for($i = 1; $i <= 6; $i++){
+			$temp = 0;
+			$count = 0;
+			foreach($dbtemp as $row){
+				if($row['idf'] == $i){
+					$temp+=$row['value'];
+					$count++;
+				}
+			}
+			$avgAll[] = $temp/$count;
+		}
+		for($i = 1; $i <= 6; $i++){
+			$footer['b3'][] = $this->Measurement->getLevel($avgAll,$avgAll[$i-1]);
+		}
+		//------------------------------------------------ 
+		// 6 Diagram Faktor
+		$indikator = $this->Indikator_luftman->select_all()->result_array();
+		for ($i=1; $i <= 6 ; $i++) { 
+			foreach($indikator as $row){
+				if($row['idf'] == $i){
+					$footer['b4'][$i]['cat'][] = $row['indicator'];
+				}
+			}
+			$ind = $this->Indikator_luftman->select_by_idf($i)->result_array();
+			$vFaktor = $this->Measurement->diagramFaktor(2,$i)->result_array(); // 1 means PTN
+			foreach($ind as $row){
+				$count = 0;
+				$temp = 0;
+				foreach($vFaktor as $row2){
+					if($row['id'] == $row2['idin']){
+						$temp+=$row2['value'];
+						$count++;
+					}
+				}
+				$footer['b4'][$i]['data'][] = $this->Measurement->getLevel($avgAll,$temp/$count);
+			}
+			// var_dump($footer['b2']);
+		}
+		$this->load->view('admin/templates/header');
+		$this->load->view('admin/ptsb',$data);
+		$this->load->view('admin/templates/footer',$footer);	
 	}
 
 	public function indikatorAll(){

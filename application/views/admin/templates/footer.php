@@ -18,7 +18,116 @@
     <script src="<?php echo base_url(); ?>assets/admin/js/exporting.js"></script>
     <script type="text/javascript">
         $(function() {
-            <?php if(isset($graph1)){ ?>
+        /**
+         * (c) 2010-2017 Torstein Honsi
+         *
+         * License: www.highcharts.com/license
+         * 
+         * Sand-Signika theme for Highcharts JS
+         * @author Torstein Honsi
+         */
+
+        Highcharts.createElement('link', {
+           href: 'https://fonts.googleapis.com/css?family=Signika:400,700',
+           rel: 'stylesheet',
+           type: 'text/css'
+        }, null, document.getElementsByTagName('head')[0]);
+
+        // Add the background image to the container
+        Highcharts.wrap(Highcharts.Chart.prototype, 'getContainer', function (proceed) {
+           proceed.call(this);
+           this.container.style.background =
+              'url(http://www.highcharts.com/samples/graphics/sand.png)';
+        });
+
+
+        Highcharts.theme = {
+           colors: ['#f45b5b', '#8085e9', '#8d4654', '#7798BF', '#aaeeee',
+              '#ff0066', '#eeaaee', '#55BF3B', '#DF5353', '#7798BF', '#aaeeee'],
+           chart: {
+              backgroundColor: null,
+              style: {
+                 fontFamily: 'Signika, serif'
+              }
+           },
+           title: {
+              style: {
+                 color: 'black',
+                 fontSize: '16px',
+                 fontWeight: 'bold'
+              }
+           },
+           subtitle: {
+              style: {
+                 color: 'black'
+              }
+           },
+           tooltip: {
+              borderWidth: 0
+           },
+           legend: {
+              itemStyle: {
+                 fontWeight: 'bold',
+                 fontSize: '13px'
+              }
+           },
+           xAxis: {
+              labels: {
+                 style: {
+                    color: '#6e6e70'
+                 }
+              }
+           },
+           yAxis: {
+              labels: {
+                 style: {
+                    color: '#6e6e70'
+                 }
+              }
+           },
+           plotOptions: {
+              series: {
+                 shadow: true
+              },
+              candlestick: {
+                 lineColor: '#404048'
+              },
+              map: {
+                 shadow: false
+              }
+           },
+
+           // Highstock specific
+           navigator: {
+              xAxis: {
+                 gridLineColor: '#D0D0D8'
+              }
+           },
+           rangeSelector: {
+              buttonTheme: {
+                 fill: 'white',
+                 stroke: '#C0C0C8',
+                 'stroke-width': 1,
+                 states: {
+                    select: {
+                       fill: '#D0D0D8'
+                    }
+                 }
+              }
+           },
+           scrollbar: {
+              trackBorderColor: '#C0C0C8'
+           },
+
+           // General
+           background2: '#E0E0E8'
+
+        };     
+        // Apply the theme
+        Highcharts.setOptions(Highcharts.theme);
+
+            <?php $faktor = [1=>'Komunikasi', 2=>'Kompetensi', 3=>'Tata Kelola', 4=>'Kerjasama',
+                        5=>'Arsitektur dan Ruang Lingkup', 6=>'Kemampuan'];if(isset($graph1)){ ?>
             Morris.Line({
                 element: 'morris-area-chart',
 
@@ -109,7 +218,7 @@
                 },
 
                 title: {
-                text: 'Maturity Level Faktor <?php echo $i; ?>',
+                text: 'Maturity Level Faktor <?php echo $faktor[$i]; ?>',
                 // y:100
                 },
 
@@ -147,7 +256,7 @@
                 }]
 
                 });
-            <?php echo "\n";}} ?>
+            <?php }} ?>
             <?php if(isset($d3)){ ?>
                 Highcharts.chart('containerpts', {
 
@@ -212,7 +321,7 @@
                 },
 
                 title: {
-                text: 'Maturity Level Faktor <?php echo $i; ?>',
+                text: 'Maturity Level Faktor <?php echo $faktor[$i]; ?>',
                 // y: 120,
                 },
 
@@ -250,7 +359,175 @@
                 }]
 
                 });
-            <?php echo "\n";}} ?>            
+            <?php }} ?>
+            <?php 
+            if(isset($b1)){ ?>
+            Highcharts.chart('batangptn', {
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'Maturity Level'
+                },
+                xAxis: {
+                    categories: [
+                        'Komunikasi', 'Kompetensi', 'Tata Kelola', 'Kerjasama',
+                        'Arsitektur dan Ruang Lingkup', 'Kemampuan'
+                    ],
+                    crosshair: true
+                },
+                yAxis: {
+                    min: 0,
+                    max: 5,
+                    title: {
+                        text: 'Level'
+                    }
+                },
+                tooltip: {
+                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name} : </td>' +
+                        '<td style="padding:0"><b>{point.y}</b></td></tr>',
+                    shared: true,
+                    useHTML: true,
+                },
+                plotOptions: {
+                    column: {
+                        pointPadding: 0.2,
+                        borderWidth: 0
+                    }
+                },
+                series: [{
+                    name: 'Readiness Level',
+                    data: <?php echo json_encode($b1); ?>,
+                    color: 'red'
+
+                }]
+            });
+            <?php } ?>
+
+            <?php 
+            if(isset($b2)){ $color=['blue','yellow','green','orange','black','purple'];$i=1;foreach($b2 as $row){?>
+                Highcharts.chart('btn'+<?php echo $i++; ?>, {
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'Maturity Level <?php echo $faktor[$i-1];?>'
+                },
+                xAxis: {
+                    categories: <?php echo json_encode($row['cat']); ?>,
+                    crosshair: true
+                },
+                yAxis: {
+                    min: 0,
+                    max: 5,
+                    title: {
+                        text: 'Level'
+                    }
+                },
+                tooltip: {
+                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name} : </td>' +
+                        '<td style="padding:0"><b>{point.y}</b></td></tr>',
+                    shared: true,
+                    useHTML: true,
+                },
+                plotOptions: {
+                    column: {
+                        pointPadding: 0.2,
+                        borderWidth: 0
+                    }
+                },
+                series: [{
+                    name: 'Readiness Level',
+                    data: <?php echo json_encode($row['data']); ?>,
+                    color: '<?php echo $color[$i-2];?>'
+
+                }]
+                 });
+            <?php }} ?>
+            <?php 
+            if(isset($b3)){ ?>
+            Highcharts.chart('batangpts', {
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'Maturity Level'
+                },
+                xAxis: {
+                    categories: [
+                        'Komunikasi', 'Kompetensi', 'Tata Kelola', 'Kerjasama',
+                        'Arsitektur dan Ruang Lingkup', 'Kemampuan'
+                    ],
+                    crosshair: true
+                },
+                yAxis: {
+                    min: 0,
+                    max: 5,
+                    title: {
+                        text: 'Level'
+                    }
+                },
+                tooltip: {
+                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name} : </td>' +
+                        '<td style="padding:0"><b>{point.y}</b></td></tr>',
+                    shared: true,
+                    useHTML: true,
+                },
+                plotOptions: {
+                    column: {
+                        pointPadding: 0.2,
+                        borderWidth: 0
+                    }
+                },
+                series: [{
+                    name: 'Readiness Level',
+                    data: <?php echo json_encode($b3); ?>,
+                    color: 'red'
+
+                }]
+            });
+            <?php } ?>
+
+            <?php 
+            if(isset($b4)){ $color=['blue','yellow','green','orange','black','purple'];$i=1;foreach($b4 as $row){?>
+                Highcharts.chart('bts'+<?php echo $i++; ?>, {
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'Maturity Level <?php echo $faktor[$i-1];?>'
+                },
+                xAxis: {
+                    categories: <?php echo json_encode($row['cat']); ?>,
+                    crosshair: true
+                },
+                yAxis: {
+                    min: 0,
+                    max: 5,
+                    title: {
+                        text: 'Level'
+                    }
+                },
+                tooltip: {
+                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name} : </td>' +
+                        '<td style="padding:0"><b>{point.y}</b></td></tr>',
+                    shared: true,
+                    useHTML: true,
+                },
+                plotOptions: {
+                    column: {
+                        pointPadding: 0.2,
+                        borderWidth: 0
+                    }
+                },
+                series: [{
+                    name: 'Readiness Level',
+                    data: <?php echo json_encode($row['data']); ?>,
+                    color: '<?php echo $color[$i-2];?>'
+
+                }]
+                 });
+            <?php }} ?>            
 
         });
 
