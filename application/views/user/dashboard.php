@@ -90,7 +90,7 @@
                 <div class="form-group">
                 <label for="masukkanJabatan">Enterprise / Organisasi / Perguruan Tinggi :</label>
                 <!-- <input type="text" name="jabatan" class="form-control" placeholder="Masukkan jabatan anda saat ini"><br> -->
-                <select class="form-control" name="divisi">
+                <select class="form-control" name="kategori">
                     <!-- fungsional -->
                     <option value="" disabled selected hidden>Pilih asal perguruan tinggi </option>
                     <optgroup label="Perguruan Tinggi Negeri">

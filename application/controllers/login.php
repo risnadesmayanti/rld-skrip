@@ -48,7 +48,7 @@ class Login extends CI_Controller {
 			$data['date_access'] = date("Y-m-d");
 			//	$data['jabatan'] = $this->input->post('jabatan');
 			$data['a1'] = $this->input->post('a1');
-			$data['kategori'] = $this->input->post('e1');
+			$data['kategori'] = $this->input->post('kategori');
 			$data['jabatan'] = $this->input->post('divisi');
 
 			
