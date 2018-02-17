@@ -82,7 +82,7 @@ fieldset, label { margin: 0; padding: 0; }
 <body id="page-top">
 
 		<!-- Navigation -->
-		<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 2%;background-color: #998675;">
+		<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 2%;background-color: #000000;">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
