@@ -33,7 +33,13 @@
 <style>
 @import url(http://fonts.googleapis.com/css?family=Roboto:500,100,300,700,400);
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
-
+.disabledTab{
+    pointer-events: none;
+}
+.blackhv:hover{
+    text-decoration: none;
+    background-color: #000;
+}
 fieldset, label { margin: 0; padding: 0; }
 /* body{ margin: 20px; } */
 /*h1 { font-size: 1.5em; margin: 10px; }
@@ -96,27 +102,27 @@ fieldset, label { margin: 0; padding: 0; }
 
             <ul class="nav navbar-top-links navbar-right">
                 <!-- /.dropdown -->
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color:white;">
-                        <i class="fa fa-user fa-fw" style="color:white;"></i> <i class="fa fa-caret-down"></i>
+                <li><a class="blackhv" href="#myModal" data-toggle="modal" data-target="#myModal" style="color:white;">
+                        <i class="glyphicon glyphicon-info-sign " style="color:white;"></i> Tentang Aplikasi</i>
                     </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#myModal" data-toggle="modal" data-target="#myModal"><i class="fa fa-user fa-fw"></i>Tentang Aplikasi</a>
-                        </li>
-                        <li><a href="#close" data-toggle="modal" data-target="#close"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-                        </li>
-                    </ul>
-                    <!-- /.dropdown-user -->
-                </li>
-                <!-- /.dropdown -->
+                 </li>
             </ul>
             <!-- /.navbar-top-links -->
 </nav>
 				<div class="container">
-					<div class="alert alert-success">
-						<p>Selamat datang, <strong><?php foreach ($user as $key) { echo $key->username." "; } ?> !</strong> silahkan isi penilaian tingkat kematangan penyelarasan strategi organisasi dan strategi Sistem Informasi dibawah ini                     
-	                  	</p><br>
-	                  </div>
+					<div class="alert alert-success alert-dismissible" role="alert">
+						 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h3>Selamat datang, <strong><?php echo $user; ?>.</strong><br></h3>
+						<?php if($this->session->userdata('counter') != 6){ ?>
+						Silahkan isi penilaian tingkat kematangan penyelarasan strategi organisasi dan strategi Sistem Informasi dibawah ini.<br>
+						<b style="color:red"><?php echo 6-$this->session->userdata('counter'); ?> Faktor Tersisa.</b>
+						<?php }else{ ?>
+						Harap Simpan link berikut untuk melihat hasil kematangan strategi organisasi di Instansi <?php echo $this->session->userdata('univ'); ?>.<br>
+						<a href="http://www.risna.com/index.php/enterprise/view/<?php echo md5($this->session->userdata('univ')); ?>" target="_blank" title="Link enterprise">www.risna.com/index.php/enterprise/view/<?php echo md5($this->session->userdata('univ')); ?></a><br>
+						<button class="btn btn-success" type="button" data-toggle="modal" data-target="#closez">Selesai</button>
+						<?php } ?>
+
+	        </div>
 					<div class="panel panel-default">
 						<div class="panel-heading">
 								 <h3 class="panel-title"><span class="fa fa-edit aria-hidden="true"></span>&nbsp;&nbsp;Daftar Penilaian Menggunakan Model Luftman </h3>
@@ -124,7 +130,7 @@ fieldset, label { margin: 0; padding: 0; }
 						<div class="panel-body">
 							<ul id="someTab" class="nav nav-tabs" role="tablist">
 								<?php foreach ($faktor_luftman as $f_luftman) { ?>
-<li role="presentation" class=""><a href="#<?php echo $f_luftman->href ?>" aria-controls="<?php echo $f_luftman->href ?>" role="tab" data-toggle="tab"><?php echo $f_luftman->factor ?></a></li>
+<li role="presentation" <?php if($this->session->userdata($f_luftman->href)){ echo "class='disabled disabledTab'";} ?>><a href="#<?php echo $f_luftman->href ?>" aria-controls="<?php echo $f_luftman->href ?>" role="tab" data-toggle="tab"><?php echo $f_luftman->factor ?></a></li>
 								<?php } ?>
 							</ul>
 						<div class="tab-content">
@@ -137,7 +143,7 @@ fieldset, label { margin: 0; padding: 0; }
 								<br>
 									<div class="table-responsive">
 									<?php echo form_open('index.php/isi_kuisioner/process_measurement'); ?>
-									<table class="table table-bordered">
+									<table class="table table-striped table-bordered">
 										<thead>
 											<tr>
 												<th>Komponen Penilaian</th>
@@ -158,7 +164,7 @@ fieldset, label { margin: 0; padding: 0; }
 												<tr>
 													<td></td>
 													<td><?php echo $row2->descript; ?></td>
-																			<td><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=1>  Belum ada, tidak sesuai dengan organisasi</td>
+																			<td><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=1 required="">  Belum ada, tidak sesuai dengan organisasi</td>
                                         <td><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=2>  Sesuai, hanya saja tingkatannya masih rendah</td>
                                         <td><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=3>  Moderat, sesuai untuk organisasi dalam tingkatan menengah</td>
                                         <td><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=4>  Sesuai, untuk sebagian besar organisasi</td>
@@ -169,6 +175,7 @@ fieldset, label { margin: 0; padding: 0; }
 										<?php }} ?>
 										</tbody>
 									</table>
+									<input type="hidden" name="href" value="<?php echo $f_luftman->href; ?>">
                   <center><input type="submit" name="" value="Simpan Tanggapan" class="btn btn-sm btn-primary" alignment="center"></center>
 
 									<?php echo form_close(); ?>
@@ -207,7 +214,7 @@ fieldset, label { margin: 0; padding: 0; }
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-<div class="modal fade" id="close" role="dialog" style="padding-top: 200px">
+<div class="modal fade" id="closez" role="dialog" style="padding-top: 200px">
 	    <div class="modal-dialog">
 	      	<div class="modal-content">
 	        	<div class="modal-body">
@@ -216,103 +223,61 @@ fieldset, label { margin: 0; padding: 0; }
 		          	<h5 align="center" style="color: grey;">Terimakasih Telah Mengisi Kuisioner ini !</h5>
 		          	</div>
 		          	
-		          	 <table align="center" style="width: 550px;">
-                    
+		          	 <table class="table">
+                   <?php echo form_open('login/logout'); ?>
                    <!--  <th class="warning">Pilih Jawaban untuk Pertanyaan di bawah ini :</th> -->
                    <tbody style="text-align: center;">
                     <tr class=" ">
-                      <td colspan="3" width="200px">
+                      <td colspan="3">
                         <p align="center">Bagaimana Penilaian Anda tentang Aplikasi?</p>
                       </td>
                     </tr>
                     <tr>
-                    	<td>Desain Antar Muka</td>
-                    	<td>Pemahaman Terhadap Isi Kuisioner</td>
-                    	<td>Kemudahan Pemakaian</td>
-                    </tr>
+                    	<td >Desain Antar Muka&nbsp;&nbsp;&nbsp;</td>
+                    	                    	</td>
+                  	<td >
+     <fieldset class="rating one">
+<input type="radio" id="star5" name="antarmuka" value="5" /><label for="star5" title="Rocks!"></label>
+<input type="radio" id="star4" name="antarmuka" value="4" /><label for="star4" title="Pretty good"></label>
+<input type="radio" id="star3" name="antarmuka" value="3" /><label for="star3" title="Meh"></label>
+<input type="radio" id="star2" name="antarmuka" value="2" /><label for="star2" title="Kinda bad"></label>
+<input type="radio" id="star1" name="antarmuka" value="1" /><label for="star1" title="Sucks big time"></label>
+    </fieldset>
+						</td>
+					</tr>
                     <tr>
-                    	<td>
-                    		<!-- <h1>Pure CSS Star Rating Widget</h1> -->
-							<fieldset class="rating">
-							    <input type="radio" id="star5" name="rating1" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
-							    <input type="radio" id="star4" name="rating1" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-							    <input type="radio" id="star3" name="rating1" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
-							    <input type="radio" id="star2" name="rating1" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-							    <input type="radio" id="star1" name="rating1" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
-							</fieldset>
-                    	</td>
-                  	<td>
-							<fieldset class="rating">
-							    <input type="radio" id="star5" name="rating2" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
-							    <input type="radio" id="star4" name="rating2" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-							    <input type="radio" id="star3" name="rating2" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
-							    <input type="radio" id="star2" name="rating2" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-							    <input type="radio" id="star1" name="rating2" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
-							</fieldset>
-                    	</td>
-               <!--        	<td>
-							<fieldset class="rating">
-							    <input type="radio" id="star5" name="rating3" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
-							    <input type="radio" id="star4" name="rating3" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-							    <input type="radio" id="star3" name="rating3" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
-							    <input type="radio" id="star2" name="rating3" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-							    <input type="radio" id="star1" name="rating3" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
-							</fieldset>
-                    	</td> -->
-                    	<!-- <td>
-                    		<div class="stars">
-								  <form action="">
-								    <input class="star star-5" id="star-5" type="radio" name="star"/>
-								    <label class="star star-5" for="star-5"></label>							
-								    <input class="star star-4" id="star-4" type="radio" name="star"/>
-								    <label class="star star-4" for="star-4"></label>
-								    <input class="star star-3" id="star-3" type="radio" name="star"/>
-								    <label class="star star-3" for="star-3"></label>
-								    <input class="star star-2" id="star-2" type="radio" name="star"/>
-								    <label class="star star-2" for="star-2"></label>
-								    <input class="star star-1" id="star-1" type="radio" name="star"/>
-								    <label class="star star-1" for="star-1"></label>
-								  </form>								
-							</div>
-                    	</td>
-                    	<td>
-                    		<div class="stars">
-								  <form action="">
-								    <input class="star star-5" id="star-5" type="radio" name="star"/>
-								    <label class="star star-5" for="star-5"></label>							
-								    <input class="star star-4" id="star-4" type="radio" name="star"/>
-								    <label class="star star-4" for="star-4"></label>
-								    <input class="star star-3" id="star-3" type="radio" name="star"/>
-								    <label class="star star-3" for="star-3"></label>
-								    <input class="star star-2" id="star-2" type="radio" name="star"/>
-								    <label class="star star-2" for="star-2"></label>
-								    <input class="star star-1" id="star-1" type="radio" name="star"/>
-								    <label class="star star-1" for="star-1"></label>
-								  </form>								
-							</div>
-                    	</td>
-                    	<td>
-                    		<div class="stars">
-								  <form action="">
-								    <input class="star star-5" id="star-5" type="radio" name="star"/>
-								    <label class="star star-5" for="star-5"></label>							
-								    <input class="star star-4" id="star-4" type="radio" name="star"/>
-								    <label class="star star-4" for="star-4"></label>
-								    <input class="star star-3" id="star-3" type="radio" name="star"/>
-								    <label class="star star-3" for="star-3"></label>
-								    <input class="star star-2" id="star-2" type="radio" name="star"/>
-								    <label class="star star-2" for="star-2"></label>
-								    <input class="star star-1" id="star-1" type="radio" name="star"/>
-								    <label class="star star-1" for="star-1"></label>
-								  </form>								
-							</div>
-                    	</td> -->
-                    </tr>
+                    	<td >Pemahaman terhadap kuisioner&nbsp;&nbsp;&nbsp;</td>
+                    	                    	</td>
+                  	<td >
+    <fieldset class="rating two">
+<input type="radio" id="star5-1" name="pemahaman" value="5" /><label for="star5-1" title="Rocks!"></label>
+<input type="radio" id="star4-1" name="pemahaman" value="4" /><label for="star4-1" title="Pretty good"></label>
+<input type="radio" id="star3-1" name="pemahaman" value="3" /><label for="star3-1" title="Meh"></label>
+<input type="radio" id="star2-1" name="pemahaman" value="2" /><label for="star2-1" title="Kinda bad"></label>
+<input type="radio" id="star1-1" name="pemahaman" value="1" /><label for="star1-1" title="Sucks big time"></label>
+    </fieldset>
+						</td>
+					</tr>
+                    <tr>
+                    	<td >Kemudahan Pemakaian&nbsp;&nbsp;&nbsp;</td>
+                    	                    	</td>
+                  	<td >
+    <fieldset class="rating three">
+<input type="radio" id="star5-3" name="easy" value="5" /><label for="star5-3" title="Rocks!"></label>
+<input type="radio" id="star4-3" name="easy" value="4" /><label for="star4-3" title="Pretty good"></label>
+<input type="radio" id="star3-3" name="easy" value="3" /><label for="star3-3" title="Meh"></label>
+<input type="radio" id="star2-3" name="easy" value="2" /><label for="star2-3" title="Kinda bad"></label>
+<input type="radio" id="star1-3" name="easy" value="1" /><label for="star1-3" title="Sucks big time"></label>
+    </fieldset>
+						</td>
+					</tr>										
                     </tbody>
               		</table>
 			    </div>
 			    <div class="modal-footer">
-			        <a href="<?php echo site_url() ?>" class="btn btn-default">Keluar</a>
+			        <input type="submit" value="Keluar" class="btn btn-primary">
+			        <?php echo form_close();?>
+			        
 		        </div>
 	      	</div>
 	      
@@ -331,7 +296,7 @@ fieldset, label { margin: 0; padding: 0; }
 		<!-- Custom scripts for this template -->
 		<script src="<?php echo base_url(); ?>/assets/js/agency.min.js"></script>
 		<script>
-			$('#someTab').tab('show')
+			$('#someTab').tab('show');
 		</script>
 </body>
 </html>

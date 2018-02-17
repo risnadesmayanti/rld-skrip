@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class enterprise extends CI_Controller {
 
-	public function index()
+	public function view($md5)
 	{
 		$this->load->view('enterprise/templates/header');
 		$this->load->view('enterprise/dashboard');
