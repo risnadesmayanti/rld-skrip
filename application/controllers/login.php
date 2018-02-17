@@ -10,6 +10,7 @@ class Login extends CI_Controller {
 
 	public function index(){
 		$this->load->view('user/dashboard');
+		$this->session->sess_destroy();
 
 	}
 	public function debug(){
@@ -61,7 +62,7 @@ class Login extends CI_Controller {
 		$post = $this->input->post();
 		$this->User->insertrating($post);
 		$this->session->sess_destroy();
-		redirect('/');
+		redirect('index.php/login');
 	}
 
 }
