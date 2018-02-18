@@ -8,7 +8,7 @@ class Isi_kuisioner extends CI_Controller {
 	}
 	public function index(){
 		if($this->session->userdata('id')){
-			var_dump($this->session->userdata());
+			// var_dump($this->session->userdata());
 			$data['faktor_luftman'] = $this->Faktor_luftman->select_all()->result();
 			$data['faktor_indikator'] = $this->Faktor_luftman->join_indikator()->result();
 			$data['indikator_likert'] = $this->Likert_luftman->join_indikator()->result();
@@ -38,7 +38,7 @@ class Isi_kuisioner extends CI_Controller {
 			'counter' => $this->session->userdata('counter')+1
 		);
 		$this->session->set_userdata($array);
-		var_dump($this->session->userdata());
+		// var_dump($this->session->userdata());
 		redirect('index.php/isi_kuisioner');
 	}
 }
