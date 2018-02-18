@@ -65,18 +65,18 @@ class User extends CI_Model {
     // $this->db->group_by('kategori');
     return $this->db->get();        
   }
-  public function selectGroupByKategori(){
-    $this->db->select("kategori as x");
+  public function selectGroupByTipe(){
+    $this->db->select("tipe as x");
     $this->db->from($this->tableName);
-    $this->db->group_by('kategori');
+    $this->db->group_by('tipe');
     // $this->db->group_by('kategori');
     return $this->db->get();        
   }
   public function selectGroupByJabatan2(){
-    $this->db->select("jabatan as y, kategori as k, count(*) as Jumlah");
+    $this->db->select("jabatan as y, tipe as k, count(*) as Jumlah");
     $this->db->from($this->tableName);
     $this->db->group_by('jabatan');
-    $this->db->group_by('kategori');
+    $this->db->group_by('tipe');
     return $this->db->get();        
   }
 

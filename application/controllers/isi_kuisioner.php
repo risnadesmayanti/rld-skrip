@@ -6,15 +6,18 @@ class Isi_kuisioner extends CI_Controller {
 		parent::__construct();
 		//$this->load->model('Faktor_luftman');
 	}
-	public function index()
-	{
-		var_dump($this->session->userdata());
-		$data['faktor_luftman'] = $this->Faktor_luftman->select_all()->result();
-		$data['faktor_indikator'] = $this->Faktor_luftman->join_indikator()->result();
-		$data['indikator_likert'] = $this->Likert_luftman->join_indikator()->result();
-		
-		$data['user'] = $this->session->userdata('username');
-		 $this->load->view('user/kuisioner2', $data);
+	public function index(){
+		if($this->session->userdata('id')){
+			var_dump($this->session->userdata());
+			$data['faktor_luftman'] = $this->Faktor_luftman->select_all()->result();
+			$data['faktor_indikator'] = $this->Faktor_luftman->join_indikator()->result();
+			$data['indikator_likert'] = $this->Likert_luftman->join_indikator()->result();
+			
+			$data['user'] = $this->session->userdata('username');
+			 $this->load->view('user/kuisioner2', $data);
+		}else{
+			redirect('/');
+		}
 	}
 
 

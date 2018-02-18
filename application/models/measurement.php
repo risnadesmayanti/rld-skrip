@@ -9,8 +9,8 @@ class Measurement extends CI_Model {
 
     function insert_measurement($data){        
     	$this->db->insert('t_measurement', $data);    
-    }   
-
+    }  
+ 
     function insert_user_id($value)
         {
         	$this->db->insert('id_user', $value);
@@ -42,20 +42,20 @@ class Measurement extends CI_Model {
     }
 
     function diagramAll($id){
-      // SELECT t_indicator_luftman.idf,t_measurement.* FROM t_indicator_luftman, t_measurement, t_user where t_indicator_luftman.id = t_measurement.idin and t_user.id = t_measurement.id_user and t_user.kategori = 1 order by t_indicator_luftman.idf
+      // SELECT t_indicator_luftman.idf,t_measurement.* FROM t_indicator_luftman, t_measurement, t_user where t_indicator_luftman.id = t_measurement.idin and t_user.id = t_measurement.id_user and t_user.tipe = 1 order by t_indicator_luftman.idf
       $this->db->select('t_indicator_luftman.idf,t_measurement.* FROM t_indicator_luftman, t_measurement, t_user');
       $this->db->where('t_indicator_luftman.id = t_measurement.idin and t_user.id = t_measurement.id_user');
-      $this->db->where('t_user.kategori',$id);
+      $this->db->where('t_user.tipe',$id);
       $this->db->order_by('t_indicator_luftman.idf');
 
       return $this->db->get();
     }
 
     function diagramFaktor($kat,$idf){
-      // SELECT t_indicator_luftman.idf,t_measurement.* FROM t_indicator_luftman, t_measurement, t_user where t_indicator_luftman.id = t_measurement.idin and t_user.id = t_measurement.id_user and t_user.kategori = 1 order by t_indicator_luftman.idf
+      // SELECT t_indicator_luftman.idf,t_measurement.* FROM t_indicator_luftman, t_measurement, t_user where t_indicator_luftman.id = t_measurement.idin and t_user.id = t_measurement.id_user and t_user.tipe = 1 order by t_indicator_luftman.idf
       $this->db->select('t_indicator_luftman.idf,t_measurement.* FROM t_indicator_luftman, t_measurement, t_user');
       $this->db->where('t_indicator_luftman.id = t_measurement.idin and t_user.id = t_measurement.id_user');
-      $this->db->where('t_user.kategori',$kat);
+      $this->db->where('t_user.tipe',$kat);
       $this->db->where('t_indicator_luftman.idf',$idf);
       $this->db->order_by('t_indicator_luftman.idf');
 

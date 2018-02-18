@@ -24,7 +24,8 @@
                             <h3>Indikator Penghambat</h3>
                             <?php for($no=1;$no<=6;$no++){ ?>
                              <div class="row">
-                               <div class="col-md-4"><div id="pt<?php echo $no; ?>" style="margin: 0;"></div></div>
+                               <div class="col-md-4"><div id="pt<?php echo $no; ?>" style="margin: 0;"></div>
+                             </div>
                                <div class="col-md-8">
                                  <table class="table table-bordered">
                                    <thead>
@@ -50,12 +51,21 @@
                                       <td></td>
                                       <td></td>
                                     </tr>
+                                    <?php }}else{ ?>
+                                    <tr class="success">
+                                      <td>-</td>
+                                      <td>-Tidak ada indikator penghambat-</td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                    </tr>
                                     <?php } ?>
                                    </tbody>
                                  </table>   
                                </div>
                              </div>
-                            <?php }} ?>
+                            <?php } ?>
                        </div>
                    </div>
                </div>
