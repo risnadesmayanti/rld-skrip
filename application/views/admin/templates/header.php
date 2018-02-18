@@ -151,9 +151,9 @@
                                 <li>
                                     <a href="<?php echo site_url('index.php/admin/diagramPTS') ?>">Perguruan Tinggi Swasta</a>
                                 </li>
-                                <li>
+<!--                                 <li>
                                     <a href="morris.html">Non Perguruan Tinggi</a>
-                                </li>
+                                </li> -->
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
@@ -166,9 +166,9 @@
                                 <li>
                                     <a href="<?php echo site_url('index.php/admin/diagramLPTS') ?>">Perguruan Tinggi Swasta</a>
                                 </li>
-                                <li>
+<!--                                 <li>
                                     <a href="morris.html">Non Perguruan Tinggi</a>
-                                </li>
+                                </li> -->
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>

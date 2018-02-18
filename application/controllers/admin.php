@@ -8,7 +8,7 @@ class Admin extends CI_Controller {
 		$data['responden'] = $this->User->selectAll()->num_rows();
 		$footer['graph1'] = $this->User->selectGroupByDate()->result_array();
 		$footer['graph2'] = $this->User->selectGroupByJabatan()->result_array();
-		$footer['graph2k'] = $this->User->selectGroupByKategori()->result_array();
+		$footer['graph2k'] = $this->User->selectGroupByTipe()->result_array();
 		$y = $this->User->selectGroupByJabatan2()->result_array();
 		foreach($footer['graph2'] as $key=>$i){
 			foreach($y as $j){
