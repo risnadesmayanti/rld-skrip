@@ -21,7 +21,9 @@
                             <div class="col-lg-12">
                                 <div id="container2" style="margin: 0;"></div>
                             </div>
-                            <h3>Indikator Penghambat</h3>
+                            <h3 style="margin-bottom: 0px;">Indikator Penghambat</h3>
+                             <hr style="border-top: 2px solid #000;">
+
                             <?php for($no=1;$no<=6;$no++){ ?>
                              <div class="row">
                                <div class="col-md-4"><div id="pt<?php echo $no; ?>" style="margin: 0;"></div>
@@ -47,9 +49,12 @@
                                       <td><?php echo $i++; ?></td>
                                       <td><?php echo $row['nama']; ?></td>
                                       <td><?php echo $row['level']; ?></td>
-                                      <td></td>
-                                      <td></td>
-                                      <td></td>
+                                      <td><?php echo $row['kondisi']; ?></td>
+                                      <td><?php echo $row['goal']; ?></td>
+                                      <td><?php echo $row['strategi']; ?></td>
+                                      <!-- <td></td> -->
+                                      <!-- <td></td> -->
+                                      <!-- <td></td> -->
                                     </tr>
                                     <?php }}else{ ?>
                                     <tr class="success">
@@ -65,6 +70,7 @@
                                  </table>   
                                </div>
                              </div>
+                             <hr style="border-top: 2px solid #000;">
                             <?php } ?>
                        </div>
                    </div>

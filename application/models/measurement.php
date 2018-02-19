@@ -91,6 +91,27 @@ class Measurement extends CI_Model {
     	$this->db->update('t_measurement', $data); 
     }        
 
+    //-------------------------
+    //Enterprise
+    function diagramAllEnterprise($univ){
+      // SELECT t_indicator_luftman.idf,t_measurement.* FROM t_indicator_luftman, t_measurement, t_user where t_indicator_luftman.id = t_measurement.idin and t_user.id = t_measurement.id_user and t_user.tipe = 1 order by t_indicator_luftman.idf
+      $this->db->select('t_indicator_luftman.idf,t_measurement.* FROM t_indicator_luftman, t_measurement, t_user');
+      $this->db->where('t_indicator_luftman.id = t_measurement.idin and t_user.id = t_measurement.id_user');
+      $this->db->where('t_user.kategori',$univ);
+      $this->db->order_by('t_indicator_luftman.idf');
+
+      return $this->db->get();
+    }
+    function diagramFaktorEnterprise($kat,$idf){
+      // SELECT t_indicator_luftman.idf,t_measurement.* FROM t_indicator_luftman, t_measurement, t_user where t_indicator_luftman.id = t_measurement.idin and t_user.id = t_measurement.id_user and t_user.tipe = 1 order by t_indicator_luftman.idf
+      $this->db->select('t_indicator_luftman.idf,t_measurement.* FROM t_indicator_luftman, t_measurement, t_user');
+      $this->db->where('t_indicator_luftman.id = t_measurement.idin and t_user.id = t_measurement.id_user');
+      $this->db->where('t_user.kategori',$kat);
+      $this->db->where('t_indicator_luftman.idf',$idf);
+      $this->db->order_by('t_indicator_luftman.idf');
+
+      return $this->db->get();
+    }        
 
 }
 

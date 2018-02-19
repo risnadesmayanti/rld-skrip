@@ -22,9 +22,8 @@
                                 <div id="container2" style="margin: 0;"></div>
                             </div>
                             <h3>Indikator Penghambat</h3>
-                            <?php for($no=1;$no<=6;$no++){ ?>
                              <div class="row">
-                               <div class="col-md-4"><div id="pt<?php echo $no; ?>" style="margin: 0;"></div></div>
+                               <div class="col-md-4"><div id="pt" style="margin: 0;"></div></div>
                                <div class="col-md-8">
                                  <table class="table table-bordered">
                                    <thead>
@@ -41,7 +40,7 @@
                                      </tr>
                                    </thead>
                                    <tbody>
-                                    <?php $i=1;if(isset($penghambat[$no])){foreach($penghambat[$no] as $row){ ?>
+                                    <?php $i=1;if(isset($penghambat)){foreach($penghambat as $row){ ?>
                                     <tr>
                                       <td><?php echo $i++; ?></td>
                                       <td><?php echo $row['nama']; ?></td>
@@ -55,7 +54,6 @@
                                  </table>   
                                </div>
                              </div>
-                            <?php } ?>
                             <!-- <?php } ?> -->
                        </div>
                    </div>

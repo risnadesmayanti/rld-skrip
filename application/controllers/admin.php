@@ -54,7 +54,9 @@ class Admin extends CI_Controller {
 		for ($i=1; $i <= 6 ; $i++) { 
 			foreach($indikator as $row){
 				if($row['idf'] == $i){
+					// var_dump($row);
 					$footer['d2'][$i]['cat'][] = $row['indicator'];
+					$footer['d2'][$i]['id'][] = $row['id'];
 				}
 			}
 			$ind = $this->Indikator_luftman->select_by_idf($i)->result_array();
@@ -80,6 +82,11 @@ class Admin extends CI_Controller {
 				if($row<$avg){
 					$data['penghambat'][$i][$count]['nama'] = $footer['d2'][$i]['cat'][$key]; 
 					$data['penghambat'][$i][$count]['level'] = $this->Measurement->getLevel($footer['d1'],$footer['d2'][$i]['data'][$key]); 
+					$qStrategi = $this->Strategi->selectStrategi($footer['d2'][$i]['id'][$key],$data['penghambat'][$i][$count]['level'])->row_array();
+					$data['penghambat'][$i][$count]['kondisi'] = $qStrategi['kondisi'];
+					$data['penghambat'][$i][$count]['goal'] = $data['penghambat'][$i][$count]['level']+1;
+					$data['penghambat'][$i][$count]['strategi'] = $qStrategi['strategi'];
+					// $data['penghambat'][$i][$count]['Goal'] = $data['penghambat'][$i][$count]['level']+1;
 					$count++;
 				}
 			}
@@ -117,6 +124,7 @@ class Admin extends CI_Controller {
 			foreach($faktor as $row){
 				if($row['idf'] == $i){
 					$footer['d4'][$i]['cat'][] = $row['indicator'];
+					$footer['d4'][$i]['id'][] = $row['id'];
 				}
 			}
 			$ind = $this->Indikator_luftman->select_by_idf($i)->result_array();
@@ -143,6 +151,10 @@ class Admin extends CI_Controller {
 				if($row<$avg){
 					$data['penghambat'][$i][$count]['nama'] = $footer['d4'][$i]['cat'][$key]; 
 					$data['penghambat'][$i][$count]['level'] = $this->Measurement->getLevel($footer['d3'],$footer['d4'][$i]['data'][$key]); 
+						$qStrategi = $this->Strategi->selectStrategi($footer['d4'][$i]['id'][$key],$data['penghambat'][$i][$count]['level'])->row_array();
+					$data['penghambat'][$i][$count]['kondisi'] = $qStrategi['kondisi'];
+					$data['penghambat'][$i][$count]['goal'] = $data['penghambat'][$i][$count]['level']+1;
+					$data['penghambat'][$i][$count]['strategi'] = $qStrategi['strategi'];
 					$count++;
 				}
 			}

@@ -22,6 +22,8 @@
                                 
                             </div>
                             <h3>Faktor Penghambat</h3>
+                             <hr style="border-top: 2px solid #000;">
+                            
                             <?php for($no=1;$no<=6;$no++){ ?>
                              <div class="row">
                                <div class="col-md-4"><div id="pts<?php echo $no; ?>" style="margin: 0;"></div></div>
@@ -46,15 +48,17 @@
                                       <td><?php echo $i++; ?></td>
                                       <td><?php echo $row['nama']; ?></td>
                                       <td><?php echo $row['level']; ?></td>
-                                      <td></td>
-                                      <td></td>
-                                      <td></td>
+                                      <td><?php echo $row['kondisi']; ?></td>
+                                      <td><?php echo $row['goal']; ?></td>
+                                      <td><?php echo $row['strategi']; ?></td>
                                     </tr>
                                     <?php } ?>
                                    </tbody>
                                  </table>   
                                </div>
                              </div>
+                             <hr style="border-top: 2px solid #000;">
+
                             <?php }} ?>
                        </div>
                    </div>

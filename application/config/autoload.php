@@ -132,4 +132,4 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('User', 'Faktor_luftman', 'Indikator_luftman', 'Likert_luftman', 'Measurement');
+$autoload['model'] = array('User', 'Faktor_luftman', 'Indikator_luftman', 'Likert_luftman', 'Measurement','Strategi');

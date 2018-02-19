@@ -236,56 +236,8 @@
 
                 });
             <?php } ?>
-            <?php if(isset($d2)){ $color=['blue','yellow','green','orange','black','purple'];$i=1;foreach($d2 as $row){?>
-                Highcharts.chart('pt<?php echo $i; ?>', {
-
-                chart: {
-                polar: true,
-                type: 'line'
-                },
-
-                title: {
-                text: 'Maturity Level Faktor <?php echo $faktor[$i]; ?>',
-                // y:100
-                },
-
-                pane: {
-                size: '90%'
-                },
-
-                xAxis: {
-                categories: <?php echo json_encode($row['cat']); ?>,
-                tickmarkPlacement: 'on',
-                lineWidth: 0
-                },
-
-                yAxis: {
-                gridLineInterpolation: 'polygon',
-                lineWidth: 0,
-                min: 0
-                },
-
-                tooltip: {
-                shared: true,
-                pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.2f}</b><br/>'
-                },
-
-                series: [{
-                name: 'Indikator <?php echo $i++; ?>',
-                data: <?php echo json_encode($row['data']); ?>,
-                pointPlacement: 'on',
-                color: '<?php echo $color[$i-2]; ?>'
-                },{
-                name: 'Expectations',
-                data: <?php echo json_encode($row['avg']); ?>,
-                pointPlacement: 'on',
-                color: 'red'
-                }]
-
-                });
-            <?php }} ?>
-            <?php if(isset($d3)){ ?>
-                Highcharts.chart('containerpts', {
+            <?php $i=1;if(isset($d2)){ ?>
+                Highcharts.chart('pt', {
 
                 chart: {
                 polar: true,
@@ -302,8 +254,7 @@
                 },
 
                 xAxis: {
-                categories: ['Komunikasi', 'Kompetensi', 'Tata Kelola', 'Kerjasama',
-                        'Arsitektur dan Ruang Lingkup', 'Kemampuan'],
+                categories: <?php echo json_encode($d2['cat']); ?>,
                 tickmarkPlacement: 'on',
                 lineWidth: 0
                 },
@@ -311,7 +262,7 @@
                 yAxis: {
                 gridLineInterpolation: 'polygon',
                 lineWidth: 0,
-                min: 0
+                min: 0,
                 },
 
                 tooltip: {
@@ -327,234 +278,20 @@
                 },
 
                 series: [{
-                name: 'Readiness Level',
-                data: <?php echo json_encode($d3); ?>,
-                pointPlacement: 'on',
-                color: 'green'
-                },{
-                name: 'Readiness Level',
-                data: <?php echo json_encode($avg); ?>,
-                pointPlacement: 'on',
-                color: 'red'
-                }]
-
-                });
-            <?php } ?>
-            <?php if(isset($d4)){ $color=['blue','yellow','green','orange','black','purple']; $i=1;foreach($d4 as $row){?>
-                Highcharts.chart('pts<?php echo $i; ?>', {
-                chart: {
-                polar: true,
-                type: 'line'
-                },
-
-                title: {
-                text: 'Maturity Level Faktor <?php echo $faktor[$i]; ?>',
-                // y: 120,
-                },
-
-                pane: {
-                size: '90%'
-                },
-
-                xAxis: {
-                categories: <?php echo json_encode($row['cat']); ?>,
-                tickmarkPlacement: 'on',
-                lineWidth: 0
-                },
-
-                yAxis: {
-                gridLineInterpolation: 'polygon',
-                lineWidth: 0,
-                min: 0
-                },
-
-                tooltip: {
-                shared: true,
-                pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.2f}</b><br/>'
-                },
-
-                series: [{
                 name: 'Indikator <?php echo $i++; ?>',
-                data: <?php echo json_encode($row['data']); ?>,
+                data: <?php echo json_encode($d2['data']); ?>,
                 pointPlacement: 'on',
-                color: '<?php echo $color[$i-2];?>'
+                color: 'blue'
                 },{
                 name: 'Expectations',
-                data: <?php echo json_encode($row['avg']); ?>,
+                data: <?php echo json_encode($d2['avg']); ?>,
                 pointPlacement: 'on',
                 color: 'red'
                 }]
 
                 });
-            <?php }} ?>
-            <?php 
-            if(isset($b1)){ ?>
-            Highcharts.chart('batangptn', {
-                chart: {
-                    type: 'column'
-                },
-                title: {
-                    text: 'Maturity Level'
-                },
-                xAxis: {
-                    categories: [
-                        'Komunikasi', 'Kompetensi', 'Tata Kelola', 'Kerjasama',
-                        'Arsitektur dan Ruang Lingkup', 'Kemampuan'
-                    ],
-                    crosshair: true
-                },
-                yAxis: {
-                    min: 0,
-                    max: 5,
-                    title: {
-                        text: 'Level'
-                    }
-                },
-                tooltip: {
-                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name} : </td>' +
-                        '<td style="padding:0"><b>{point.y}</b></td></tr>',
-                    shared: true,
-                    useHTML: true,
-                },
-                plotOptions: {
-                    column: {
-                        pointPadding: 0.2,
-                        borderWidth: 0
-                    }
-                },
-                series: [{
-                    name: 'Readiness Level',
-                    data: <?php echo json_encode($b1); ?>,
-                    color: 'red'
-
-                }]
-            });
-            <?php } ?>
-
-            <?php 
-            if(isset($b2)){ $color=['blue','yellow','green','orange','black','purple'];$i=1;foreach($b2 as $row){?>
-                Highcharts.chart('btn'+<?php echo $i++; ?>, {
-                chart: {
-                    type: 'column'
-                },
-                title: {
-                    text: 'Maturity Level <?php echo $faktor[$i-1];?>'
-                },
-                xAxis: {
-                    categories: <?php echo json_encode($row['cat']); ?>,
-                    crosshair: true
-                },
-                yAxis: {
-                    min: 0,
-                    max: 5,
-                    title: {
-                        text: 'Level'
-                    }
-                },
-                tooltip: {
-                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name} : </td>' +
-                        '<td style="padding:0"><b>{point.y}</b></td></tr>',
-                    shared: true,
-                    useHTML: true,
-                },
-                plotOptions: {
-                    column: {
-                        pointPadding: 0.2,
-                        borderWidth: 0
-                    }
-                },
-                series: [{
-                    name: 'Readiness Level',
-                    data: <?php echo json_encode($row['data']); ?>,
-                    color: '<?php echo $color[$i-2];?>'
-
-                }]
-                 });
-            <?php }} ?>
-            <?php 
-            if(isset($b3)){ ?>
-            Highcharts.chart('batangpts', {
-                chart: {
-                    type: 'column'
-                },
-                title: {
-                    text: 'Maturity Level'
-                },
-                xAxis: {
-                    categories: [
-                        'Komunikasi', 'Kompetensi', 'Tata Kelola', 'Kerjasama',
-                        'Arsitektur dan Ruang Lingkup', 'Kemampuan'
-                    ],
-                    crosshair: true
-                },
-                yAxis: {
-                    min: 0,
-                    max: 5,
-                    title: {
-                        text: 'Level'
-                    }
-                },
-                tooltip: {
-                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name} : </td>' +
-                        '<td style="padding:0"><b>{point.y}</b></td></tr>',
-                    shared: true,
-                    useHTML: true,
-                },
-                plotOptions: {
-                    column: {
-                        pointPadding: 0.2,
-                        borderWidth: 0
-                    }
-                },
-                series: [{
-                    name: 'Readiness Level',
-                    data: <?php echo json_encode($b3); ?>,
-                    color: 'red'
-
-                }]
-            });
-            <?php } ?>
-
-            <?php 
-            if(isset($b4)){ $color=['blue','yellow','green','orange','black','purple'];$i=1;foreach($b4 as $row){?>
-                Highcharts.chart('bts'+<?php echo $i++; ?>, {
-                chart: {
-                    type: 'column'
-                },
-                title: {
-                    text: 'Maturity Level <?php echo $faktor[$i-1];?>'
-                },
-                xAxis: {
-                    categories: <?php echo json_encode($row['cat']); ?>,
-                    crosshair: true
-                },
-                yAxis: {
-                    min: 0,
-                    max: 5,
-                    title: {
-                        text: 'Level'
-                    }
-                },
-                tooltip: {
-                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name} : </td>' +
-                        '<td style="padding:0"><b>{point.y}</b></td></tr>',
-                    shared: true,
-                    useHTML: true,
-                },
-                plotOptions: {
-                    column: {
-                        pointPadding: 0.2,
-                        borderWidth: 0
-                    }
-                },
-                series: [{
-                    name: 'Readiness Level',
-                    data: <?php echo json_encode($row['data']); ?>,
-                    color: '<?php echo $color[$i-2];?>'
-
-                }]
-                 });
-            <?php }} ?>            
+            <?php } ?>            
+           
 
         });
 
