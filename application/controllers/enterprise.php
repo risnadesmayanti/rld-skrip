@@ -25,7 +25,15 @@ class Enterprise extends CI_Controller {
 		$univ = [
 		'23246b19510e2c18dac564ceb1e96a24' => 'Universitas Indonesia',
 		'3deb58bd74dc00ad20902cd19cafeaf3' => 'Universitas Pendidikan Indonesia',
-		'bd819902b36ff44419fa96b85112e0c9' => 'Sekolah Tinggi Bahasa Asing Yapari',
+		'19f7fd803ef4119e9bfe8047636426b4' => 'Institut Teknologi Sepuluh November',
+		'55773cde2c9c0b37ddf0cb1731849c83' => 'Universitas Hasanudin',
+		'17bbaf960b97bbe17fc58fd191e2017a' => 'Universitas Diponegoro',
+		'5d30d6a18d19362d5454dec0ff9df35f' => 'Universitas Padjadjaran',
+		'7942fc32ff14496dbe2584ae864cb866' => 'Universitas Airlangga',
+		'b9e908671bed8a87ebf663a263253104' => 'Universitas Sumatera Utara',
+		'6da9ab7d796b399c804dfe95d8d2f185' => 'Universitas Gadjah Mada',
+		'2de2e2bea85b125e3ba97ed8fb0c3878' => 'Institut Pertanian Bogor',
+		'2d01536c50326f8b100470bc1eaac753' => 'Institut Teknologi Bandung',
 		'b60909a85fe4df9d1bb4357bcc150003' => 'Universitas Komputer Indonesia'
 		];
 		$this->session->set_userdata(['univ'=>$univ[$md5]]);

@@ -137,7 +137,7 @@
 									 <!--  <th class="warning">Pilih Jawaban untuk Pertanyaan di bawah ini :</th> -->
 										<tr class=" ">
 											<td>
-												<p>Apakah anda pernah mengikuti proses perencanaan strategis sistem informasi untuk organisasi ?</p>
+												<p>Apakah anda pernah menjadi bagian dari proses perencanaan strategi organisasi?</p>
 												<div class="radio">
 													<label>
 												<input type="radio" name="a1" value=1 required="">Ya, pernah <br>
@@ -146,6 +146,21 @@
 												<div class="radio">
 													<label>
 												<input type="radio" name="a1" value=0>Tidak <br>
+													</label>
+												</div>
+											</td>
+										</tr>
+										<tr class=" ">
+											<td>
+												<p>Apakah anda pernah mengikuti proses perencanaan strategi organisasi dengan metode kolaborasi ?</p>
+												<div class="radio">
+													<label>
+												<input type="radio" name="a2" value=1 required="">Ya, pernah <br>
+													</label>
+												</div>
+												<div class="radio">
+													<label>
+												<input type="radio" name="a2" value=0>Tidak <br>
 													</label>
 												</div>
 											</td>
@@ -174,7 +189,7 @@
 					<!-- end of bagian validasi -->
 			</div>
 			<div class="modal-footer">
-				<input type="submit" value="Lanjutkan" class="btn btn-default">
+				<input type="submit" value="Lanjutkan" class="btn btn-primary">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
 				<!-- <button type="button" class="btn btn-primary">Save changes</button> -->
 			</div>

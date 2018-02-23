@@ -114,8 +114,38 @@ fieldset, label { margin: 0; padding: 0; }
 						 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 						<h3>Selamat datang, <strong><?php echo $user; ?>.</strong><br></h3>
 						<?php if($this->session->userdata('counter') != 6){ ?>
-						Silahkan isi penilaian tingkat kematangan penyelarasan strategi organisasi dan strategi Sistem Informasi dibawah ini.<br>
-						<b style="color:red"><?php echo 6-$this->session->userdata('counter'); ?> Faktor Tersisa.</b>
+						<p>Silahkan isi penilaian tingkat kematangan penyelarasan strategi organisasi dan strategi Sistem Informasi dibawah ini.<br>
+						<b>Keterangan Skala :</b>
+						<table>
+							<tr>
+								<td width="15px">1</td>
+								<td width="15px">=</td>
+								<td>Belum ada, tidak sesuai dengan organisasi</td>
+							</tr>
+							<tr>
+								<td>2</td>
+								<td>=</td>
+								<td>Sesuai, hanya saja tingkatannya masih rendah</td>
+							</tr>
+							<tr>
+								<td>3</td>
+								<td>=</td>
+								<td>Moderat, sesuai untuk organisasi dalam tingkatan menengah</td>
+							</tr>
+							<tr>
+								<td>4</td>
+								<td>=</td>
+								<td>Sesuai, untuk sebagian besar organisasi</td>
+							</tr>
+							<tr>
+								<td>5</td>
+								<td>=</td>
+								<td>Tingkat kuat, sesuai di seluruh bagian organisasi</td>
+							</tr>
+						</table>
+
+						</p>
+						<p align="right"><b style="color:red;">Sisa faktor yang harus diisi : <?php echo 6-$this->session->userdata('counter'); ?> Faktor Tersisa.</b></p>
 						<?php }else{ ?>
 						Harap Simpan link berikut untuk melihat hasil kematangan strategi organisasi di Instansi <?php echo $this->session->userdata('univ'); ?>.<br>
 						<a href="http://www.risna.com/index.php/enterprise/view/<?php echo md5($this->session->userdata('univ')); ?>" target="_blank" title="Link enterprise">www.risna.com/index.php/enterprise/view/<?php echo md5($this->session->userdata('univ')); ?></a><br>
@@ -164,12 +194,12 @@ fieldset, label { margin: 0; padding: 0; }
 												<tr>
 													<td></td>
 													<td><?php echo $row2->descript; ?></td>
-																			<td><div class="radio"><label>
-													<input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=1 required="">  Belum ada, tidak sesuai dengan organisasi</label></div></td>
-                                        <td><div class="radio"><label><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=2>  Sesuai, hanya saja tingkatannya masih rendah</label></div></td>
-                                        <td><div class="radio"><label><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=3>  Moderat, sesuai untuk organisasi dalam tingkatan menengah</label></div></td>
-                                        <td><div class="radio"><label><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=4>  Sesuai, untuk sebagian besar organisasi</label></div></td>
-                                        <td><div class="radio"><label><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=5>  Tingkat kuat, sesuai di seluruh bagian organisasi</label></div></td>
+																			<td><div class="radio"><label title="Belum ada, tidak sesuai dengan organisasi">
+													<input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=1 required="">  1</label></div></td>
+                                        <td><div class="radio"><label title="Sesuai, hanya saja tingkatannya masih rendah"><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=2>  2</label></div></td>
+                                        <td><div class="radio"><label title="Moderat, sesuai untuk organisasi dalam tingkatan menengah"><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=3>  3</label></div></td>
+                                        <td><div class="radio"><label title="Sesuai, untuk sebagian besar organisasi"><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=4>  4</label></div></td>
+                                        <td><div class="radio"><label title="Tingkat kuat, sesuai di seluruh bagian organisasi"><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=5>  5</label></div></td>
 												</tr>
 											
 											<?php }} ?>
