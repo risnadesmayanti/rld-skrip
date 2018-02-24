@@ -271,9 +271,9 @@
                 },
 
                 legend: {
-                align: 'right',
-                verticalAlign: 'top',
-                y: 70,
+                align: 'bottom',
+                // verticalAlign: 'top',
+                // y: 70,
                 layout: 'vertical'
                 },
 

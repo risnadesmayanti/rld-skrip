@@ -23,7 +23,14 @@
                             </div>
                             <h3>Indikator Penghambat</h3>
                              <div class="row">
-                               <div class="col-md-4"><div id="pt" style="margin: 0;"></div></div>
+                               <div class="col-md-4"><div id="pt" style="margin: 0;"></div>
+                            Keterangan :<br>
+                            <p style="font-size: 11px">
+                            <?php     $abjad = ['A','B','C','D','E','F'];foreach($indikator as $key=>$x){ ?>
+                            <?php echo $abjad[$key].". ".$x['indicator']; ?><br>
+                            <?php } ?>
+                            </p>
+                             </div>
                                <div class="col-md-8">
                                  <table class="table table-bordered">
                                    <thead>
@@ -45,16 +52,24 @@
                                       <td><?php echo $i++; ?></td>
                                       <td><?php echo $row['nama']; ?></td>
                                       <td><?php echo $row['level']; ?></td>
-                                      <td></td>
-                                      <td></td>
-                                      <td></td>
+                                      <td><?php echo $row['kondisi']; ?></td>
+                                      <td><?php echo $row['goal']; ?></td>
+                                      <td><?php echo $row['strategi']; ?></td>
                                     </tr>
-                                    <?php } ?>
+                                    <?php }}else{ ?>
+                                    <tr class="success">
+                                      <td>-</td>
+                                      <td>Tidak ada indikator penghambat</td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                      <td>-</td>
+                                    </tr>
+                                    <?php } ?>                                                                        
                                    </tbody>
                                  </table>   
                                </div>
                              </div>
-                            <!-- <?php } ?> -->
                        </div>
                    </div>
                </div>

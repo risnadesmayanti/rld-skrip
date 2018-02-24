@@ -148,7 +148,7 @@ fieldset, label { margin: 0; padding: 0; }
 						<p align="right"><b style="color:red;">Sisa faktor yang harus diisi : <?php echo 6-$this->session->userdata('counter'); ?> Faktor Tersisa.</b></p>
 						<?php }else{ ?>
 						Harap Simpan link berikut untuk melihat hasil kematangan strategi organisasi di Instansi <?php echo $this->session->userdata('univ'); ?>.<br>
-						<a href="http://www.risna.com/index.php/enterprise/view/<?php echo md5($this->session->userdata('univ')); ?>" target="_blank" title="Link enterprise">www.risna.com/index.php/enterprise/view/<?php echo md5($this->session->userdata('univ')); ?></a><br>
+						<a href="<?php echo base_url(); ?>enterprise/view/<?php echo md5($this->session->userdata('univ')); ?>" target="_blank" title="Link enterprise"><?php echo base_url(); ?>enterprise/view/<?php echo md5($this->session->userdata('univ')); ?></a><br>
 						<button class="btn btn-success" type="button" data-toggle="modal" data-target="#closez">Selesai</button>
 						<?php } ?>
 
