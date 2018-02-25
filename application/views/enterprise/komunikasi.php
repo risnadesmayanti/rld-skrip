@@ -27,7 +27,7 @@
                             Keterangan :<br>
                             <p style="font-size: 11px">
                             <?php     $abjad = ['A','B','C','D','E','F'];foreach($indikator as $key=>$x){ ?>
-                            <?php echo $abjad[$key].". ".$x['indicator']; ?><br>
+                            <?php echo $abjad[$key].":  ".$x['indicator']; ?><br>
                             <?php } ?>
                             </p>
                              </div>
@@ -36,7 +36,7 @@
                                    <thead>
                                      <tr class="success">
                                        <th rowspan="2">No.</th>
-                                       <th rowspan="2">Nama Indikator</th>
+                                       <th rowspan="2">Indikator</th>
                                        <th colspan="2">Tingkat Saat ini</th>
                                        <th rowspan="2">Sasaran</th>
                                        <th rowspan="2">Strategi</th>

@@ -24,9 +24,17 @@
                             <h3 style="margin-bottom: 0px;">Indikator Penghambat</h3>
                              <hr style="border-top: 2px solid #000;">
 
-                            <?php for($no=1;$no<=6;$no++){ ?>
+                            <?php $key=0;$abjad = ['A','B','C','D','E','F', 'G'];for($no=1;$no<=6;$no++){ ?>
                              <div class="row">
                                <div class="col-md-4"><div id="pt<?php echo $no; ?>" style="margin: 0;"></div>
+                               Keterangan :<br>
+                            <p style="font-size: 11px">
+                            <?php     $key=0;foreach($indikator as $key=>$x){ ?>
+                            <?php if($x['idf'] == $no){?>
+                            <?php  echo $abjad[$key].":  ".$x['indicator']; echo " ".$x['idf']; echo " ".$key; ?><br>
+                            <?php } ?>
+                            <?php } //echo $key;?>
+                            </p>
                              </div>
                                <div class="col-md-8">
                                  <table class="table table-bordered">

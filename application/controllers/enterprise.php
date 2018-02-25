@@ -155,10 +155,13 @@ class Enterprise extends CI_Controller {
 		//small web
 		$indikator = $this->Indikator_luftman->select_by_idf(2)->result_array();
 		// var_dump($indikator);
+		$abjad = ['A','B','C','D','E','F','G'];
+		$abjc = 0;
 		foreach($indikator as $row){
 			// var_dump($row);
-			$footer['d2']['cat'][] = $row['indicator'];
+			$footer['d2']['cat'][] = $abjad[$abjc];
 			$footer['d2']['id'][] = $row['id'];
+			$abjc++;
 			
 		}
 		$ind = $this->Indikator_luftman->select_by_idf(2)->result_array();
@@ -177,6 +180,7 @@ class Enterprise extends CI_Controller {
 		}
 		
 		$data = array();
+		 $data['indikator'] = $indikator;
 		//---- Faktor Pendukung dan Penghambat
 		$count = 0;
 		foreach($footer['d2']['data'] as $key=>$row){
@@ -228,11 +232,13 @@ class Enterprise extends CI_Controller {
 		//small web
 		$indikator = $this->Indikator_luftman->select_by_idf(3)->result_array();
 		// var_dump($indikator);
+		$abjad = ['A','B','C','D','E','F','G'];
+		$abjc = 0;
 		foreach($indikator as $row){
 			// var_dump($row);
-			$footer['d2']['cat'][] = $row['indicator'];
+			$footer['d2']['cat'][] = $abjad[$abjc];
 			$footer['d2']['id'][] = $row['id'];
-			
+			$abjc++;
 		}
 		$ind = $this->Indikator_luftman->select_by_idf(3)->result_array();
 		$vFaktor = $this->Measurement->diagramFaktorEnterprise($this->session->userdata('univ'),3)->result_array(); // 1 means PTN
@@ -250,6 +256,7 @@ class Enterprise extends CI_Controller {
 		}
 		
 		$data = array();
+		$data['indikator'] = $indikator;
 		//---- Faktor Pendukung dan Penghambat
 		$count = 0;
 		foreach($footer['d2']['data'] as $key=>$row){
@@ -299,11 +306,13 @@ class Enterprise extends CI_Controller {
 		//small web
 		$indikator = $this->Indikator_luftman->select_by_idf(4)->result_array();
 		// var_dump($indikator);
+		$abjad = ['A','B','C','D','E','F','G'];
+		$abjc = 0;
 		foreach($indikator as $row){
 			// var_dump($row);
-			$footer['d2']['cat'][] = $row['indicator'];
+			$footer['d2']['cat'][] = $abjad[$abjc];
 			$footer['d2']['id'][] = $row['id'];
-			
+			$abjc++;
 		}
 		$ind = $this->Indikator_luftman->select_by_idf(4)->result_array();
 		$vFaktor = $this->Measurement->diagramFaktorEnterprise($this->session->userdata('univ'),4)->result_array(); // 1 means PTN
@@ -321,6 +330,7 @@ class Enterprise extends CI_Controller {
 		}
 		
 		$data = array();
+		$data['indikator'] = $indikator;
 		//---- Faktor Pendukung dan Penghambat
 		$count = 0;
 		foreach($footer['d2']['data'] as $key=>$row){
@@ -369,11 +379,13 @@ class Enterprise extends CI_Controller {
 		//small web
 		$indikator = $this->Indikator_luftman->select_by_idf(5)->result_array();
 		// var_dump($indikator);
+		$abjad = ['A','B','C','D','E','F','G'];
+		$abjc = 0;
 		foreach($indikator as $row){
 			// var_dump($row);
-			$footer['d2']['cat'][] = $row['indicator'];
+			$footer['d2']['cat'][] = $abjad[$abjc];
 			$footer['d2']['id'][] = $row['id'];
-			
+			$abjc++;
 		}
 		$ind = $this->Indikator_luftman->select_by_idf(5)->result_array();
 		$vFaktor = $this->Measurement->diagramFaktorEnterprise($this->session->userdata('univ'),5)->result_array(); // 1 means PTN
@@ -391,6 +403,7 @@ class Enterprise extends CI_Controller {
 		}
 		
 		$data = array();
+		$data['indikator'] = $indikator;
 		//---- Faktor Pendukung dan Penghambat
 		$count = 0;
 		foreach($footer['d2']['data'] as $key=>$row){
@@ -440,11 +453,13 @@ class Enterprise extends CI_Controller {
 		//small web
 		$indikator = $this->Indikator_luftman->select_by_idf(6)->result_array();
 		// var_dump($indikator);
+		$abjad = ['A','B','C','D','E','F','G'];
+		$abjc = 0;
 		foreach($indikator as $row){
 			// var_dump($row);
-			$footer['d2']['cat'][] = $row['indicator'];
+			$footer['d2']['cat'][] = $abjad[$abjc];
 			$footer['d2']['id'][] = $row['id'];
-			
+			$abjc++;
 		}
 		$ind = $this->Indikator_luftman->select_by_idf(6)->result_array();
 		$vFaktor = $this->Measurement->diagramFaktorEnterprise($this->session->userdata('univ'),6)->result_array(); // 1 means PTN
@@ -462,6 +477,7 @@ class Enterprise extends CI_Controller {
 		}
 		
 		$data = array();
+		$data['indikator'] = $indikator;
 		//---- Faktor Pendukung dan Penghambat
 		$count = 0;
 		foreach($footer['d2']['data'] as $key=>$row){

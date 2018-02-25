@@ -50,13 +50,18 @@ class Admin extends CI_Controller {
 		}
 		//------------------------------------------------ 
 		// 6 Diagram Faktor
+		$abjad = ['A','B','C','D','E','F','G'];
 		$indikator = $this->Indikator_luftman->select_all()->result_array();
 		for ($i=1; $i <= 6 ; $i++) { 
+		$abjc = 0;
 			foreach($indikator as $row){
 				if($row['idf'] == $i){
 					// var_dump($row);
-					$footer['d2'][$i]['cat'][] = $row['indicator'];
+					// echo "<pre>".var_dump($row)."</pre>";
+					$footer['d2'][$i]['cat'][] = $abjad[$abjc];
 					$footer['d2'][$i]['id'][] = $row['id'];
+					$abjc++;
+					//var_dump($indikator);
 				}
 			}
 			$ind = $this->Indikator_luftman->select_by_idf($i)->result_array();
@@ -68,6 +73,7 @@ class Admin extends CI_Controller {
 					if($row['id'] == $row2['idin']){
 						$temp+=$row2['value'];
 						$count++;
+						//$abjc++;
 					}
 				}
 				$footer['d2'][$i]['data'][] = $temp/$count;
@@ -76,10 +82,13 @@ class Admin extends CI_Controller {
 		}
 
 		//---- Faktor Pendukung dan Penghambat
+		$data = array();
+	  $data['indikator'] = $indikator;
 		for($i=1;$i<=6;$i++){
 			$count = 0;
 			foreach($footer['d2'][$i]['data'] as $key=>$row){
 				if($row<$avg){
+					//var_dump($data['indikator']);
 					$data['penghambat'][$i][$count]['nama'] = $footer['d2'][$i]['cat'][$key]; 
 					$data['penghambat'][$i][$count]['level'] = $this->Measurement->getLevel($footer['d1'],$footer['d2'][$i]['data'][$key]); 
 					$qStrategi = $this->Strategi->selectStrategi($footer['d2'][$i]['id'][$key],$data['penghambat'][$i][$count]['level'])->row_array();
