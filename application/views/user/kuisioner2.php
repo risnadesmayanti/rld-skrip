@@ -196,10 +196,10 @@ fieldset, label { margin: 0; padding: 0; }
 													<td><?php echo $row2->descript; ?></td>
 																			<td><div class="radio"><label title="Belum ada, tidak sesuai dengan organisasi">
 													<input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=1 required="">  1</label></div></td>
-                                        <td><div class="radio"><label title="Sesuai, hanya saja tingkatannya masih rendah"><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=2>  2</label></div></td>
-                                        <td><div class="radio"><label title="Moderat, sesuai untuk organisasi dalam tingkatan menengah"><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=3>  3</label></div></td>
-                                        <td><div class="radio"><label title="Sesuai, untuk sebagian besar organisasi"><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=4>  4</label></div></td>
-                                        <td><div class="radio"><label title="Tingkat kuat, sesuai di seluruh bagian organisasi"><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=5>  5</label></div></td>
+                                        <td><div class="radio"><label title="Sesuai, hanya saja tingkatannya masih rendah"><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=2 required="">  2</label></div></td>
+                                        <td><div class="radio"><label title="Moderat, sesuai untuk organisasi dalam tingkatan menengah"><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=3 required="">  3</label></div></td>
+                                        <td><div class="radio"><label title="Sesuai, untuk sebagian besar organisasi"><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=4 required="">  4</label></div></td>
+                                        <td><div class="radio"><label title="Tingkat kuat, sesuai di seluruh bagian organisasi"><input type="radio" name="a[<?php echo $row2->idin; ?>][<?php echo $row2->val; ?>]" value=5 required="">  5</label></div></td>
 												</tr>
 											
 											<?php }} ?>
@@ -246,7 +246,7 @@ fieldset, label { margin: 0; padding: 0; }
 </div><!-- /.modal -->
 
 <div class="modal fade" id="closez" role="dialog" style="padding-top: 200px">
-	    <div class="modal-dialog">
+	    <div class="modal-dialog modal-lg">
 	      	<div class="modal-content">
 	        	<div class="modal-body">
 	        		<div class="alert alert-success" role="alert">
@@ -264,44 +264,98 @@ fieldset, label { margin: 0; padding: 0; }
                       </td>
                     </tr>
                     <tr>
-                    	<td >Desain Antar Muka&nbsp;&nbsp;&nbsp;</td>
+                    	<td >Aplikasi bermanfaat untuk menambah tingkat efektifitas proses perencanaan strategi&nbsp;&nbsp;&nbsp;</td>
                     	                    	</td>
                   	<td >
      <fieldset class="rating one">
-<input type="radio" id="star5" name="antarmuka" value="5" /><label for="star5" title="Bagus!"></label>
-<input type="radio" id="star4" name="antarmuka" value="4" /><label for="star4" title="Cukup Bagus"></label>
-<input type="radio" id="star3" name="antarmuka" value="3" /><label for="star3" title="Biasa saja"></label>
-<input type="radio" id="star2" name="antarmuka" value="2" /><label for="star2" title="Tidak Terlalu Buruk"></label>
-<input type="radio" id="star1" name="antarmuka" value="1" /><label for="star1" title="Buruk"></label>
+<input type="radio" id="star5" name="usefull" value="5" required=""/><label for="star5" title="Sangat setuju"></label>
+<input type="radio" id="star4" name="usefull" value="4" required=""/><label for="star4" title="Cukup setuju"></label>
+<input type="radio" id="star3" name="usefull" value="3" required=""/><label for="star3" title="Setuju"></label>
+<input type="radio" id="star2" name="usefull" value="2" required=""/><label for="star2" title="Tidak setuju"></label>
+<input type="radio" id="star1" name="usefull" value="1" required=""/><label for="star1" title="Sangat tidak setuju"></label>
     </fieldset>
 						</td>
 					</tr>
                     <tr>
-                    	<td >Pemahaman terhadap kuisioner&nbsp;&nbsp;&nbsp;</td>
+                    	<td >Aplikasi mudah digunakan&nbsp;&nbsp;&nbsp;</td>
                     	                    	</td>
                   	<td >
     <fieldset class="rating two">
-<input type="radio" id="star5-1" name="pemahaman" value="5" /><label for="star5-1" title="Bagus!"></label>
-<input type="radio" id="star4-1" name="pemahaman" value="4" /><label for="star4-1" title="Cukup Bagus"></label>
-<input type="radio" id="star3-1" name="pemahaman" value="3" /><label for="star3-1" title="Biasa saja"></label>
-<input type="radio" id="star2-1" name="pemahaman" value="2" /><label for="star2-1" title="Tidak Terlalu Buruk"></label>
-<input type="radio" id="star1-1" name="pemahaman" value="1" /><label for="star1-1" title="Buruk"></label>
+<input type="radio" id="star5-1" name="easyuse" value="5" required=""/><label for="star5-1" title="Sangat setuju"></label>
+<input type="radio" id="star4-1" name="easyuse" value="4" required=""/><label for="star4-1" title="Cukup setuju"></label>
+<input type="radio" id="star3-1" name="easyuse" value="3" required=""/><label for="star3-1" title="Setuju"></label>
+<input type="radio" id="star2-1" name="easyuse" value="2" required=""/><label for="star2-1" title="Tidak setuju"></label>
+<input type="radio" id="star1-1" name="easyuse" value="1" required="" /><label for="star1-1" title="Sangat tidak setuju"></label>
     </fieldset>
 						</td>
 					</tr>
                     <tr>
-                    	<td >Kemudahan Pemakaian&nbsp;&nbsp;&nbsp;</td>
+                    	<td >Menarik jika aplikasi ini diterapkan di lingkungan organisasi&nbsp;&nbsp;&nbsp;</td>
                     	                    	</td>
                   	<td >
     <fieldset class="rating three">
-<input type="radio" id="star5-3" name="easy" value="5" /><label for="star5-3" title="Bagus !"></label>
-<input type="radio" id="star4-3" name="easy" value="4" /><label for="star4-3" title="Cukup Bagus"></label>
-<input type="radio" id="star3-3" name="easy" value="3" /><label for="star3-3" title="Biasa saja"></label>
-<input type="radio" id="star2-3" name="easy" value="2" /><label for="star2-3" title="Tidak Terlalu Buruk"></label>
-<input type="radio" id="star1-3" name="easy" value="1" /><label for="star1-3" title="Buruk"></label>
+<input type="radio" id="star5-3" name="atoward" value="5" required=""/><label for="star5-3" title="Sangat setuju"></label>
+<input type="radio" id="star4-3" name="atoward" value="4" required=""/><label for="star4-3" title="Cukup setuju"></label>
+<input type="radio" id="star3-3" name="atoward" value="3" required=""/><label for="star3-3" title="Setuju"></label>
+<input type="radio" id="star2-3" name="atoward" value="2" required=""/><label for="star2-3" title="Tidak setuju"></label>
+<input type="radio" id="star1-3" name="atoward" value="1" required=""/><label for="star1-3" title="Sangat tidak setuju"></label>
     </fieldset>
 						</td>
-					</tr>										
+					</tr>		
+					 <tr>
+                    	<td >Saran untuk mengembangkan aplikasi ini *opsional&nbsp;&nbsp;&nbsp;</td>
+                    	                    	</td>
+                  	<td >
+    <fieldset class="rating four">
+<input type="radio" id="star5-3" name="behavtous" value="5" required=""/><label for="star5-3" title="Sangat setuju"></label>
+<input type="radio" id="star4-3" name="behavtous" value="4" required=""/><label for="star4-3" title="Cukup setuju"></label>
+<input type="radio" id="star3-3" name="behavtous" value="3" required=""/><label for="star3-3" title="Setuju"></label>
+<input type="radio" id="star2-3" name="behavtous" value="2" required=""/><label for="star2-3" title="Tidak setuju"></label>
+<input type="radio" id="star1-3" name="behavtous" value="1" required=""/><label for="star1-3" title="Sangat tidak setuju"></label>
+    </fieldset>
+						</td>
+					</tr>	
+					<tr>
+                    	<td >Interaksi dengan sistem dilakukan dengan terburu-buru&nbsp;&nbsp;&nbsp;</td>
+                    	                    	</td>
+                  	<td >
+    <fieldset class="rating five">
+<input type="radio" id="star5-3" name="actuse" value="5" required=""/><label for="star5-3" title="Sangat setuju"></label>
+<input type="radio" id="star4-3" name="actuse" value="4" required=""/><label for="star4-3" title="Cukup setuju"></label>
+<input type="radio" id="star3-3" name="actuse" value="3" required=""/><label for="star3-3" title="Setuju"></label>
+<input type="radio" id="star2-3" name="actuse" value="2" required=""/><label for="star2-3" title="Tidak setuju"></label>
+<input type="radio" id="star1-3" name="actuse" value="1" required=""/><label for="star1-3" title="Sangat tidak setuju"></label>
+    </fieldset>
+						</td>
+					</tr>			
+					<tr>
+                    	<td >Desain antar muka telah baik (User Friendly)
+&nbsp;&nbsp;&nbsp;</td>
+                    	                    	</td>
+                  	<td >
+    <fieldset class="rating six">
+<input type="radio" id="star5-3" name="usfriendly" value="5" required=""/><label for="star5-3" title="Sangat setuju"></label>
+<input type="radio" id="star4-3" name="usfriendly" value="4" required=""/><label for="star4-3" title="Cukup setuju"></label>
+<input type="radio" id="star3-3" name="usfriendly" value="3" required=""/><label for="star3-3" title="Setuju"></label>
+<input type="radio" id="star2-3" name="usfriendly" value="2" required=""/><label for="star2-3" title="Tidak setuju"></label>
+<input type="radio" id="star1-3" name="usfriendly" value="1" required="" /><label for="star1-3" title="Sangat tidak setuju"></label>
+    </fieldset>
+						</td>
+					</tr>		
+					<tr>
+                    	<td >Pengguna telah memahami pernyataan dari setiap kuisoner yang ditanyakan
+&nbsp;&nbsp;&nbsp;</td>
+                    	                    	</td>
+                  	<td >
+    <fieldset class="rating seven">
+<input type="radio" id="star5-3" name="understand" value="5" required=""/><label for="star5-3" title="Sangat setuju"></label>
+<input type="radio" id="star4-3" name="understand" value="4" required=""/><label for="star4-3" title="Cukup setuju"></label>
+<input type="radio" id="star3-3" name="understand" value="3" required=""/><label for="star3-3" title="Setuju"></label>
+<input type="radio" id="star2-3" name="understand" value="2" required=""/><label for="star2-3" title="Tidak setuju"></label>
+<input type="radio" id="star1-3" name="understand" value="1" required=""/><label for="star1-3" title="Sangat tidak setuju"></label>
+    </fieldset>
+						</td>
+					</tr>								
                     </tbody>
               		</table>
 			    </div>
