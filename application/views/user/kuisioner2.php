@@ -302,7 +302,7 @@ fieldset, label { margin: 0; padding: 0; }
     </fieldset>
 						</td>
 					</tr>		
-					 <tr>
+					<!--  <tr>
                     	<td >Saran untuk mengembangkan aplikasi ini *opsional&nbsp;&nbsp;&nbsp;</td>
                     	                    	</td>
                   	<td >
@@ -355,7 +355,7 @@ fieldset, label { margin: 0; padding: 0; }
 <input type="radio" id="star1-3" name="understand" value="1" required=""/><label for="star1-3" title="Sangat tidak setuju"></label>
     </fieldset>
 						</td>
-					</tr>								
+					</tr>					 -->			
                     </tbody>
               		</table>
 			    </div>

@@ -26,7 +26,10 @@
                             
                             <?php for($no=1;$no<=6;$no++){ ?>
                              <div class="row">
-                               <div class="col-md-4"><div id="pts<?php echo $no; ?>" style="margin: 0;"></div></div>
+                               <div class="col-md-4"><div id="pts<?php echo $no; ?>" style="margin: 0;"></div>
+                             
+                             </div>
+
                                <div class="col-md-8">
                                  <table class="table table-bordered">
                                    <thead>
