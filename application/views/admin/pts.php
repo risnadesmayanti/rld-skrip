@@ -21,12 +21,21 @@
                                 <div id="containerpts" style="margin: 0;"></div>
                                 
                             </div>
-                            <h3>Faktor Penghambat</h3>
+                            <h3>Indikator Penghambat</h3>
                              <hr style="border-top: 2px solid #000;">
                             
-                            <?php for($no=1;$no<=6;$no++){ ?>
+                            <?php $key=0;$abjad = ['A','B','C','D','E','F', 'G'];for($no=1;$no<=6;$no++){ ?>
                              <div class="row">
-                               <div class="col-md-4"><div id="pts<?php echo $no; ?>" style="margin: 0;"></div></div>
+                               <div class="col-md-4"><div id="pts<?php echo $no; ?>" style="margin: 0;"></div>
+                               Keterangan :<br>
+                            <p style="font-size: 11px">
+                            <?php $abjkey=0;foreach($indikator as $key=>$x){ ?>
+                            <?php if($x['idf'] == $no){?>
+                            <?php  echo $abjad[$abjkey++].":  ".$x['indicator']; ?><br>
+                            <?php } ?>
+                            <?php } //echo $key;?>
+                            </p>
+                             </div>
                                <div class="col-md-8">
                                  <table class="table table-bordered">
                                    <thead>

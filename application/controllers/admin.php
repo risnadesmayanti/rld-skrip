@@ -100,7 +100,9 @@ class Admin extends CI_Controller {
 				}
 			}
 		}
-
+		// echo "<pre>";
+		// print_r($data['indikator']);
+		// echo "</pre>";
 		$this->load->view('admin/templates/header');
 		$this->load->view('admin/ptn',$data);
 		$this->load->view('admin/templates/footer',$footer);
@@ -128,12 +130,15 @@ class Admin extends CI_Controller {
 			$footer['avg'][] = $avg;
 		}
 		//------------------------------------------------
+		$abjad = ['A','B','C','D','E','F','G'];
 		$faktor = $this->Indikator_luftman->select_all()->result_array();
 		for ($i=1; $i <= 6 ; $i++) { 
+			$abjdkey=0;
 			foreach($faktor as $row){
 				if($row['idf'] == $i){
-					$footer['d4'][$i]['cat'][] = $row['indicator'];
+					$footer['d4'][$i]['cat'][] = $abjad[$abjdkey];
 					$footer['d4'][$i]['id'][] = $row['id'];
+					$abjdkey++;
 				}
 			}
 			$ind = $this->Indikator_luftman->select_by_idf($i)->result_array();
@@ -168,6 +173,7 @@ class Admin extends CI_Controller {
 				}
 			}
 		}
+		$data['indikator'] = $faktor;
 		$this->load->view('admin/templates/header');
 		$this->load->view('admin/pts',$data);
 		$this->load->view('admin/templates/footer',$footer);

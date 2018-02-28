@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.7.1
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 24, 2018 at 01:35 AM
--- Server version: 5.6.20
--- PHP Version: 5.5.15
+-- Generation Time: 28 Feb 2018 pada 03.57
+-- Versi Server: 10.1.9-MariaDB
+-- PHP Version: 7.0.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `db_skripsi1`
@@ -23,18 +23,18 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_factor_luftman`
+-- Struktur dari tabel `t_factor_luftman`
 --
 
-CREATE TABLE IF NOT EXISTS `t_factor_luftman` (
-`id` int(4) NOT NULL,
+CREATE TABLE `t_factor_luftman` (
+  `id` int(4) NOT NULL,
   `href` varchar(20) NOT NULL,
   `factor` varchar(20) NOT NULL,
   `descript` text NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `t_factor_luftman`
+-- Dumping data untuk tabel `t_factor_luftman`
 --
 
 INSERT INTO `t_factor_luftman` (`id`, `href`, `factor`, `descript`) VALUES
@@ -48,18 +48,18 @@ INSERT INTO `t_factor_luftman` (`id`, `href`, `factor`, `descript`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_indicator_luftman`
+-- Struktur dari tabel `t_indicator_luftman`
 --
 
-CREATE TABLE IF NOT EXISTS `t_indicator_luftman` (
-`id` int(11) NOT NULL,
+CREATE TABLE `t_indicator_luftman` (
+  `id` int(11) NOT NULL,
   `idf` int(11) NOT NULL,
   `indicator` text NOT NULL,
   `pertanyaan` text NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=40 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `t_indicator_luftman`
+-- Dumping data untuk tabel `t_indicator_luftman`
 --
 
 INSERT INTO `t_indicator_luftman` (`id`, `idf`, `indicator`, `pertanyaan`) VALUES
@@ -106,29 +106,29 @@ INSERT INTO `t_indicator_luftman` (`id`, `idf`, `indicator`, `pertanyaan`) VALUE
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_jabatan`
+-- Struktur dari tabel `t_jabatan`
 --
 
-CREATE TABLE IF NOT EXISTS `t_jabatan` (
-`id` int(3) NOT NULL,
+CREATE TABLE `t_jabatan` (
+  `id` int(3) NOT NULL,
   `divisi` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_likert_luftman`
+-- Struktur dari tabel `t_likert_luftman`
 --
 
-CREATE TABLE IF NOT EXISTS `t_likert_luftman` (
-`id` int(4) NOT NULL,
+CREATE TABLE `t_likert_luftman` (
+  `id` int(4) NOT NULL,
   `idin` int(3) NOT NULL,
   `val` int(3) NOT NULL,
   `descript` varchar(255) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=196 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `t_likert_luftman`
+-- Dumping data untuk tabel `t_likert_luftman`
 --
 
 INSERT INTO `t_likert_luftman` (`id`, `idin`, `val`, `descript`) VALUES
@@ -331,18 +331,18 @@ INSERT INTO `t_likert_luftman` (`id`, `idin`, `val`, `descript`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_measurement`
+-- Struktur dari tabel `t_measurement`
 --
 
-CREATE TABLE IF NOT EXISTS `t_measurement` (
-`id` int(5) NOT NULL,
+CREATE TABLE `t_measurement` (
+  `id` int(5) NOT NULL,
   `id_user` int(3) NOT NULL,
   `idin` int(2) NOT NULL,
   `value` float DEFAULT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=371 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `t_measurement`
+-- Dumping data untuk tabel `t_measurement`
 --
 
 INSERT INTO `t_measurement` (`id`, `id_user`, `idin`, `value`) VALUES
@@ -625,121 +625,118 @@ INSERT INTO `t_measurement` (`id`, `id_user`, `idin`, `value`) VALUES
 (284, 49, 37, 5),
 (285, 49, 38, 5),
 (286, 49, 39, 5),
-(287, 50, 1, 2.6),
-(288, 50, 2, 3.2),
-(289, 50, 3, 3.4),
-(290, 50, 4, 3),
-(291, 50, 5, 2),
-(292, 50, 6, 1),
-(293, 50, 7, 3.4),
-(294, 50, 8, 4.2),
-(295, 50, 9, 3),
-(296, 50, 10, 2.2),
-(297, 50, 11, 4.2),
-(298, 50, 12, 2.4),
-(299, 50, 13, 3.4),
-(300, 50, 14, 2.6),
-(301, 50, 15, 4.4),
-(302, 50, 16, 1.8),
-(303, 50, 17, 3),
-(304, 50, 18, 2.2),
-(305, 50, 19, 2.2),
-(306, 50, 20, 3.4),
-(307, 50, 21, 2.8),
-(308, 50, 22, 2.6),
-(309, 50, 23, 4),
-(310, 50, 24, 3),
-(311, 50, 25, 2.6),
-(312, 50, 26, 2.2),
-(313, 51, 27, 2.4),
-(314, 51, 28, 3),
-(315, 51, 29, 3.8),
-(316, 51, 30, 3.2),
-(317, 51, 31, 2.4),
-(318, 51, 32, 3),
-(319, 51, 21, 2.2),
-(320, 51, 22, 3.6),
-(321, 51, 23, 4.4),
-(322, 51, 24, 3.2),
-(323, 51, 25, 1.4),
-(324, 51, 26, 3.8),
-(325, 52, 33, 1.2),
-(326, 52, 34, 3),
-(327, 52, 35, 3.4),
-(328, 52, 36, 3),
-(329, 52, 37, 2.8),
-(330, 52, 38, 3),
-(331, 52, 39, 2.8),
-(332, 54, 7, 2.6),
-(333, 54, 8, 3.4),
-(334, 54, 9, 2.8),
-(335, 54, 10, 3.2),
-(336, 54, 11, 2.6),
-(337, 54, 12, 1.6),
-(338, 54, 13, 2.8),
-(339, 54, 1, 3),
-(340, 54, 2, 3),
-(341, 54, 3, 2.6),
-(342, 54, 4, 3.2),
-(343, 54, 5, 3.6),
-(344, 54, 6, 2.8),
-(345, 54, 14, 3.2),
-(346, 54, 15, 2.4),
-(347, 54, 16, 2),
-(348, 54, 17, 2.6),
-(349, 54, 18, 3.6),
-(350, 54, 19, 4.2),
-(351, 54, 20, 3),
-(352, 54, 21, 2.8),
-(353, 54, 22, 1.4),
-(354, 54, 23, 2.8),
-(355, 54, 24, 3.8),
-(356, 54, 25, 3.2),
-(357, 54, 26, 3.2),
-(358, 54, 27, 3),
-(359, 54, 28, 3.6),
-(360, 54, 29, 4.4),
-(361, 54, 30, 3.8),
-(362, 54, 31, 3.2),
-(363, 54, 32, 3.2),
-(364, 54, 33, 2.8),
-(365, 54, 34, 3.2),
-(366, 54, 35, 2.8),
-(367, 54, 36, 4),
-(368, 54, 37, 3.6),
-(369, 54, 38, 2.2),
-(370, 54, 39, 3.2);
+(287, 50, 1, 3.6),
+(288, 50, 2, 3.4),
+(289, 50, 3, 4),
+(290, 50, 4, 3.4),
+(291, 50, 5, 3.6),
+(292, 50, 6, 4.2),
+(293, 50, 7, 3.6),
+(294, 50, 8, 3.8),
+(295, 50, 9, 3.2),
+(296, 50, 10, 2),
+(297, 50, 11, 3.4),
+(298, 50, 12, 2.2),
+(299, 50, 13, 2.6),
+(300, 50, 14, 4),
+(301, 50, 15, 4),
+(302, 50, 16, 4),
+(303, 50, 17, 2.8),
+(304, 50, 18, 3.2),
+(305, 50, 19, 3.6),
+(306, 50, 20, 3.2),
+(307, 50, 21, 3),
+(308, 50, 22, 2.8),
+(309, 50, 23, 3.2),
+(310, 50, 24, 2.8),
+(311, 50, 25, 3.4),
+(312, 50, 26, 4),
+(313, 50, 27, 2.6),
+(314, 50, 28, 2),
+(315, 50, 29, 3),
+(316, 50, 30, 4.6),
+(317, 50, 31, 5),
+(318, 50, 32, 4.4),
+(319, 50, 33, 2.8),
+(320, 50, 34, 3.2),
+(321, 50, 35, 3.6),
+(322, 50, 36, 2.8),
+(323, 50, 37, 2),
+(324, 50, 38, 2.4),
+(325, 50, 39, 2),
+(326, 51, 1, 3.8),
+(327, 51, 2, 4),
+(328, 51, 3, 4.2),
+(329, 51, 4, 3.6),
+(330, 51, 5, 3.6),
+(331, 51, 6, 3.8),
+(332, 51, 7, 3.6),
+(333, 51, 8, 2.6),
+(334, 51, 9, 3),
+(335, 51, 10, 2.6),
+(336, 51, 11, 2),
+(337, 51, 12, 2.2),
+(338, 51, 13, 2),
+(339, 51, 14, 3.8),
+(340, 51, 15, 2.8),
+(341, 51, 16, 4.4),
+(342, 51, 17, 4.8),
+(343, 51, 18, 3.6),
+(344, 51, 19, 2),
+(345, 51, 20, 2.2),
+(346, 51, 21, 3),
+(347, 51, 22, 2),
+(348, 51, 23, 2.2),
+(349, 51, 24, 2),
+(350, 51, 25, 2),
+(351, 51, 26, 2.2),
+(352, 51, 27, 1.4),
+(353, 51, 28, 2.8),
+(354, 51, 29, 2.2),
+(355, 51, 30, 1.8),
+(356, 51, 31, 1),
+(357, 51, 32, 2),
+(358, 51, 33, 1.2),
+(359, 51, 34, 3.4),
+(360, 51, 35, 4.8),
+(361, 51, 36, 4.8),
+(362, 51, 37, 5),
+(363, 51, 38, 3.6),
+(364, 51, 39, 2.2);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_rating`
+-- Struktur dari tabel `t_rating`
 --
 
-CREATE TABLE IF NOT EXISTS `t_rating` (
-`id` int(11) NOT NULL,
-  `antarmuka` int(11) NOT NULL,
-  `pemahaman` int(11) NOT NULL,
-  `easy` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+CREATE TABLE `t_rating` (
+  `id` int(11) NOT NULL,
+  `usefull` int(11) NOT NULL,
+  `easyuse` int(11) NOT NULL,
+  `atoward` int(11) NOT NULL,
+  `understand` int(11) NOT NULL,
+  `behavtous` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `t_rating`
+-- Dumping data untuk tabel `t_rating`
 --
 
-INSERT INTO `t_rating` (`id`, `antarmuka`, `pemahaman`, `easy`) VALUES
-(1, 5, 4, 3),
-(2, 4, 2, 4),
-(3, 4, 5, 5),
-(4, 4, 2, 3);
+INSERT INTO `t_rating` (`id`, `usefull`, `easyuse`, `atoward`, `understand`, `behavtous`) VALUES
+(1, 5, 4, 3, 0, 0),
+(2, 4, 2, 4, 0, 0),
+(3, 4, 5, 5, 0, 0),
+(4, 4, 5, 4, 0, 0),
+(5, 5, 4, 5, 4, 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_strategi`
+-- Struktur dari tabel `t_strategi`
 --
 
-CREATE TABLE IF NOT EXISTS `t_strategi` (
+CREATE TABLE `t_strategi` (
   `id` int(11) NOT NULL,
   `idin` int(11) NOT NULL,
   `level` int(11) NOT NULL,
@@ -748,11 +745,10 @@ CREATE TABLE IF NOT EXISTS `t_strategi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `t_strategi`
+-- Dumping data untuk tabel `t_strategi`
 --
 
 INSERT INTO `t_strategi` (`id`, `idin`, `level`, `kondisi`, `strategi`) VALUES
-(0, 0, 0, 'kondisi', 'strategi'),
 (1, 1, 1, 'Tidak Ada', 'Lingkungan organisasi harus bisa memberikan suatu fasilitas atau program bagi karyawan di bagian manajerial dan TI agar bisa saling memahami peran dari pekerjaannya masing-masing'),
 (2, 2, 1, 'Tidak Ada', 'Lingkungan organisasi harus bisa memberikan suatu fasilitas atau program bagi karyawan di bagian manajerial dan TI agar bisa saling memahami peran dari pekerjaannya masing-masing'),
 (3, 3, 1, 'Ad hoc dan tidak pasti', 'Karyawan TI sebaiknya memiliki inisiatif untuk dapat meningkatkan pemahamannya mengenai aspek bisnis, begitupun sebaliknya. Sebaiknya adakan program atau insentif yang formal untuk mendorong motivasi tentang pemahaman bisnis oleh TI'),
@@ -953,11 +949,11 @@ INSERT INTO `t_strategi` (`id`, `idin`, `level`, `kondisi`, `strategi`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_user`
+-- Struktur dari tabel `t_user`
 --
 
-CREATE TABLE IF NOT EXISTS `t_user` (
-`id` int(11) NOT NULL,
+CREATE TABLE `t_user` (
+  `id` int(11) NOT NULL,
   `date_access` date NOT NULL,
   `username` varchar(30) NOT NULL,
   `jabatan` varchar(255) NOT NULL,
@@ -966,10 +962,10 @@ CREATE TABLE IF NOT EXISTS `t_user` (
   `kategori` varchar(255) DEFAULT NULL,
   `a1` int(1) NOT NULL,
   `a2` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=55 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `t_user`
+-- Dumping data untuk tabel `t_user`
 --
 
 INSERT INTO `t_user` (`id`, `date_access`, `username`, `jabatan`, `email`, `tipe`, `kategori`, `a1`, `a2`) VALUES
@@ -997,11 +993,8 @@ INSERT INTO `t_user` (`id`, `date_access`, `username`, `jabatan`, `email`, `tipe
 (47, '2018-02-17', 'eagan', 'Bagian Jaringan Komputer', 'asad@gmail.com', 1, 'Universitas Diponegoro', 1, 0),
 (48, '2018-02-17', 'ayat.suhaya@yahoo.co.id', 'Bagian Jaringan Komputer', 'faisalsyfl@gmail.com', 1, 'Universitas Hasanudin', 1, 0),
 (49, '2018-02-18', 'Rini swasta', 'Bagian Research and Development TI', 'faisalsyfl@gmail.com', 2, 'Universitas Komputer Indonesia', 1, 0),
-(50, '2018-02-20', 'Risna', 'Bagian Research and Development TI', 'risnadesmayanti@gmail.com', 2, 'Universitas Komputer Indonesia', 1, 0),
-(51, '2018-02-20', 'Aka', 'Bagian Kemahasiswaan dan Humas', 'ka@gmail.com', 1, 'Universitas Pendidikan Indonesia', 1, 0),
-(52, '2018-02-20', 'Fikra', 'Bagian Kemahasiswaan dan Humas', 'fikar@gmail.com', 2, 'Universitas Komputer Indonesia', 1, 0),
-(53, '2018-02-23', 'risnaris', 'Bagian Kemahasiswaan dan Humas', 'risnadesmayanti@gmail.com', 1, 'Universitas Pendidikan Indonesia', 1, 1),
-(54, '2018-02-23', 'risnaddes', 'Bagian Research and Development TI', 'fikar@gmail.com', 1, 'Universitas Pendidikan Indonesia', 1, 1);
+(50, '2018-02-24', 'Slamet', 'Bagian Keuangan', 'slamet@gmail.com', 1, 'Universitas Diponegoro', 1, 0),
+(51, '2018-02-28', 'ewe', 'Bagian Research and Development TI', 'ewe@gmail.com', 1, 'Universitas Diponegoro', 1, 1);
 
 --
 -- Indexes for dumped tables
@@ -1011,49 +1004,49 @@ INSERT INTO `t_user` (`id`, `date_access`, `username`, `jabatan`, `email`, `tipe
 -- Indexes for table `t_factor_luftman`
 --
 ALTER TABLE `t_factor_luftman`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `t_indicator_luftman`
 --
 ALTER TABLE `t_indicator_luftman`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `t_jabatan`
 --
 ALTER TABLE `t_jabatan`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `t_likert_luftman`
 --
 ALTER TABLE `t_likert_luftman`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `t_measurement`
 --
 ALTER TABLE `t_measurement`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `t_rating`
 --
 ALTER TABLE `t_rating`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `t_strategi`
 --
 ALTER TABLE `t_strategi`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `t_user`
 --
 ALTER TABLE `t_user`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -1063,37 +1056,37 @@ ALTER TABLE `t_user`
 -- AUTO_INCREMENT for table `t_factor_luftman`
 --
 ALTER TABLE `t_factor_luftman`
-MODIFY `id` int(4) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `t_indicator_luftman`
 --
 ALTER TABLE `t_indicator_luftman`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 --
 -- AUTO_INCREMENT for table `t_jabatan`
 --
 ALTER TABLE `t_jabatan`
-MODIFY `id` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `t_likert_luftman`
 --
 ALTER TABLE `t_likert_luftman`
-MODIFY `id` int(4) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=196;
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=196;
 --
 -- AUTO_INCREMENT for table `t_measurement`
 --
 ALTER TABLE `t_measurement`
-MODIFY `id` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=371;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=365;
 --
 -- AUTO_INCREMENT for table `t_rating`
 --
 ALTER TABLE `t_rating`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `t_user`
 --
 ALTER TABLE `t_user`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=55;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
