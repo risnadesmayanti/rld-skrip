@@ -96,7 +96,7 @@ fieldset, label { margin: 0; padding: 0; }
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html" style="color:white;">Aplikasi Tingkat Kesiapan TI Organisasi</a>
+                <a class="navbar-brand" href="index.html" style="color:white;">Aplikasi Tingkat Kematangan Penyelarasan Strategi SI dan Organisasi</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -145,10 +145,10 @@ fieldset, label { margin: 0; padding: 0; }
 						</table>
 
 						</p>
-						<p align="right"><b style="color:red;">Sisa faktor yang harus diisi : <?php echo 6-$this->session->userdata('counter'); ?> Faktor Tersisa.</b></p>
+						<p align="right"><b style="color:red;">Sisa indikator yang harus diisi : <?php echo 6-$this->session->userdata('counter'); ?> Indikator Tersisa.</b></p>
 						<?php }else{ ?>
 						Harap Simpan link berikut untuk melihat hasil kematangan strategi organisasi di Instansi <?php echo $this->session->userdata('univ'); ?>.<br>
-						<a href="<?php echo base_url(); ?>enterprise/view/<?php echo md5($this->session->userdata('univ')); ?>" target="_blank" title="Link enterprise"><?php echo base_url(); ?>enterprise/view/<?php echo md5($this->session->userdata('univ')); ?></a><br>
+						<a href="<?php echo base_url(); ?>index.php/enterprise/view/<?php echo md5($this->session->userdata('univ')); ?>" target="_blank" title="Link enterprise"><?php echo base_url(); ?>index.php/enterprise/view/<?php echo md5($this->session->userdata('univ')); ?></a><br><br>
 						<button class="btn btn-success" type="button" data-toggle="modal" data-target="#closez">Selesai</button>
 						<?php } ?>
 
@@ -226,16 +226,16 @@ fieldset, label { margin: 0; padding: 0; }
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h5 class="modal-title"><span class="fa fa-info-circle aria-hidden="true"></span>&nbsp;&nbsp;Aplikasi Tingkat Kematangan Penyelarasan Strategi SI dan Organisasi</h5>
       </div>
-      		<div class="modal-body">
-            	<h3><center>ICT Readiness Level Definition Application</center></h3> 
-            	<hr>
-            	<p align="justify">
-            		Aplikasi ini dibuat untuk kepentingan penelitian. Tujuan pembuatan aplikasi ini untuk mengetahui ukuran kematangan organisasi mengenai keselarasan strategi organisasi yang telah dibuat dengan strategi sistem informasi. Penilaian dilakukan dengan mengembangkan model kerangka kerja SAMM yang menilai 6 indikator / dimensi. Hasil pengukuran akan diperoleh setelah responden mengisi kuisioner ini. <b>Link URL yang tertera dalam isi halaman ini digunakan untuk mengakses hasil pengukuran tingkat kematangan organisasi.</b>
-            	</p>
+            <div class="modal-body">
+                <h3><center>Tingkat Kematangan Penyelarasan Strategi <br>SI/TI dengan Organisasi</center></h3> 
+                <hr>
+                <p align="justify">
+                    Aplikasi ini dibuat untuk kepentingan penelitian. Tujuan pembuatan aplikasi ini untuk mengetahui ukuran kematangan organisasi mengenai keselarasan strategi organisasi yang telah dibuat dengan strategi sistem informasi. Penilaian dilakukan dengan mengembangkan model kerangka kerja Strategy Alignment Maturity Model (SAMM) yang menilai 6 indikator / dimensi. Hasil pengukuran akan diperoleh setelah responden mengisi kuisioner ini. <b>Link URL yang tertera dalam isi halaman ini digunakan untuk mengakses hasil pengukuran tingkat kematangan organisasi.</b>
+                </p>
             </div>  
           <!-- end of bagian validasi -->
           <div class="modal-footer">
-	        <h6 align="center">&copy;&nbsp;Copyright Risna Desmayanti <br> Ilmu Komputer - Universitas Pendidikan Indonesia</h6>
+	        <h6 align="center">&copy;&nbsp;Copyright Asep Wahyudin, M.T. dan Risna Desmayanti <br> Ilmu Komputer - Universitas Pendidikan Indonesia</h6>
 	        
 	        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
 	      </div>
@@ -254,110 +254,7 @@ fieldset, label { margin: 0; padding: 0; }
 		          	<h5 align="center" style="color: grey;">Terimakasih Telah Mengisi Kuisioner ini !</h5>
 		          	</div>
 		          	
-		          	 <table class="table">
-                   <?php echo form_open('index.php/login/logout'); ?>
-                   <!--  <th class="warning">Pilih Jawaban untuk Pertanyaan di bawah ini :</th> -->
-                   <tbody style="text-align: center;">
-                    <tr class=" ">
-                      <td colspan="3">
-                        <p align="center">Bagaimana Penilaian Anda tentang Aplikasi?</p>
-                      </td>
-                    </tr>
-                    <tr>
-                    	<td >Aplikasi bermanfaat untuk menambah tingkat efektifitas proses perencanaan strategi&nbsp;&nbsp;&nbsp;</td>
-                    	                    	</td>
-                  	<td >
-     <fieldset class="rating one">
-<input type="radio" id="star5" name="usefull" value="5" required=""/><label for="star5" title="Sangat setuju"></label>
-<input type="radio" id="star4" name="usefull" value="4" required=""/><label for="star4" title="Cukup setuju"></label>
-<input type="radio" id="star3" name="usefull" value="3" required=""/><label for="star3" title="Setuju"></label>
-<input type="radio" id="star2" name="usefull" value="2" required=""/><label for="star2" title="Tidak setuju"></label>
-<input type="radio" id="star1" name="usefull" value="1" required=""/><label for="star1" title="Sangat tidak setuju"></label>
-    </fieldset>
-						</td>
-					</tr>
-                    <tr>
-                    	<td >Aplikasi mudah digunakan&nbsp;&nbsp;&nbsp;</td>
-                    	                    	</td>
-                  	<td >
-    <fieldset class="rating two">
-<input type="radio" id="star5-1" name="easyuse" value="5" required=""/><label for="star5-1" title="Sangat setuju"></label>
-<input type="radio" id="star4-1" name="easyuse" value="4" required=""/><label for="star4-1" title="Cukup setuju"></label>
-<input type="radio" id="star3-1" name="easyuse" value="3" required=""/><label for="star3-1" title="Setuju"></label>
-<input type="radio" id="star2-1" name="easyuse" value="2" required=""/><label for="star2-1" title="Tidak setuju"></label>
-<input type="radio" id="star1-1" name="easyuse" value="1" required="" /><label for="star1-1" title="Sangat tidak setuju"></label>
-    </fieldset>
-						</td>
-					</tr>
-                    <tr>
-                    	<td >Menarik jika aplikasi ini diterapkan di lingkungan organisasi&nbsp;&nbsp;&nbsp;</td>
-                    	                    	</td>
-                  	<td >
-    <fieldset class="rating three">
-<input type="radio" id="star5-3" name="atoward" value="5" required=""/><label for="star5-3" title="Sangat setuju"></label>
-<input type="radio" id="star4-3" name="atoward" value="4" required=""/><label for="star4-3" title="Cukup setuju"></label>
-<input type="radio" id="star3-3" name="atoward" value="3" required=""/><label for="star3-3" title="Setuju"></label>
-<input type="radio" id="star2-3" name="atoward" value="2" required=""/><label for="star2-3" title="Tidak setuju"></label>
-<input type="radio" id="star1-3" name="atoward" value="1" required=""/><label for="star1-3" title="Sangat tidak setuju"></label>
-    </fieldset>
-						</td>
-					</tr>		
-					<!--  <tr>
-                    	<td >Saran untuk mengembangkan aplikasi ini *opsional&nbsp;&nbsp;&nbsp;</td>
-                    	                    	</td>
-                  	<td >
-    <fieldset class="rating four">
-<input type="radio" id="star5-3" name="behavtous" value="5" required=""/><label for="star5-3" title="Sangat setuju"></label>
-<input type="radio" id="star4-3" name="behavtous" value="4" required=""/><label for="star4-3" title="Cukup setuju"></label>
-<input type="radio" id="star3-3" name="behavtous" value="3" required=""/><label for="star3-3" title="Setuju"></label>
-<input type="radio" id="star2-3" name="behavtous" value="2" required=""/><label for="star2-3" title="Tidak setuju"></label>
-<input type="radio" id="star1-3" name="behavtous" value="1" required=""/><label for="star1-3" title="Sangat tidak setuju"></label>
-    </fieldset>
-						</td>
-					</tr>	
-					<tr>
-                    	<td >Interaksi dengan sistem dilakukan dengan terburu-buru&nbsp;&nbsp;&nbsp;</td>
-                    	                    	</td>
-                  	<td >
-    <fieldset class="rating five">
-<input type="radio" id="star5-3" name="actuse" value="5" required=""/><label for="star5-3" title="Sangat setuju"></label>
-<input type="radio" id="star4-3" name="actuse" value="4" required=""/><label for="star4-3" title="Cukup setuju"></label>
-<input type="radio" id="star3-3" name="actuse" value="3" required=""/><label for="star3-3" title="Setuju"></label>
-<input type="radio" id="star2-3" name="actuse" value="2" required=""/><label for="star2-3" title="Tidak setuju"></label>
-<input type="radio" id="star1-3" name="actuse" value="1" required=""/><label for="star1-3" title="Sangat tidak setuju"></label>
-    </fieldset>
-						</td>
-					</tr>			
-					<tr>
-                    	<td >Desain antar muka telah baik (User Friendly)
-&nbsp;&nbsp;&nbsp;</td>
-                    	                    	</td>
-                  	<td >
-    <fieldset class="rating six">
-<input type="radio" id="star5-3" name="usfriendly" value="5" required=""/><label for="star5-3" title="Sangat setuju"></label>
-<input type="radio" id="star4-3" name="usfriendly" value="4" required=""/><label for="star4-3" title="Cukup setuju"></label>
-<input type="radio" id="star3-3" name="usfriendly" value="3" required=""/><label for="star3-3" title="Setuju"></label>
-<input type="radio" id="star2-3" name="usfriendly" value="2" required=""/><label for="star2-3" title="Tidak setuju"></label>
-<input type="radio" id="star1-3" name="usfriendly" value="1" required="" /><label for="star1-3" title="Sangat tidak setuju"></label>
-    </fieldset>
-						</td>
-					</tr>		
-					<tr>
-                    	<td >Pengguna telah memahami pernyataan dari setiap kuisoner yang ditanyakan
-&nbsp;&nbsp;&nbsp;</td>
-                    	                    	</td>
-                  	<td >
-    <fieldset class="rating seven">
-<input type="radio" id="star5-3" name="understand" value="5" required=""/><label for="star5-3" title="Sangat setuju"></label>
-<input type="radio" id="star4-3" name="understand" value="4" required=""/><label for="star4-3" title="Cukup setuju"></label>
-<input type="radio" id="star3-3" name="understand" value="3" required=""/><label for="star3-3" title="Setuju"></label>
-<input type="radio" id="star2-3" name="understand" value="2" required=""/><label for="star2-3" title="Tidak setuju"></label>
-<input type="radio" id="star1-3" name="understand" value="1" required=""/><label for="star1-3" title="Sangat tidak setuju"></label>
-    </fieldset>
-						</td>
-					</tr>					 -->			
-                    </tbody>
-              		</table>
+		          	
 			    </div>
 			    <div class="modal-footer">
 			        <input type="submit" value="Keluar" class="btn btn-primary">

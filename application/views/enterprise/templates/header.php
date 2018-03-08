@@ -88,6 +88,9 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
+                         <li>
+                            <a href="<?php echo site_url('index.php/enterprise/allindicator') ?>"><i class="fa fa-book fa-fw"></i>Laporan Hasil Keseluruhan</a>
+                        </li>
 
 <!--                        <li>
      <a href="#"><i class="fa fa-table fa-fw"></i> Tabel Responden<span class="fa arrow"></span></a>

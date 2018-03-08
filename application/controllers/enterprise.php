@@ -3,6 +3,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Enterprise extends CI_Controller {
 
+	public function __construct()
+	{
+		parent::__construct();
+		$this->data1 = array();
+		$this->data2 = array();
+		$this->data3 = array();
+		$this->data4 = array();
+		$this->data5 = array();
+		$this->data6 = array();
+
+		$this->dataAll = array();
+	}
+
 	public function index(){
 		$data['responden'] = $this->User->selectAllEnterprise($this->session->userdata('univ'))->num_rows();
 		$footer['graph1'] = $this->User->selectGroupByDateEnterprise($this->session->userdata('univ'))->result_array();
@@ -53,6 +66,96 @@ class Enterprise extends CI_Controller {
 		$this->load->view('enterprise/templates/header',$data);
 		$this->load->view('enterprise/dashboard',$data);
 		$this->load->view('enterprise/templates/footer',$footer);
+	}
+
+	public function allIndicator()
+	{
+		//Big one
+		$dbtemp = $this->Measurement->diagramAllEnterprise($this->session->userdata('univ'))->result_array();
+		// var_dump($dbtemp);
+		for($i = 1; $i <= 6; $i++){
+			$temp = 0;
+			$count = 0;
+			foreach($dbtemp as $row){
+				if($row['idf'] == $i){
+					$temp+=$row['value'];
+					$count++;
+				}
+			}
+			// echo $temp."/".$count;
+			// echo "<br/>";
+			$footer['d1'][] = $temp/$count;
+		}
+		//---- Avg spiderweb Big
+		$avg = array_sum($footer['d1'])/6;
+		for($i=0;$i<6;$i++){
+			$footer['avg'][] = $avg;
+		}
+
+		//------------------------------------------------ 
+		// 6 Diagram Faktor
+		$abjad = ['A','B','C','D','E','F','G'];
+		$indikator = $this->Indikator_luftman->select_all()->result_array();
+		for ($i=1; $i <= 6 ; $i++) { 
+		$abjc = 0;
+			foreach($indikator as $row){
+				if($row['idf'] == $i){
+					// var_dump($row);
+					// echo "<pre>".var_dump($row)."</pre>";
+					$footer['d2'][$i]['cat'][] = $abjad[$abjc];
+					$footer['d2'][$i]['id'][] = $row['id'];
+					$abjc++;
+					//var_dump($indikator);
+				}
+			}
+			$ind = $this->Indikator_luftman->select_by_idf($i)->result_array();
+			$vFaktor = $this->Measurement->diagramFaktorEnterprise($this->session->userdata('univ'),$i)->result_array(); // 1 means PTN
+			foreach($ind as $row){
+				$count = 0;
+				$temp = 0;
+				foreach($vFaktor as $row2){
+					if($row['id'] == $row2['idin']){
+						$temp+=$row2['value'];
+						$count++;
+						//$abjc++;
+					}
+				}
+				$footer['d2'][$i]['data'][] = $temp/$count;
+				$footer['d2'][$i]['avg'][] = $avg;
+			}
+		}
+		
+		//---- Faktor Pendukung dan Penghambat
+		$data = array();
+	  $data['indikator'] = $indikator;
+		for($i=1;$i<=6;$i++){
+			$count = 0;
+			foreach($footer['d2'][$i]['data'] as $key=>$row){
+				if($row<$avg){
+					//var_dump($data['indikator']);
+					$data['penghambat'][$i][$count]['nama'] = $footer['d2'][$i]['cat'][$key]; 
+					$data['penghambat'][$i][$count]['level'] = $this->Measurement->getLevel($footer['d1'],$footer['d2'][$i]['data'][$key]); 
+					$qStrategi = $this->Strategi->selectStrategi($footer['d2'][$i]['id'][$key],$data['penghambat'][$i][$count]['level'])->row_array();
+					$data['penghambat'][$i][$count]['kondisi'] = $qStrategi['kondisi'];
+					$data['penghambat'][$i][$count]['goal'] = $data['penghambat'][$i][$count]['level']+1;
+					$data['penghambat'][$i][$count]['strategi'] = $qStrategi['strategi'];
+					// $data['penghambat'][$i][$count]['Goal'] = $data['penghambat'][$i][$count]['level']+1;
+					$count++;
+				}
+			}
+		}
+
+
+		// echo "<pre>";
+		// print_r($data['indikator']);
+		// echo "</pre>";
+
+		// var_dump()$this->dataAll;
+
+		$this->load->view('enterprise/templates/header');
+		$this->load->view('enterprise/allindicator', $data);
+		$this->load->view('enterprise/templates/footer-all', $footer);
+		// $this->load->view('enterprise/templates/footer');
 	}
 
 	public function komunikasi(){
@@ -121,6 +224,9 @@ class Enterprise extends CI_Controller {
 				$count++;
 			}
 		}
+
+		// $this->data1 = array();
+		$this->dataAll = $data;
 
 		$this->load->view('enterprise/templates/header');
 		$this->load->view('enterprise/komunikasi',$data);
@@ -198,8 +304,12 @@ class Enterprise extends CI_Controller {
 			}
 		}
 
+		// $data2 = array();
+		$data2 = $data;
+		$this->dataAll = $data;
+
 		$this->load->view('enterprise/templates/header');
-		$this->load->view('enterprise/nilai',$data);
+		$this->load->view('enterprise/nilai',$data2);
 		$this->load->view('enterprise/templates/footer',$footer);
 	}
 
@@ -272,8 +382,12 @@ class Enterprise extends CI_Controller {
 			}
 		}
 
+		// $data3 = array();
+		$data3 = $data;
+		$this->dataAll = $data;
+
 		$this->load->view('enterprise/templates/header');
-		$this->load->view('enterprise/tkelola',$data);
+		$this->load->view('enterprise/tkelola',$data3);
 		$this->load->view('enterprise/templates/footer',$footer);
 	}
 
@@ -346,8 +460,12 @@ class Enterprise extends CI_Controller {
 			}
 		}
 
+		// $data4 = array();
+		$data4 = $data;
+		$this->dataAll = $data;
+
 		$this->load->view('enterprise/templates/header');
-		$this->load->view('enterprise/mitra',$data);
+		$this->load->view('enterprise/mitra',$data4);
 		$this->load->view('enterprise/templates/footer',$footer);
 	}
 
@@ -419,8 +537,12 @@ class Enterprise extends CI_Controller {
 			}
 		}
 
+		// $data5 = array();
+		$data5 = $data;
+		$this->dataAll = $data;
+
 		$this->load->view('enterprise/templates/header');
-		$this->load->view('enterprise/arsitektur',$data);
+		$this->load->view('enterprise/arsitektur',$data5);
 		$this->load->view('enterprise/templates/footer',$footer);
 	}
 
@@ -493,10 +615,16 @@ class Enterprise extends CI_Controller {
 			}
 		}
 
+		// $data6 = array();
+		$data6 = $data;
+		$this->dataAll = $data;
+
 		$this->load->view('enterprise/templates/header');
-		$this->load->view('enterprise/kemampuan',$data);
+		$this->load->view('enterprise/kemampuan',$data6);
 		$this->load->view('enterprise/templates/footer',$footer);
 	}
+
+
 }
 
 /* End of file  adminAdh.php */

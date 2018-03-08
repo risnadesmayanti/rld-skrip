@@ -29,9 +29,9 @@
                                <div class="col-md-4"><div id="pt<?php echo $no; ?>" style="margin: 0;"></div>
                                Keterangan :<br>
                             <p style="font-size: 11px">
-                            <?php     $key=0;foreach($indikator as $key=>$x){ ?>
+                            <?php $abjkey=0;foreach($indikator as $key=>$x){ ?>
                             <?php if($x['idf'] == $no){?>
-                            <?php  echo $abjad[$key].":  ".$x['indicator']; echo " ".$x['idf']; echo " ".$key; ?><br>
+                            <?php  echo $abjad[$abjkey++].":  ".$x['indicator']; ?><br>
                             <?php } ?>
                             <?php } //echo $key;?>
                             </p>

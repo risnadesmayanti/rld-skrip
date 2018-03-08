@@ -19,9 +19,10 @@
                        </div>
                        <div class="panel-body">
                             <div class="col-lg-12">
-                                <div id="container2" style="margin: 0;"></div>
+                                <div id="container2" style="margin: 0; margin-bottom: 17px"></div>
                             </div>
-                            <h3>Indikator Penghambat</h3>
+                            <h3 align="center">Daftar Faktor Penghambat</h3>
+                            <hr>
                              <div class="row">
                                <div class="col-md-4"><div id="pt" style="margin: 0;"></div>
                                  Keterangan :<br>
@@ -36,7 +37,7 @@
                                    <thead>
                                      <tr class="success">
                                        <th rowspan="2">No.</th>
-                                       <th rowspan="2">Indikator</th>
+                                       <th rowspan="2">Faktor</th>
                                        <th colspan="2">Tingkat Saat ini</th>
                                        <th rowspan="2">Sasaran</th>
                                        <th rowspan="2">Strategi</th>

@@ -6,15 +6,15 @@
         <h5 class="modal-title"><span class="fa fa-info-circle aria-hidden="true"></span>&nbsp;&nbsp;Aplikasi Tingkat Kematangan Penyelarasan Strategi SI dan Organisasi</h5>
       </div>
             <div class="modal-body">
-                <h3><center>ICT Readiness Level Definition Application</center></h3> 
+                <h3><center>Tingkat Kematangan Penyelarasan Strategi <br>SI/TI dengan Organisasi</center></h3> 
                 <hr>
                 <p align="justify">
-                    Aplikasi ini dibuat untuk kepentingan penelitian. Tujuan pembuatan aplikasi ini untuk mengetahui ukuran kematangan organisasi mengenai keselarasan strategi organisasi yang telah dibuat dengan strategi sistem informasi. Penilaian dilakukan dengan mengembangkan model kerangka kerja SAMM yang menilai 6 indikator / dimensi. Hasil pengukuran akan diperoleh setelah responden mengisi kuisioner ini. <b>Link URL yang tertera dalam isi halaman ini digunakan untuk mengakses hasil pengukuran tingkat kematangan organisasi.</b>
+                    Aplikasi ini dibuat untuk kepentingan penelitian. Tujuan pembuatan aplikasi ini untuk mengetahui ukuran kematangan organisasi mengenai keselarasan strategi organisasi yang telah dibuat dengan strategi sistem informasi. Penilaian dilakukan dengan mengembangkan model kerangka kerja Strategy Alignment Maturity Model (SAMM) yang menilai 6 indikator / dimensi. Hasil pengukuran akan diperoleh setelah responden mengisi kuisioner ini. <b>Link URL yang tertera dalam isi halaman ini digunakan untuk mengakses hasil pengukuran tingkat kematangan organisasi.</b>
                 </p>
             </div>  
           <!-- end of bagian validasi -->
           <div class="modal-footer">
-            <h6 align="center">&copy;&nbsp;Copyright Risna Desmayanti <br> Ilmu Komputer - Universitas Pendidikan Indonesia</h6>
+            <h6 align="center">&copy;&nbsp;Copyright Asep Wahyudin, M.T. dan Risna Desmayanti <br> Ilmu Komputer - Universitas Pendidikan Indonesia</h6>
             
             <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
           </div>

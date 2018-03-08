@@ -25,14 +25,6 @@
 
 		<!-- Custom styles for this template -->
 		<link href="<?php echo base_url(); ?>assets/css/agency.min.css" rel="stylesheet">
-		<style type="text/css" media="screen">
-		#mainNav {
-			background-color: #998675;
-		}
-		.form-group {
-    margin-bottom: 0px;
-		}
-		</style>
 </head>
 <body id="page-top">
 	
@@ -62,58 +54,58 @@
 							<!-- <form action="<?php //echo base_url(). 'index.php/login/proses_tambah_user'; ?>" role="form" method="post"> -->
 								<div class="form-group">
 							 <label for="masukkanNama">Nama Pengguna : </label> 
-							 <input type="text" name="username" class="form-control" placeholder="Masukkan nama anda" required=""><br>
+							 <input type="text" name="username" class="form-control" placeholder="Masukkan nama anda" required="">
 								</div>
 								<div class="form-group">
 							 <label for="">Email : </label> 
-							 <input type="email" name="email" class="form-control" placeholder="Masukkan email" required=""><br>
+							 <input type="email" name="email" class="form-control" placeholder="Masukkan email" required="">
 								</div>								
 								<div class="form-group">
 								<label for="masukkanJabatan">Jabatan Pekerjaan :</label>
 								<!-- <input type="text" name="jabatan" class="form-control" placeholder="Masukkan jabatan anda saat ini"><br> -->
 								<select class="form-control" name="jabatan" required="">
 										<!-- fungsional -->
-										<option value="" disabled selected hidden>Pilih jabatan posisi anda saat ini </option>
-										<optgroup label="Bidang Teknologi Informasi">
+										<option value="" disabled selected hidden>Pilih di bagian/unit kerja anda saat ini </option>
+										<optgroup label="Kelompok Jabatan Teknologi Informasi">
 											<option value="Bagian Sistem Informasi">Bagian Sistem Informasi</option>
-											<option value="Bagian Jaringan Komputer">Bagian Jaringan Komputer</option>
+											<option value="Bagian Jaringan Komputer">Bagian IT Support </option>
 											<option value="Bagian Research and Development TI">Bagian Research and Development TI</option>                      
 										</optgroup>
-										<optgroup label="Bidang Non Teknologi Informasi">
-											<option value="Bagian Akademik dan Statistik">Bagian Akademik dan Statistik</option>
-											<option value="Bagian Kemahasiswaan dan Humas">Bagian Kemahasiswaan dan Humas</option>
-											<option value="Bagian Perencanaan dan Kerjasama">Bagian Perencanaan dan Kerjasama</option>
-											<option value="Bagian Umum dan Keuangan">Bagian Umum dan Keuangan</option>
-											<option value="Bagian Kepegawaian">Bagian Kepegawaian</option>
-											<option value="Bagian Keuangan">Bagian Keuangan</option>
-											<option value="Bagian Tata Usaha">Bagian Tata Usaha</option>
+										<optgroup label="Kelompok Jabatan Non Teknologi Informasi">
+											<option value="Direktorat Akademik">Direktorat Akademik</option>
+											<option value="Direktorat Kemahasiswaan">Direktorat Kemahasiswaan</option>
+											<option value="Direktorat Perencanaan dan Pengembangan">Direktorat Perencanaan dan Pengembangan</option>
+											<option value="Direktorat Keuangan">Direktorat Keuangan</option>
+											<option value="Biro Kepegawaian">Biro Kepegawaian</option>
+											<option value="Biro Sarana dan Prasarana">Biro Sarana dan Prasarana</option>
+											<option value="Bidang Riset, Kemitraan dan Usaha">Bidang Riset, Kemitraan dan Usaha</option>
 									</optgroup>
 										<!-- end of fungsional -->
 								</select>
 					
-									<br>
 								</div>
 		
 								<div class="form-group">
 								<label for="masukkanJabatan">Enterprise / Organisasi / Perguruan Tinggi :</label>
 								<!-- <input type="text" name="jabatan" class="form-control" placeholder="Masukkan jabatan anda saat ini"><br> -->
-								<select class="form-control" name="kategori" required="">
+								<!-- <select class="form-control" name="kategori" required="" readonly="readonly">
+											<option value="Universitas Pendidikan Indonesia" selected>Universitas Pendidikan Indonesia</option>
+									 -->
 										<!-- fungsional -->
-										<option value="" disabled selected hidden>Pilih asal perguruan tinggi </option>
-										<optgroup label="Perguruan Tinggi Negeri">
+										<!-- <option value="" disabled selected hidden>Pilih asal perguruan tinggi </option> -->
+										<!-- <optgroup label="Perguruan Tinggi Negeri">
 											<option value="Institut Teknologi Sepuluh November">Institut Teknologi Sepuluh November</option>
 											<option value="Universitas Hasanudin">Universitas Hasanudin</option>
 											<option value="Universitas Diponegoro">Universitas Diponegoro</option>
 											<option value="Universitas Padjadjaran">Universitas Padjadjaran</option>       
 											<option value="Universitas Airlangga">Universitas Airlangga</option>             
 											<option value="Universitas Sumatera Utara">Universitas Sumatera Utara</option>
-											<option value="Universitas Pendidikan Indonesia">Universitas Pendidikan Indonesia</option>
 											<option value="Universitas Indonesia">Universitas Indonesia</option>
 											<option value="Universitas Gadjah Mada">Universitas Gadjah Mada</option>
 											<option value="Institut Pertanian Bogor">Institut Pertanian Bogor</option>
 											<option value="Institut Teknologi Bandung">Institut Teknologi Bandung</option>                      
-										</optgroup>
-										<optgroup label="Perguruan Tinggi Swasta">
+										</optgroup> -->
+										<!-- <optgroup label="Perguruan Tinggi Swasta">
 											<option value="Politeknik TEDC">Politeknik TEDC</option>
 											<option value="Sekolah Tinggi Bahasa Asing Yapari">Sekolah Tinggi Bahasa Asing Yapari</option>
 											<option value="Universitas Islam Bandung">Universitas Islam Bandung</option>
@@ -123,17 +115,17 @@
 											<option value="Universitas Pasundan">Universitas Pasundan</option>
 											<option value="Akademi Keuangan dan Bisnis Indonesia Internasional">Akademi Keuangan dan Bisnis Indonesia Internasional</option>
 											<option value="Universitas Telkom">Universitas Telkom</option>
-									</optgroup>
+									</optgroup> -->
 										<!-- end of fungsional -->
-								</select>
-					
+								<!-- </select> -->
+								<br><input type="hidden" name="kategori" value="Universitas Pendidikan Indonesia" />Universitas Pendidikan Indonesia
 									
 								</div>
+								<hr>	
 								<!-- Bagian Validasi -->
 									
 								<div class="form-group">
 									<table>
-										<br>
 									 <!--  <th class="warning">Pilih Jawaban untuk Pertanyaan di bawah ini :</th> -->
 										<tr class=" ">
 											<td>

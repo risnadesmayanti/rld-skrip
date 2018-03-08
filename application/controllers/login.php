@@ -19,7 +19,7 @@ class Login extends CI_Controller {
 	}
 	public function proses_tambah_user(){
 		$post = $this->input->post();
-		var_dump($post);
+		// var_dump($post);
 		if($post['a1'] != "1"){
 			$this->session->set_flashdata('error','Anda harus memilih Ya pada formulir');
 			$this->session->keep_flashdata('error');
